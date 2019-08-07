@@ -33,8 +33,23 @@ matra = {
     'ो': 'o', 'ौ': 'O', 'ॉ': 'O'
 }
 nuqta = {
-    'k': 'q', 'kh': 'x', 'g': 'Gh', 'ph': 'f', 'j': 'z',
+    'k': 'q', 'kh': 'x', 'g': 'Gh', 'ph': 'f', 'j': 'z', 'jh': 'Zh',
     'dd': 'rr', 'ddh': 'rrh'
+}
+
+# how the anusvara is assimilated to the next consonant
+nasal_assim = {
+    'k': '~', 'kh': '~', 'g': 'ng', 'gh': 'ng',
+    'c': 'n', 'ch': 'n', 'j': 'n', 'jh': 'n',
+    'tt': 'n', 'tth': 'n', 'dd': 'n', 'ddh': 'n', 
+    't': 'n', 'th': 'n', 'd': 'n', 'dh': 'n', 
+    'p': 'm', 'ph': 'm', 'b': 'm', 'bh': 'm',
+    'y': '~', 'r': '~', 'l': '~', 'v': '~',
+    'sh': 'n', 's': 'n',
+    'h': '~',
+
+    'q': '~', 'x': '~', 'Gh': 'ng', 'f': '~', 'z': '~', 'jh': '~',
+    'rr': '~', 'rrh': '~'
 }
 
 def transliterate(word):
@@ -69,5 +84,45 @@ def transliterate(word):
             # vowel matra (replaces the schwa after a consonant)
             res.pop()
             res.append(matra[char])
+    
+    # handle assimilation of the anusvara to the next consonant
+    # word-finally it is the same as a chandrabindu
+    for i in range(len(res)):
+        if res[i] == 'ng':
+            if i + 1 == len(res): res[i] = '~'
+            else: res[i] = nasal_assim[res[i + 1]]
 
-    return ' '.join(res)
+    return res
+
+# returns an array of boolean-int pairs, one for each schwa in the orthographic transliteration
+# with True meaning the schwa is kept, False meaning it is dropped
+# and the second element being the position where it is dropped
+def force_align(word, phon):
+    ortho = transliterate(word)
+
+    # clean up phonetic
+    phon = phon.replace('. ', '')
+    phon = phon.split()
+
+    # two pointer technique, compares in linear time
+    i, j = 0, 0
+    n, m = len(ortho), len(phon)
+    res = []
+    while i < n:
+        if j >= m:
+            res.append([False, i])
+            i += 1
+        elif ortho[i] == phon[j]:
+            if ortho[i] == 'a': res.append([True, i])
+            i += 1
+            j += 1
+        elif ortho[i] == 'a':
+            res.append([False, i])
+            i += 1
+        else:
+            print('Unable to force-align', word)
+            print('Orthographic:', ortho)
+            print('Phonetic:', phon)
+            break
+    
+    return res
