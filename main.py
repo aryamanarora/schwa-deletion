@@ -21,9 +21,11 @@ def main(input_filename, left=4, right=4, sep=None):
 
     instances = []
     for _, row in data.iterrows():
+        if _ % 1000 == 0:
+            print('Processing row', _)
         try:
             instances += [[tr.narrow_categorize(row.hindi), schwa_instance[1], schwa_instance[0]]
-                    for schwa_instance in tr.force_align(str(tr.transliterate(row.hindi)), str(row.phon))]
+                    for schwa_instance in tr.force_align(tr.transliterate(row.hindi), str(row.phon))]
         except Exception as e:
             # print(e)
             continue
@@ -74,5 +76,5 @@ def compare_wiktionary():
             print(w, x)
 
 if __name__ == "__main__":
-    # print(main('hi_ur_pron.tsv', 4, 4, '\t'))
-    compare_wiktionary()
+    print(main('hi_pron.csv', 4, 4))
+    # compare_wiktionary()

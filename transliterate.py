@@ -162,6 +162,6 @@ def force_align(ortho, phon):
             res.append([False, i])
             i += 1
         else:
-            raise Exception('Unable to force-align {}, orthographic {}'.format(ortho, phon))
+            raise Exception('Unable to force-align {}, phon {}'.format(ortho, phon))
     
     return res

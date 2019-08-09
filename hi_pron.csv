@@ -255,7 +255,7 @@ hindi,phon
 अनेकता,a n e k t aa
 अनेकानेक,a n e k aa n e k
 अनोखा,a n o kh aa
-अनौपचारिक,a n a u p c aa r i k
+अनौपचारिक,a n O p c aa r i k
 अन्न,a n n a
 अन्न-जल,a n n a j a l
 अन्य,a n y a
@@ -439,8 +439,8 @@ hindi,phon
 अविश्वासनीय,a v i sh v a s n ii y
 अविश्वास,a v i sh v aa s
 अविस्मरणीय,a v i s m a r n ii y
-अवैतनिक,a v a i t n i k
-अवैध,a v a i dh
+अवैतनिक,a v E t n i k
+अवैध,a v E dh
 अव्यवस्था,a v y a v a s th aa
 अव्यवस्थित,a v y a v a s th i t
 अव्यावहारिक,a v y aa v a h aa r i k
@@ -501,7 +501,7 @@ hindi,phon
 असुविधा,a s u v i dh aa
 असुविधाजनक,a s u v i dh aa j a n a k
 असेंबली,a s e m b l ii
-असैनिक,a s a i n i k
+असैनिक,a s E n i k
 अस्त,a s t
 अस्ताबल,a s t a b a l
 अस्तर,a s t a r
@@ -1025,7 +1025,7 @@ hindi,phon
 अँगूठा,a ~ g uu tth aa
 अँगूठी,a ~ g uu tth ii
 अंगूर,a ng g uu r
-अँगोछा,a ~ g o c h aa
+अँगोछा,a ~ g o ch aa
 अंग्रेज,a ~ g r e z
 अँग्रेजी,a ~ g r e z ii
 अंचल,a n c a l
@@ -1093,7 +1093,7 @@ hindi,phon
 अगर-बत्ती,a g a r b a t t ii
 अगल-बगल,a g a l b a g a l
 अगला,a g l aa
-अगला-पिछला,a g l aa p i c h l aa
+अगला-पिछला,a g l aa p i ch l aa
 अगवानी,a g v aa n ii
 अगस्त,a g a s t
 अगाऊ,a g O
@@ -1110,10 +1110,10 @@ hindi,phon
 अचार,a c aa r
 अचूक,a c uu k
 अचेत,a c e t
-अच्छा,a c c h aa
-अच्छाई,a c c h E
-अछूत,a c h uu t
-अछूता,a c h uu t aa
+अच्छा,a c ch aa
+अच्छाई,a c ch E
+अछूत,a ch uu t
+अछूता,a ch uu t aa
 अजंडा,a j a n dd aa
 अजगर,a j g a r
 अजनबी,a j n a b ii
@@ -1223,7 +1223,7 @@ hindi,phon
 अनाम,a n aa m
 अनार,a n aa r
 अनावश्यक,a n aa v a sh y a k
-अनिच्छा,a n i c c h aa
+अनिच्छा,a n i c ch aa
 अनिद्रा,a n i d r aa
 अनियंत्रित,a n i y a n t r i t
 अनियमित,a n i y a m i t
@@ -1260,7 +1260,7 @@ hindi,phon
 अनेकता,a n e k t aa
 अनेकानेक,a n e k aa n e k
 अनोखा,a n o kh aa
-अनौपचारिक,a n a u p c aa r i k
+अनौपचारिक,a n O p c aa r i k
 अन्न,a n n a
 अन्न-जल,a n n a j a l
 अन्य,a n y a
@@ -1433,19 +1433,19 @@ hindi,phon
 अवश्य,a v a sh y a
 अवसर,a v s a r
 अवस्था,a v a s th aa
-अवांछित,a v aa n c h i t
+अवांछित,a v aa n ch i t
 अवाक्,a v aa k
 अविकसित,a v i k s i t
 अविचल,a v i c a l
-अविच्छिन्न,a v i c c h i n n a
+अविच्छिन्न,a v i c ch i n n a
 अविनीत,a v i n ii t
 अविलंब,a v i l a m b a
 अविवाहित,a v i v aa h i t
 अविश्वासनीय,a v i sh v a s n ii y
 अविश्वास,a v i sh v aa s
 अविस्मरणीय,a v i s m a r n ii y
-अवैतनिक,a v a i t n i k
-अवैध,a v a i dh
+अवैतनिक,a v E t n i k
+अवैध,a v E dh
 अव्यवस्था,a v y a v a s th aa
 अव्यवस्थित,a v y a v a s th i t
 अव्यावहारिक,a v y aa v a h aa r i k
@@ -1506,7 +1506,7 @@ hindi,phon
 असुविधा,a s u v i dh aa
 असुविधाजनक,a s u v i dh aa j a n a k
 असेंबली,a s e m b l ii
-असैनिक,a s a i n i k
+असैनिक,a s E n i k
 अस्त,a s t
 अस्ताबल,a s t a b a l
 अस्तर,a s t a r
@@ -1572,7 +1572,7 @@ hindi,phon
 आगामी,aa g aa m ii
 आगाह,aa g aa h
 आगे,aa g e
-आगे-पीछे,aa g e p ii c h e
+आगे-पीछे,aa g e p ii ch e
 आग्रह,aa g r a h
 आग्रहपूर्वक,aa g r a h p uu r v a k
 आचरण,aa c a r a n
@@ -1839,12 +1839,12 @@ hindi,phon
 इक्यावन,i k y aa v a n
 इक्यासी,i k y aa s ii
 इख्तियार,i x t i y aa r
-इच्छा,i c c h aa
-इच्छानुसार,i c c h aa n u s aa r
-इच्छा-पत्र,i c c h aa p a t r a
-इच्छाशक्ति,i c c h aa sh a k t i
-इच्छित,i c c h i t
-इच्छुक,i c c h u k
+इच्छा,i c ch aa
+इच्छानुसार,i c ch aa n u s aa r
+इच्छा-पत्र,i c ch aa p a t r a
+इच्छाशक्ति,i c ch aa sh a k t i
+इच्छित,i c ch i t
+इच्छुक,i c ch u k
 इजाजत,i j aa z a t
 इजारबंद,i z aa r b a n d
 इज्जत,i z z a t
@@ -1923,7 +1923,7 @@ hindi,phon
 उखड़वाना,u kh a rr v aa n aa
 उखड़ा-पुखड़ा,u kh rr aa p u kh r aa
 उखाड़ना,u kh aa rr n aa
-उखाड़-पछाड़,u kh aa rr p a c h aa rr
+उखाड़-पछाड़,u kh aa rr p a ch aa rr
 उगना,u g n aa
 उगलना,u g a l n aa
 उगाना,u g aa n aa
@@ -1941,10 +1941,10 @@ hindi,phon
 उच्चतर,u c c a t a r
 उच्चता,u c c a t aa
 उच्चारण,u c c aa r a n
-उछल-कूद,u c h a l k uu d
-उछलना,u c h a l n aa
-उछाल,u c h aa l
-उछालना,u c h aa l n aa
+उछल-कूद,u ch a l k uu d
+उछलना,u ch a l n aa
+उछाल,u ch aa l
+उछालना,u ch aa l n aa
 उजड़ना,u j a rr n aa
 उजड़ा,u j rr aa
 उजड्ड,u j a dd dd
@@ -2226,13 +2226,13 @@ hindi,phon
 एहसानमंद,e h s aa n m a n d
 एहसास,e h s aa s
 ऐं,E
-ऐंचाताना,a i c aa t aa n aa
-ऐंचातानी,a i c aa t aa n ii
-ऐंठ,a i tth
-ऐंठन,a i tth a n
-ऐंठना,a i tth n aa
+ऐंचाताना,E c aa t aa n aa
+ऐंचातानी,E c aa t aa n ii
+ऐंठ,E tth
+ऐंठन,E tth a n
+ऐंठना,E tth n aa
 ऐक्टर,E k tt a r
-ऐच्छिक,E c c h i k
+ऐच्छिक,E c ch i k
 ऐटम,E tt a m
 ऐटलस,E t l a s
 ऐडवोकेट,E dd v o k e tt
@@ -2248,15 +2248,15 @@ hindi,phon
 ऐसा-वैसा,E s aa v E s aa
 ऐसे,E s e
 ओखली,o kh l ii
-ओछा,o c h aa
-ओछापन,o c h aa p a n
+ओछा,o ch aa
+ओछापन,o ch aa p a n
 ओझल,o jh a l
 ओट,o tt
 ओटना,o tt n aa
 ओढ़ना,o rrh n aa
 ओढ़नी,o rrh n ii
 ओर,o r
-ओर-छोर,o r c h o r
+ओर-छोर,o r ch o r
 ओला,o l aa
 ओवरकोट,o v a r k o tt
 ओवरहाल,o v a r h aa l
@@ -2268,14 +2268,14 @@ hindi,phon
 औकात,O q aa t
 औजार,O z aa r
 औटाना,O tt aa n aa
-औद्योगिक,a u d y o g i k
+औद्योगिक,O d y o g i k
 औना-पौना,O n aa p O n aa
-औपचारिक,a u p c aa r i k
+औपचारिक,O p c aa r i k
 और,O r
 औरत,O r a t
-औषध,a u sh a dh
+औषध,O sh a dh
 औषधालय,O sh a dh aa l a y
-औषधि,a u sh a dh i
+औषधि,O sh a dh i
 औसत,O s a t
 औसतन,O s t a n
 कंकड़,k a ~ k a rr
@@ -2293,14 +2293,14 @@ hindi,phon
 कँपकँपी,k a ~ p k a ~ p ii
 कंपनी,k a m p a n ii
 कंपाउंडर,k a m p aa u n dd a r
-कई,k a ii
+कई,k Ei
 कंबल,k a m b a l
 ककड़ी,k a k rr ii
 कक्षा,k a k sh aa
 कचहरी,k a c a h r ii
 कचौड़ी,k a c O rr ii
 कच्चा,k a c c aa
-कछुआ,k a c h u aa
+कछुआ,k a ch u aa
 कटना,k a tt n aa
 कटवाना,k a tt v aa n aa
 कटहल,k a tt h a l
@@ -2440,10 +2440,10 @@ hindi,phon
 कल,k a l
 कल,k a l
 कल,k a l
-क़लई,q a l a ii
+क़लई,q a l Ei
 कल-कल,k a l k a l
 कलक्टर,k a l a k tt a r
-कलछी,k a l c h ii
+कलछी,k a l ch ii
 कल-पुर्जे,k a l p u r z e
 कल़फ,k a l a f
 क़लम,q a l a m
@@ -2652,7 +2652,7 @@ hindi,phon
 कुँवारा,k u ~ v aa r aa
 कु-,
 कुचलना,k u c a l n aa
-कुछ,k u c h
+कुछ,k u ch
 कुटिया,k u tt i y aa
 कुटीर,k u tt ii r
 कुटुंब,k u tt u m b
@@ -2790,14 +2790,14 @@ hindi,phon
 कोहनी,k o h n ii
 कोहरा,k o h r aa
 कौंसिल,k O n s i l
-कौआ,k a u aa
+कौआ,k O aa
 कौड़ी,k O rr ii
 कौन,k O n
 क़ौम,q O m
 क़ौमी,q O m i
 कौर,k O r
 क़ौल,q O l
-कौशल,k a u sh a l
+कौशल,k O sh a l
 क्या,k y aa
 क्यारी,k y aa r ii
 क्यू,k y uu
@@ -3079,8 +3079,8 @@ hindi,phon
 गँवाना,g a ~ v aa n aa
 गँवार,g a ~ v aa r
 गँवारु,g a ~ v aa r uu
-गई,g a ii
-गऊ,g a uu
+गई,g Ei
+गऊ,g Ou
 गगन,g a g a n
 गगरा,g a g r aa
 गज़,g a z
@@ -3136,7 +3136,7 @@ hindi,phon
 गपशप,g a p sh a p
 गपोड़ा,g a p o rr aa
 गप्पी,g a p p ii
-गमछा,g a m c h aa
+गमछा,g a m ch aa
 गमनागमन,g a m a n aa g a m a n
 गमला,g a m l aa
 गया,g a y aa
@@ -3169,7 +3169,7 @@ hindi,phon
 गवाना,g a v aa n aa
 गवाह,g a v aa h
 गवाही,g a v aa h ii
-गवैया,g a v a i y aa
+गवैया,g a v E y aa
 गश्त,g a sh t
 गश्ती,g a sh t ii
 गहना,g a h n aa
@@ -3234,14 +3234,14 @@ hindi,phon
 गीध,g ii dh
 गीलापन,g ii l aa p a n
 गुंजाइश,g u n j aa i sh
-गुंडई,g u n dd a ii
+गुंडई,g u n dd Ei
 गुंडा,g u n dd aa
 गुंडागर्दी,g u n dd aa g a r d ii
 गुंथना,g u ~ th n aa
 गुँधना,g u ~ dh n aa
 गुंबज,g u m b a j
-गुच्छा,g u c c h aa
-गुच्छेदार,g u c c h e d aa r
+गुच्छा,g u c ch aa
+गुच्छेदार,g u c ch e d aa r
 गुज़र,g u z a r
 गुज़रना,g u z a r n aa
 गुज़र-बसर,g u z a r b a s a r
@@ -3293,7 +3293,7 @@ hindi,phon
 गुर्राना,g u r r aa n aa
 गुल,g u l
 गुलकारी,g u l k aa r ii
-गुलछरें,g u l c h a r r e
+गुलछरें,g u l ch a r r e
 गुलदस्ता,g u l d a s t aa
 गुलदान,g u l d aa n
 गुलाब,g u l aa b
@@ -3366,14 +3366,14 @@ hindi,phon
 गोश्त,g o sh t
 गोष्ठी,g o sh tth ii
 गोहत्य़ा,g o h a t y aa
-गौ,g a uu
-गौण,g a u n
+गौ,g Ou
+गौण,g O n
 गौना,g O n aa
-गौर,g a u r
-गौरव,g a u r a v
-गौरवशाली,g a u r a v sh aa l ii
-गौरैया,g O r a i y aa
-गौशाला,g a u sh aa l aa
+गौर,g O r
+गौरव,g O r a v
+गौरवशाली,g O r a v sh aa l ii
+गौरैया,g O r E y aa
+गौशाला,g O sh aa l aa
 ग्यारह,g y aa r a h
 ग्रंथ,g r a n th
 ग्रंथकार,g r a n th k aa r
@@ -3499,7 +3499,7 @@ hindi,phon
 घुड़,gh u rr
 घुड़कना,gh u r a k n aa
 घुड़की,gh u r k ii
-घुड़दौड़,gh u rr d a u rr
+घुड़दौड़,gh u rr d O rr
 घुड़सवार,gh u rr s a v aa r
 घुड़सवारी,gh u rr s a v aa r ii
 घुड़साल,gh u rr s aa l
@@ -3559,7 +3559,7 @@ hindi,phon
 चंपा,c a m p aa
 चँवर,c a ~ v a r
 चक,c a k
-चकई,c a k a ii
+चकई,c a k Ei
 चकती,c a k t ii
 चकत्ता,c a k a t t aa
 चकत्तेदार,c a k a t t e d aa r
@@ -3958,142 +3958,142 @@ hindi,phon
 चौहत्तर,c O h a t t a r
 चौहद्दी,c O h a d d ii
 चौहरा,c O h r aa
-छँटना,c h a ~ tt n aa
-छँटनी,c h a ~ tt n ii
-छँटाई,c h a ~ tt E
-छंद,c h a n d
-छकड़ा,c h a k rr aa
-छकना,c h a k n aa
-छकाना,c h a k aa n aa
-छक्का,c h a k k aa
-छक्का-पंजा,c h a k k aa p a n j aa
-छक्की,c h a k k ii
-छज्जा,c h a j j aa
+छँटना,ch a ~ tt n aa
+छँटनी,ch a ~ tt n ii
+छँटाई,ch a ~ tt E
+छंद,ch a n d
+छकड़ा,ch a k rr aa
+छकना,ch a k n aa
+छकाना,ch a k aa n aa
+छक्का,ch a k k aa
+छक्का-पंजा,ch a k k aa p a n j aa
+छक्की,ch a k k ii
+छज्जा,ch a j j aa
 छटपटाना,c a tt p a tt aa n a
-छटपटाहट,c h a tt p a tt aa h a tt
-छटा,c h a tt aa
-छटा,c h a tt aa
-छटी,c h a tt ii
-छड़,c h a rr
-छड़ी,c h a rr ii
-छत,c h a t
-छतरी,c h a t r ii
-छता,c h a t t aa
-छत्तीस,c h a t t ii s
-छत्र,c h a t r a
-छत्र-छाया,c h a t r a c h aa y aa
-छद्म,c h a d m a
-छनकना,c h a n a k n aa
-छनना,c h a n n aa
-छननी,c h a n n ii
-छन्ना,c h a n n aa
-छपछपाना,c h a p c h a p aa n aa
-छपना,c h a p n aa
-छपा,c h a p aa
-छपाई,c h a p E
-छपाना,c h a p aa n aa
-छप्पन,c h a p p a n
-छप्पर,c h a p p a r
-छब्बीस,c h a b ii s
-छमाही,c h a m aa h i
-छरहरा,c h a r a h r aa
-छर्रा,c h a r r aa
-छल,c h a l
-छलकना,c h a l a k n aa
-छलछलाना,c h a l c h a l aa n aa
-छलनी,c h a l n ii
-छलपूर्ण,c h a l p uu r n a
-छलावरण,c h a l aa v a r a n
-छलावा,c h a l aa v aa
-छलिया,c h a l i y aa
-छली,c h a l ii
-छल्ला,c h a l l aa
-छवि,c h a v ii
-छह,c h a h
-छाछ,c h aa c h
-छाछठ,c h aa c h a tth
-छाजन,c h aa j a n
-छाता,c h aa t aa
-छाती,c h aa t ii
-छात्र,c h aa t r a
-छात्रावास,c h aa t r aa v aa s
-छानना,c h aa n n aa
-छाननी,c h aa n n ii
-छानबीन,c h aa n b ii n
-छाना,c h aa n aa
-छाप,c h aa p
-छापना,c h aa p n aa
-छापा,c h aa p aa
-छापाख़ाना,c h aa p aa x aa n aa
-छापामार,c h aa p aa m aa r
-छाया,c h aa y aa
-छायादार,c h aa y aa d aa r
-छाल,c h aa l
-छाला,c h aa l aa
-छावनी,c h aa v n ii
-छासठ,c h aa s a tth
-छिगुनी,c h i g u n ii
-छिछला,c h i c h l aa
-छिछोरा,c h i c h o r aa
-छिटकना,c h i tt a k n aa
-छिटकाना,c h i tt k aa n aa
-छिट-पुट,c h i tt p u tt
-छिड़कना,c h i rr a k n aa
-छिड़काव,c h i rr k aa v
-छिड़ना,c h i rr n aa
-छितराना,c h i t r aa n aa
-छिदना,c h i d n aa
-छिद्र,c h i d r a
-छिद्रित,c h i d r i t
-छिनना,c h i n n aa
-छिन्न-भिन्न,c h i n n a bh i n n a
-छिपकली,c h i p k a l ii
-छिपना,c h i p n aa
-छिपाना,c h i p aa n aa
-छिपाव,c h i p aa v
-छियानवे,c h i y aa n v e
-छियालीस,c h i y aa l ii s
-छियासठ,c h i y aa s a tth
-छियासी,c h i y aa s ii
-छिहत्तर,c h i h a t t a r
-छिहत्तरवाँ,c h i h a t t a r
-छिः,c h i h
-छी,c h ii
-छीछालेदार,c h ii c h aa l e d a r
-छीजना,c h ii j n aa
-छीनना,c h ii n n aa
-छीना-झपटी,c h ii n aa jh a p tt i
-छीलन,c h ii l a n
-छीलना,c h ii l n aa
-छुआछूत,c h u aa c h uu t
-छुआना,c h u aa n aa
-छुटकारा,c h u tt k aa r aa
-छुटपन,c h u tt p a n
-छुटपुट,c h u tt p u tt
-छुट्टा,c h u tt tt aa
-छुट्टी,c h u tt tt ii
-छुड़वाना,c h u rr v aa n aa
-छुड़ाना,c h u rr aa n aa
-छुरा,c h u r aa
-छुरी,c h u r ii
-छू,c h uu
-छूछा,c h uu c h aa
-छूट,c h uu tt
-छूटना,c h uu tt n aa
-छूत,c h uu t
-छूत-छात,c h uu t c h aa t
-छूना,c h uu n aa
-छाड़ख़ानी,c h e rr x aa n ii
-छेंड़ना,c h e rr n aa
-छेद,c h e d
-छेदना,c h e d n aa
-छेनी,c h e n ii
-छैला,c h E l aa
+छटपटाहट,ch a tt p a tt aa h a tt
+छटा,ch a tt aa
+छटा,ch a tt aa
+छटी,ch a tt ii
+छड़,ch a rr
+छड़ी,ch a rr ii
+छत,ch a t
+छतरी,ch a t r ii
+छता,ch a t t aa
+छत्तीस,ch a t t ii s
+छत्र,ch a t r a
+छत्र-छाया,ch a t r a ch aa y aa
+छद्म,ch a d m a
+छनकना,ch a n a k n aa
+छनना,ch a n n aa
+छननी,ch a n n ii
+छन्ना,ch a n n aa
+छपछपाना,ch a p ch a p aa n aa
+छपना,ch a p n aa
+छपा,ch a p aa
+छपाई,ch a p E
+छपाना,ch a p aa n aa
+छप्पन,ch a p p a n
+छप्पर,ch a p p a r
+छब्बीस,ch a b ii s
+छमाही,ch a m aa h i
+छरहरा,ch a r a h r aa
+छर्रा,ch a r r aa
+छल,ch a l
+छलकना,ch a l a k n aa
+छलछलाना,ch a l ch a l aa n aa
+छलनी,ch a l n ii
+छलपूर्ण,ch a l p uu r n a
+छलावरण,ch a l aa v a r a n
+छलावा,ch a l aa v aa
+छलिया,ch a l i y aa
+छली,ch a l ii
+छल्ला,ch a l l aa
+छवि,ch a v ii
+छह,ch a h
+छाछ,ch aa ch
+छाछठ,ch aa ch a tth
+छाजन,ch aa j a n
+छाता,ch aa t aa
+छाती,ch aa t ii
+छात्र,ch aa t r a
+छात्रावास,ch aa t r aa v aa s
+छानना,ch aa n n aa
+छाननी,ch aa n n ii
+छानबीन,ch aa n b ii n
+छाना,ch aa n aa
+छाप,ch aa p
+छापना,ch aa p n aa
+छापा,ch aa p aa
+छापाख़ाना,ch aa p aa x aa n aa
+छापामार,ch aa p aa m aa r
+छाया,ch aa y aa
+छायादार,ch aa y aa d aa r
+छाल,ch aa l
+छाला,ch aa l aa
+छावनी,ch aa v n ii
+छासठ,ch aa s a tth
+छिगुनी,ch i g u n ii
+छिछला,ch i ch l aa
+छिछोरा,ch i ch o r aa
+छिटकना,ch i tt a k n aa
+छिटकाना,ch i tt k aa n aa
+छिट-पुट,ch i tt p u tt
+छिड़कना,ch i rr a k n aa
+छिड़काव,ch i rr k aa v
+छिड़ना,ch i rr n aa
+छितराना,ch i t r aa n aa
+छिदना,ch i d n aa
+छिद्र,ch i d r a
+छिद्रित,ch i d r i t
+छिनना,ch i n n aa
+छिन्न-भिन्न,ch i n n a bh i n n a
+छिपकली,ch i p k a l ii
+छिपना,ch i p n aa
+छिपाना,ch i p aa n aa
+छिपाव,ch i p aa v
+छियानवे,ch i y aa n v e
+छियालीस,ch i y aa l ii s
+छियासठ,ch i y aa s a tth
+छियासी,ch i y aa s ii
+छिहत्तर,ch i h a t t a r
+छिहत्तरवाँ,ch i h a t t a r
+छिः,ch i h
+छी,ch ii
+छीछालेदार,ch ii ch aa l e d a r
+छीजना,ch ii j n aa
+छीनना,ch ii n n aa
+छीना-झपटी,ch ii n aa jh a p tt i
+छीलन,ch ii l a n
+छीलना,ch ii l n aa
+छुआछूत,ch u aa ch uu t
+छुआना,ch u aa n aa
+छुटकारा,ch u tt k aa r aa
+छुटपन,ch u tt p a n
+छुटपुट,ch u tt p u tt
+छुट्टा,ch u tt tt aa
+छुट्टी,ch u tt tt ii
+छुड़वाना,ch u rr v aa n aa
+छुड़ाना,ch u rr aa n aa
+छुरा,ch u r aa
+छुरी,ch u r ii
+छू,ch uu
+छूछा,ch uu ch aa
+छूट,ch uu tt
+छूटना,ch uu tt n aa
+छूत,ch uu t
+छूत-छात,ch uu t ch aa t
+छूना,ch uu n aa
+छाड़ख़ानी,ch e rr x aa n ii
+छेंड़ना,ch e rr n aa
+छेद,ch e d
+छेदना,ch e d n aa
+छेनी,ch e n ii
+छैला,ch E l aa
 छोकड़ा,c o k rr aa
-छोकरा,c h o k r aa
-छोटा,c h o tt aa
-छोड़ना,c h o rr n aa
-छोर,c h o r
+छोकरा,ch o k r aa
+छोटा,ch o tt aa
+छोड़ना,ch o rr n aa
+छोर,ch o r
 जंक्शन,j a ~ k sh a n
 जंग,j a ng g
 जंगम,j a ng g a m
@@ -5057,8 +5057,8 @@ hindi,phon
 तिमंज़िला,t i m a n z i l aa
 तिमाही,t i m aa h ii
 तिरंगा,t i r a ng g aa
-तिरछा,t i r c h aa
-तिरछापन,t i r c h aa p a n
+तिरछा,t i r ch aa
+तिरछापन,t i r ch aa p a n
 तिरपन,t i r p a n
 तिरसठ,t i r s a tth
 तिरस्कार,t i r a s k aa r
@@ -5089,7 +5089,7 @@ hindi,phon
 तीसरा,t ii s r aa
 तुक,t u k
 तुकबंदी,t u k b a n d ii
-तुच्छ,t u c h a
+तुच्छ,t u ch a
 तुझ,t u jh
 तुझे,t u jh e
 तुड़ाना,t u rr aa n aa
@@ -5161,7 +5161,7 @@ hindi,phon
 त्यौहार,t y O h aa r
 त्रि-,t r i 
 त्रुटि,t r u tt i
-त्रै,t r a i
+त्रै,t r E
 थकना,th a k n aa
 थका,th a k aa
 थकान,th a k aa n
@@ -5217,7 +5217,7 @@ hindi,phon
 दंपति,d a m p a t i
 दंभ,d a m bh
 दंभी,d a m bh ii
-दई,d a ii
+दई,d Ei
 दक्खिन,d a k kh i n
 दक्खिनी,d a k kh i n ii
 दक्ष,d a k sh a
@@ -5549,9 +5549,9 @@ hindi,phon
 देहांत,d e h aa n t
 देहात,d e h aa t
 देहाती,d e h aa t ii
-दैनिक,d a i n i k
-दैव,d a i v
-दैवयोग,d a i v y o g
+दैनिक,d E n i k
+दैव,d E v
+दैवयोग,d E v y o g
 दो,d o
 दो,d o
 दोआबा,d o aa b aa
@@ -5717,7 +5717,7 @@ hindi,phon
 धूल,dh uu l
 धृष्टता,dh r i sh tt a t aa
 धृष्टतापूर्वक,dh r i sh tt a t aa p uu r v a k
-धैर्य,dh a i r y a
+धैर्य,dh E r y a
 धोखा,dh o kh aa
 धोखेबाज़,dh o kh e b aa z
 धोखेबाजी,dh o kh e b aa z ii
@@ -5740,7 +5740,7 @@ hindi,phon
 नंबरवार,n a m b a r v aa r
 नंबरी,n a m b r ii
 न,n a
-नई,n a ii
+नई,n Ei
 नकटा,n a k tt aa
 नक़द,n a q a d
 नक़ल,n a q a l
@@ -5964,7 +5964,7 @@ hindi,phon
 निचुड़ना,n i c u rr n aa
 निचोड़,n i c o rr
 निचोड़ना,n i c o rr n aa
-निछावर,n i c h aa v a r
+निछावर,n i ch aa v a r
 निज,n i j
 निजी,n i j ii
 निठल्ला,n i tth a l l aa
@@ -6095,7 +6095,7 @@ hindi,phon
 निश्चिंत,n i sh c i n t
 निश्चिंतता,n i sh c i n t t aa
 निश्चित,n i sh c i t
-निश्छल,n i sh c h a l
+निश्छल,n i sh ch a l
 निषेध,n i sh e dh
 निषेधात्मक,n i sh e dh aa t m a k
 निष्कपट,n i sh k a p a tt
@@ -6158,9 +6158,9 @@ hindi,phon
 नेतृत्वं,n e t r i t v a
 नेत्र,n e t r a
 नेवला,n e v l aa
-नैतिक,n a i t i k
-नैतिकता,n a i t i k t aa
-नैहर,n a i h a r
+नैतिक,n E t i k
+नैतिकता,n E t i k t aa
+नैहर,n E h a r
 नोक,n o k
 नोकदार,n o k d aa r
 नोच-खसोट,n o c kh a s o tt
@@ -6178,15 +6178,15 @@ hindi,phon
 नौजवान,n O j a v aa n
 नौतोड़,n O t o rr
 नौसिखिया,n O s i kh i y aa
-नौ-सेना,n a u s e n aa
-नौ-सैनिक,n a u s a i n i k
+नौ-सेना,n O s e n aa
+नौ-सैनिक,n O s E n i k
 न्याय,n y aa y
 न्यायपूर्ण,n y aa y p uu r n a
 न्यायप्रिय,n y aa y p r i y a
 न्यायाधीश,n y aa y aa dh ii sh
 न्यायालय,n y aa y aa l a y
 न्यारा,n y aa r aa
-न्योछावर,n y o c h aa v a r
+न्योछावर,n y o ch aa v a r
 न्योता,n y o t aa
 पंक्चर,p a ~ k c a r
 पंक्ति,p a ~ k t i
@@ -6240,7 +6240,7 @@ hindi,phon
 पचड़ा,p a c rr aa
 पचना,p a c n aa
 पचपन,p a c p a n
-पचहत्तर,p a c h a t t a r
+पचहत्तर,p a ch a t t a r
 पचानवे,p a c a n v e
 पचाना,p a c aa n aa
 पचास,p a c aa s
@@ -6248,11 +6248,11 @@ hindi,phon
 पचीस,p a c ii s
 पच्चर,p a c c a r
 पच्चीस,p a c c ii s
-पच्छिम,p a c c h i m
-पछताना,p a c h t aa n aa
-पछतावा,p a c h t aa v aa
-पछाड़ना,p a c h aa rr n aa
-पछुआ,p a c h u aa
+पच्छिम,p a c ch i m
+पछताना,p a ch t aa n aa
+पछतावा,p a ch t aa v aa
+पछाड़ना,p a ch aa rr n aa
+पछुआ,p a ch u aa
 पट,p a tt
 पट,p a tt
 कटकना,p a tt a k n aa
@@ -6574,13 +6574,13 @@ hindi,phon
 पिघलनाना,p i gh l aa n aa
 पिचकना,p i c a k n aa
 पिचकारी,p i c k aa r ii
-पिछड़ना,p i c h a rr n aa
-पिछड़ा,p i c h rr aa
-पिछड़ापन,p i c h rr aa p a n
-पिछलग्गू,p i c h l a g g uu
-पिछला,p i c h l aa
-पिछवाड़ा,p i c h v aa rr aa
-पिछाड़ी,p i c h aa rr ii
+पिछड़ना,p i ch a rr n aa
+पिछड़ा,p i ch rr aa
+पिछड़ापन,p i ch rr aa p a n
+पिछलग्गू,p i ch l a g g uu
+पिछला,p i ch l aa
+पिछवाड़ा,p i ch v aa rr aa
+पिछाड़ी,p i ch aa rr ii
 पिटना,p i tt n aa
 पिटवाना,p i tt v aa n aa
 पिटाई,p i tt E
@@ -6599,9 +6599,9 @@ hindi,phon
 पिस्सू,p i s s uu
 पीक,p ii k
 पीकदान,p ii k d aa n
-पीछा,p ii c h aa
-पीछे,p ii c h e
-पीछे-पीछे,p ii c h e p ii c h e
+पीछा,p ii ch aa
+पीछे,p ii ch e
+पीछे-पीछे,p ii ch e p ii ch e
 पीटना,p ii tt n aa
 पीठ,p ii tth
 पीड़ा,p ii rr aa
@@ -6624,8 +6624,8 @@ hindi,phon
 पुखराज,p u kh r aa j
 पुख़्ता,p u x t aa
 पुचकारना,p u c k aa r n aa
-पुच्छल,p u c c h a l
-पुछल्ला,p u c h a l l aa
+पुच्छल,p u c ch a l
+पुछल्ला,p u ch a l l aa
 पुजारी,p u j aa r ii
 पुटीन,p u tt ii n
 पुट्ठा,p u tt tth aa
@@ -6679,9 +6679,9 @@ hindi,phon
 पुस्तक,p u s t a k
 पुस्तकाध्यक्ष,p u s t a k aa dh y a k sh a
 पुस्तकालय,p u s t a k aa l a y
-पूछ,p uu c h
-पूछताछ,p uu c h t aa c h
-पूछना,p uu c h n aa
+पूछ,p uu ch
+पूछताछ,p uu ch t aa ch
+पूछना,p uu ch n aa
 पूजन,p uu j a n
 पूजना,p uu j n aa
 पूजा,p uu j aa
@@ -6746,7 +6746,7 @@ hindi,phon
 पैखाना,p E x aa n aa
 पैड़,p E dd
 पैडल,p E dd a l
-पैतृक,p a i t r i k
+पैतृक,p E t r i k
 पैदल,p E d a l
 पैदा,p E d aa
 पैदाइश,p E d aa i sh
@@ -6780,7 +6780,7 @@ hindi,phon
 पौधा,p O dh aa
 पौन,p O n
 पौना,p O n aa
-पौष्टिक,p a u sh tt i k
+पौष्टिक,p O sh tt i k
 प्याऊ,p y O
 प्याज़,p y aa z
 प्यानो,p y aa n o
@@ -7129,7 +7129,7 @@ hindi,phon
 फ़ौरन,f O r a n
 फ़ौलाद,f O l aa d
 फ़ौलादी,f O l aa d ii
-फ़ौवारा,f a u v aa r aa
+फ़ौवारा,f O v aa r aa
 फ़्यूज़,f y uu z
 फ्राक,f r aa k
 फ़्री,f r ii
@@ -7184,8 +7184,8 @@ hindi,phon
 बचाना,b a c aa n aa
 बचाव,b a c aa v
 बच्चा,b a c c aa
-बछड़ा,b a c h rr aa
-बछेड़ा,b a c h e rr aa
+बछड़ा,b a ch rr aa
+बछेड़ा,b a ch e rr aa
 बजट,b a j a tt
 बजना,b a j n aa
 बजा,b a j aa
@@ -7215,7 +7215,7 @@ hindi,phon
 बड़भागी,b a rr bh aa g ii
 बड़ा,b a rr aa
 बड़ाई,b a rr E
-बढ़ई,b a rrh a ii
+बढ़ई,b a rrh Ei
 बढ़ता,b a rrh a t aa
 बढ़ना,b a rrh a n aa
 बढ़ाना,b a rrh aa n aa
@@ -7276,7 +7276,7 @@ hindi,phon
 बयासी,b a y aa s ii
 बरख़ास्त,b a r x aa s t
 बरगद,b a r g a d
-बरछी,b a r c h ii
+बरछी,b a r ch ii
 वरतन,b a r t a n
 बरतना,b a r a t n aa
 बरताव,b a r t aa v
@@ -7472,11 +7472,11 @@ hindi,phon
 बिगाड़ना,b i g aa rr n aa
 बिगुल,b i g u l
 बिचकना,b i c a k n aa
-बिच्छू,b i c c h uu
-बिछड़ना,b i c h a rr n aa
-बिछना,b i c h n aa
-बिछाना,b i c h aa n aa
-बिछौना,b i c h O n aa
+बिच्छू,b i c ch uu
+बिछड़ना,b i ch a rr n aa
+बिछना,b i ch n aa
+बिछाना,b i ch aa n aa
+बिछौना,b i ch O n aa
 बिजली,b i j l ii
 बिटिया,b i tt i y aa
 बिठाना,b i tth aa n aa
@@ -7677,8 +7677,8 @@ hindi,phon
 बोली,b o l ii
 बौखलाना,b O kh a l aa n aa
 बौखलाहट,b O kh a l aa h a tt
-बौछाड़,b O c h aa rr
-बौद्धिक,b a u d dh i k
+बौछाड़,b O ch aa rr
+बौद्धिक,b O d dh i k
 बौना,b O n aa
 ब्याज,b y aa j
 ब्याह,b y aa h
@@ -7705,8 +7705,8 @@ hindi,phon
 भंडारी,bh a n dd aa r ii
 भँड़ुआ,bh a ~ rr u aa
 भँवर,bh a ~ v a r
-भइया,bh a i y aa
-भई,bh a ii
+भइया,bh E y aa
+भई,bh Ei
 भक्त,bh a k t a
 भक्ति,bh a k t i
 भगत,bh a g a t
@@ -7878,16 +7878,16 @@ hindi,phon
 भेदभाव,bh e d bh aa v
 भेदया,bh e d i y aa
 भेस,bh e s
-भैया,bh a i y aa
+भैया,bh E y aa
 भोग,bh o g
 भोगना,bh o g n aa
 भोजन,bh o j a n
 भोजन-शाला,bh o j a n sh aa l aa
 भोला,bh o l aa
-भौगोलिक,bh a u g o l i k
+भौगोलिक,bh O g o l i k
 भौचक,bh O c a k
 भौजाई,bh O j E
-भौतिक,bh a u t i k
+भौतिक,bh O t i k
 भ्रम,bh r a m
 भ्रमण,bh r a m a n
 भ्रष्ट,bh r a sh tt a
@@ -7923,7 +7923,7 @@ hindi,phon
 मंशा,m a n sh aa
 मंसूख,m a n s uu x
 मंसूबा,m a n s uu b aa
-मई,m a ii
+मई,m Ei
 मकड़ी,m a k rr ii
 मकान,m a k aa n
 मकान-मालिक,m a k aa n m aa l i k
@@ -7946,11 +7946,11 @@ hindi,phon
 मचली,m a c l ii
 मचान,m a c aa n
 मचाना,m a c aa n aa
-मच्छर,m a c c h a r
-मच्छरदानी,m a c c h a r d aa n ii
-मछली,m a c h l ii
-मछलीवाला,m a c h l ii v aa l aa
-मछुआ,m a c h u aa
+मच्छर,m a c ch a r
+मच्छरदानी,m a c ch a r d aa n ii
+मछली,m a ch l ii
+मछलीवाला,m a ch l ii v aa l aa
+मछुआ,m a ch u aa
 मज़दूर,m a z d uu r
 मज़दूरी,m a z d uu r ii
 मज़बूत,m a z b uu t
@@ -8295,7 +8295,7 @@ hindi,phon
 मुठभेड़,m u tth bh e rr
 मुठिया,m u tth i y aa
 मुड़ना,m u rr n aa
-मुद्दई,m u d d a ii
+मुद्दई,m u d d Ei
 मुद्दत,m u d d a t
 मुद्दालेह,m u d d aa l e h
 मुद्रण,m u d r a n
@@ -8350,8 +8350,8 @@ hindi,phon
 मूर्ख,m uu r kh a
 मूर्खता,m uu r kh a t aa
 मूर्खतापूर्ण,m uu r kh a t aa p uu r n a
-मूर्च्छा,m uu r c c h aa
-मूर्च्छित,m uu r c c h i t
+मूर्च्छा,m uu r c ch aa
+मूर्च्छित,m uu r c ch i t
 मूर्ति,m uu r t i
 मूर्तिकला,m u ~ r t i k a l aa
 मूर्तिकार,m uu r t i k aa r
@@ -8406,7 +8406,7 @@ hindi,phon
 मेगज़ीन,m E g z ii n
 मैच,m E c
 मैत्री,m E t r ii
-मैत्रीपूर्ण,m a ii t r i p uu r n a
+मैत्रीपूर्ण,m Ei t r i p uu r n a
 मैदा,m E d aa
 मैदान,m E d aa n
 मैदानी,m E d aa n ii
@@ -8444,17 +8444,17 @@ hindi,phon
 मोहल्ला,m o h a l l aa
 मोहित,m o h i t
 मौक़ा,m O q aa
-मौखिक,m a u kh i k
-मौज,m a u j
+मौखिक,m O kh i k
+मौज,m O j
 मौजी,m O j ii
 मौजूद,m O j uu d
 मौजूदगी,m O j uu d g ii
 मौत,m O t
-मौन,m a u n
+मौन,m O n
 मौलवी,m O l v ii
 मौला,m O l aa
-मौलिक,m a u l i k
-मौलिकता,m a u l i k t aa
+मौलिक,m O l i k
+मौलिकता,m O l i k t aa
 मौसम,m O s a m
 मौसमी,m O s m ii
 मौसा,m O s aa
@@ -8515,7 +8515,7 @@ hindi,phon
 योग्यता,y o g y a t aa
 योजना,y o j n aa
 योद्धा,y o d d dh aa
-यौवन,y a u v a n
+यौवन,y O v a n
 रंग,r a ng g
 रंग-ढंग,r a ng g ddh a ng g
 रंगदार,r a ng g d aa r
@@ -8539,9 +8539,9 @@ hindi,phon
 रंदना,r a n d n aa
 रंदा,r a n d aa
 रँभाना,r a ~ bh aa n aa
-रई,r a ii
-रईस,r a ii s
-रईसी,r a ii s ii
+रई,r Ei
+रईस,r Ei s
+रईसी,r Ei s ii
 रक़म,r a q a m
 रकाबी,r a k a ~ b ii
 रक्त,r a k t a
@@ -8587,7 +8587,7 @@ hindi,phon
 रमना,r a m n aa
 रवाना,r a v aa n aa
 रविवार,r a v i v aa r
-रवैया,r a v a i y aa
+रवैया,r a v E y aa
 रस,r a s
 रस-गुल्ला,r a s g u l l aa
 रसद,r a s a d
@@ -8715,7 +8715,7 @@ hindi,phon
 रिहा,r i h aa
 रिहाई,r i h E
 री,r ii
-रीछ,r ii c h
+रीछ,r ii ch
 रीझना,r ii jh n aa
 रीडर,r ii dd a r
 रीढ़,r ii rrh
@@ -8926,8 +8926,8 @@ hindi,phon
 लहमुन,l a h s u n
 लहू,l a h uu
 लहू-लुहान,l a h uu l u h aa n
-लांछन,l aa n c h a n
-लांछित,l aa n c h i t
+लांछन,l aa n ch a n
+लांछित,l aa n ch i t
 ला-,l aa 
 लाइट,l aa i tt
 लाइन,l aa i n
@@ -9169,7 +9169,7 @@ hindi,phon
 वहशी,v a h sh ii
 वाहिर्,v a h i r
 वही,v a h ii
-वांछनीय,v aa n c h a n ii y
+वांछनीय,v aa n ch a n ii y
 वा,v aa
 वाउचर,v aa u c a r
 वाक,v aa k 
@@ -9268,7 +9268,7 @@ hindi,phon
 विचाराघीन,v i c aa r aa dh ii n
 विचित्र,v i c i t r a
 विचित्रता,v i c i t r a t aa
-विच्छेद,v i c c h e d
+विच्छेद,v i c ch e d
 विजय,v i j a y
 विजयादशमी,v i j a y aa d a sh m i
 विजयी,v i j a y ii
@@ -9378,7 +9378,7 @@ hindi,phon
 विवादग्रस्त,v i v aa d g r a s t a
 विवाह,v i v aa h
 विवाह-योग्य,v i v aa h y o g y a
-विवाह-विच्छेद,v i v aa h v i c c h e d
+विवाह-विच्छेद,v i v aa h v i c ch e d
 विवाह-संबंध,v i v aa h s a m b a n dh
 विवाह-संबंधी,v i v aa h s a m b a n dh ii
 विवाहित,v i v aa h i t
@@ -9448,24 +9448,24 @@ hindi,phon
 वेश,v e sh
 वेश-भूषा,v e sh bh uu sh aa
 वेश्या,v e sh y aa
-वैकल्पिक,v a i k a l p i k
+वैकल्पिक,v E k a l p i k
 वैगन,v E g a n
-वैतनिक,v a i t n i k
-वैदिक,v a i d i k
-वैदेशिक,v a i d e sh i k
-वैद्य,v a i d y a
-वैध,v a i dh
-वैभव,v a i bh a v
-वैयक्तिक,v a i y a k t i k
-वैयाकरण,v a i y aa k a r a n
+वैतनिक,v E t n i k
+वैदिक,v E d i k
+वैदेशिक,v E d e sh i k
+वैद्य,v E d y a
+वैध,v E dh
+वैभव,v E bh a v
+वैयक्तिक,v E y a k t i k
+वैयाकरण,v E y aa k a r a n
 वैर,v E r
 वैरागी,v E r aa g ii
-वैराग्य,v a ii r aa g y
+वैराग्य,v Ei r aa g y
 वैरी,v E r ii
-वैवाहिक,v a i v aa h i k
-वैशाख,v a i sh aa kh
-वैश्य,v a i sh y a
-वैषम्य,v a i sh a m y a
+वैवाहिक,v E v aa h i k
+वैशाख,v E sh aa kh
+वैश्य,v E sh y a
+वैषम्य,v E sh a m y a
 वैसा,v E s aa
 वैसे,v E s e
 वोट,v o tt
@@ -9511,7 +9511,7 @@ hindi,phon
 व्रत,v r a t
 शंका,sh a ~ k aa
 शंख,sh a ~ kh
-शऊर,sh a uu r
+शऊर,sh Ou r
 शक,sh a k
 शकल,sh a k a l
 शकुन,sh a k u n
@@ -9668,8 +9668,8 @@ hindi,phon
 शौक़,sh O q
 शौक़या,sh O q i y aa
 शौकीन,sh O q ii n
-शौच,sh a u c
-शौचालय,sh a u c aa l a y
+शौच,sh O c
+शौचालय,sh O c aa l a y
 शमशान,sh m a sh aa n
 श्रद्धांजलि,sh r a dh aa n j a l i
 श्रद्धा,sh r a d dh aa
@@ -9791,7 +9791,7 @@ hindi,phon
 संस्था,s a n s th aa
 संस्थान,s a n s th aa n
 संस्मरण,s a n s a m a r a n
-सईस,s a ii s
+सईस,s Ei s
 सकना,s a k n aa
 सकपकाना,s a k p a k aa n aa
 सकारना,s a k aa r n aa
@@ -9864,7 +9864,7 @@ hindi,phon
 सदाचार,s a d aa c aa r
 सदाबहार,s a d aa b a h aa r
 सदी,s a d ii
-सदैव,s a d a i v
+सदैव,s a d E v
 सद् गुण,s a d g u n
 सद्भावना,s a d bh aa v n aa
 सन्,s a n
@@ -10360,7 +10360,7 @@ hindi,phon
 सेब,s e b
 सेम,s e m
 सेर,s e r
-सेवईं,s e v a ii
+सेवईं,s e v Ei
 सेवक,s e v a k
 सेवन,s e v a n
 सेवा,s e v aa
@@ -10372,8 +10372,8 @@ hindi,phon
 सैकंड,s E k a n d
 सैकंडरी,s E k a n dd a r ii
 सैकड़ा,s E k rr aa
-सैद्धांतिक,s a i d dh aa n t i k
-सैनिक,s a i n i k
+सैद्धांतिक,s E d dh aa n t i k
+सैनिक,s E n i k
 सैर,s E r
 सैलानी,s E l aa n ii
 सो,s o
@@ -10393,18 +10393,18 @@ hindi,phon
 सोशलिस्ट,s o sh a l i s tt
 सोसाइटी,s o s aa i tt ii
 सोहाग,s o h aa g
-सौंदर्य,s a u n d a r y a
+सौंदर्य,s O n d a r y a
 सौ,s O
 सौगंध,s O g a n dh
-सौजन्य,s a u j a n y a
+सौजन्य,s O j a n y a
 सौत,s O t
 सौतेला,s O t e l aa
 सौदा,s O d aa
 सौदागर,s O d aa g a r
 सौदेबाज़ी,s O d e b aa z ii
-सौभाग्य,s a u bh aa g y a
-सौभाग्यवती,s a u bh aa g y a v a t ii
-सौभाग्यशाली,s a u bh aa g y a sh aa l ii
+सौभाग्य,s O bh aa g y a
+सौभाग्यवती,s O bh aa g y a v a t ii
+सौभाग्यशाली,s O bh aa g y a sh aa l ii
 स्काउट,s k aa u tt
 स्कीम,s k ii m
 स्क़ूटर,s k uu tt a r
@@ -10481,9 +10481,9 @@ hindi,phon
 स्लेटी,s l a tt ii
 स्व-,s v a 
 स्वचालित,s v a c aa l i t
-स्वच्छंद,s v a c c h a n d
-स्वच्छ,s v a c c h a
-स्वच्छता,s v a c c h a t aa
+स्वच्छंद,s v a c ch a n d
+स्वच्छ,s v a c ch a
+स्वच्छता,s v a c ch a t aa
 स्वतंत्र,s v a t a n t r a
 स्वतंत्रता,s v a t a n t r a t aa
 स्वदेशी,s v a d e sh ii
@@ -10525,9 +10525,9 @@ hindi,phon
 स्वीकार्य,s v ii k aa r y a
 स्वीकृत,s v ii k r i t
 स्वीकृति,s v ii k r i t i
-स्वेच्छया,s v e c c h a y aa
+स्वेच्छया,s v e c ch a y aa
 स्वेटर,s v e tt a r
-स्वैच्छिक,s v a i c c h i k
+स्वैच्छिक,s v E c ch i k
 हंकार,h a ~ k aa r
 हंगामा,h a ng g aa m aa
 हंटर,h a n tt a r
@@ -10626,7 +10626,7 @@ hindi,phon
 हवन,h a v a n
 हवलदार,h a v a l d aa r
 हवा,h a v aa
-हवाई,h a v a ii
+हवाई,h a v Ei
 हवाई,h a v E
 हवाई-जहाज़,h a v E j a h aa z
 हवाखो़री,h a v aa x o r ii
@@ -10698,7 +10698,7 @@ hindi,phon
 हिट,h i t
 हित,h i tt
 हितकर,h i t k a r
-हितैषी,h i t a i sh ii
+हितैषी,h i t E sh ii
 हिनहिनाना,h i n h i n aa n aa
 हिफ़ाज़त,h i f aa z a t
 हिमपात,h i m p aa t
@@ -10771,5 +10771,5 @@ hindi,phon
 हो-हल्ला,h o h a l l aa
 हौज़,h O z
 हौदी,h O d ii
-हौवा,h a u v aa
+हौवा,h O v aa
 हौसला,h O s l aa
