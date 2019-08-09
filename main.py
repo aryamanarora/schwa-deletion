@@ -11,19 +11,23 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, recall_score, f1_score
 
-
-CHAR_WINDOW = 4
 UNK_CHAR = "🆒"
 
 # read in the data
-
-def main(input_filename="hi_ur_pron.tsv"):
-    csv_data = pd.read_csv(input_filename, header=0, sep='\t')
+def main(input_filename, CHAR_WINDOW=4, sep=None):
+    csv_data = pd.read_csv(input_filename, header=0, sep=sep) if sep else pd.read_csv(input_filename, header=0)
 
     instances = []
     for _, row in csv_data.iterrows():
-        instances += [[tr.transliterate(row.hindi), schwa_instance[1], schwa_instance[0]]
-                  for schwa_instance in tr.force_align(row.hindi, row.phon)]
+        try:
+            instances += [[tr.transliterate(row.hindi), schwa_instance[1], schwa_instance[0]]
+                    for schwa_instance in tr.force_align(str(row.hindi), str(row.phon))]
+        except Exception as e:
+            # print(e)
+            continue
+    
+    # print(len(instances))
+    # input()
 
     y = []
     transformed_instances = []
@@ -42,19 +46,24 @@ def main(input_filename="hi_ur_pron.tsv"):
         y.append(schwa_was_deleted)
 
     X = pd.DataFrame(transformed_instances,
-                     columns=["s-4", "s-3", "s-2", "s-1", "s+1", "s+2", "s+3", "s+4"])
+                     columns=["s" + str(i) for i in list(range(-CHAR_WINDOW, 0)) + list(range(1, CHAR_WINDOW + 1))])
     X = pd.get_dummies(X)
 
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.20, random_state=42)
 
-    model = LogisticRegression()
+    model = LogisticRegression(solver='liblinear')
     model.fit(X_train, y_train)
     y_pred = model.predict(X_test)
+    # for i in zip(transformed_instances, y_pred, y_test):
+    #     print(i)
     print(accuracy_score(y_pred, y_test))
     print(recall_score(y_pred, y_test))
     print(f1_score(y_pred, y_test))
 
 
 if __name__ == "__main__":
-    main()
+    for i in range(1, 11):
+        print(i)
+        main('hi_ur_pron.tsv', i, '\t')
+        # main('hi_pron.csv', i)

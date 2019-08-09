@@ -39,17 +39,30 @@ nuqta = {
 
 # how the anusvara is assimilated to the next consonant
 nasal_assim = {
-    'k': '~', 'kh': '~', 'g': 'ng', 'gh': 'ng',
-    'c': 'n', 'ch': 'n', 'j': 'n', 'jh': 'n',
+    'k': '~', 'kh': '~', 'g': 'ng', 'gh': 'ng', 'ng': 'ng',
+    'c': 'n', 'ch': 'n', 'j': 'n', 'jh': 'n', 'n': 'n',
     'tt': 'n', 'tth': 'n', 'dd': 'n', 'ddh': 'n', 
     't': 'n', 'th': 'n', 'd': 'n', 'dh': 'n', 
-    'p': 'm', 'ph': 'm', 'b': 'm', 'bh': 'm',
+    'p': 'm', 'ph': 'm', 'b': 'm', 'bh': 'm', 'm': 'm',
     'y': '~', 'r': '~', 'l': '~', 'v': '~',
     'sh': 'n', 's': 'n',
     'h': '~',
 
     'q': '~', 'x': '~', 'Gh': 'ng', 'f': '~', 'z': '~', 'jh': '~',
     'rr': '~', 'rrh': '~'
+}
+
+# articulation
+art = {
+    'u': ['k', 'kh', 'g', 'gh', 'ng', 'x', 'Gh', 'q'], # velar/uvular
+    'p': ['c', 'ch', 'j', 'jh'], # palatal
+    'r': ['tt', 'tth', 'dd', 'ddh', 'rr', 'rrh'], # retroflex
+    'd': ['t', 'th', 'd', 'dh', 'n'], # dental
+    'l': ['p', 'ph', 'b', 'bh', 'm'], # labial
+    'g': ['y', 'v'], # semivowels/glides
+    'li': ['r', 'l'], # liquids
+    'h': ['h'], # glottal
+    's': ['s', 'sh'] # sibilants
 }
 
 def transliterate(word):
@@ -67,9 +80,14 @@ def transliterate(word):
         elif char == NUQTA:
             # nuqta transforms a consonant, so we remove the schwa, change the consonant,
             # then add the schwa again
-            res.pop()
-            res.append(nuqta[res.pop()])
-            res.append('a')
+            if res[-1] == 'a':
+                res.pop()
+                l = res.pop()
+                res.append(l if l not in nuqta else nuqta[l]) 
+                res.append('a')
+            else:
+                l = res.pop()
+                res.append(l if l not in nuqta else nuqta[l])
 
         elif char in con:
             # consonant (with inherent schwa)
@@ -93,6 +111,28 @@ def transliterate(word):
             else: res[i] = nasal_assim[res[i + 1]]
 
     return res
+
+# converts to short vowel, long vowel, or consonant for each sound in a Hindi word
+def broad_categorize(word):
+    word = transliterate(word)
+    for i, unit in enumerate(word):
+        if unit in vow.values():
+            word[i] = ('V' if len(unit) == 2 or unit.isupper() else 'v')
+        else:
+            word[i] = 'C'
+    return word
+
+# converts to place of articulation
+def narrow_categorize(word):
+    word = transliterate(word)
+    for i, unit in enumerate(word):
+        if unit in vow.values():
+            word[i] = ('V' if len(unit) == 2 or unit.isupper() else 'v')
+        else:
+            for key, val in art.items():
+                if unit in val:
+                    word[i] = key
+    return word
 
 # returns an array of boolean-int pairs, one for each schwa in the orthographic transliteration
 # with True meaning the schwa is kept, False meaning it is dropped
@@ -120,9 +160,6 @@ def force_align(word, phon):
             res.append([False, i])
             i += 1
         else:
-            print('Unable to force-align', word)
-            print('Orthographic:', ortho)
-            print('Phonetic:', phon)
-            break
+            raise Exception('Unable to force-align {}, orthographic {}'.format(word, ortho))
     
     return res
