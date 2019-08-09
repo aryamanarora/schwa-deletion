@@ -3,6 +3,7 @@
 #
 # 1. align Hindi orthographic with phonetic representation
 
+import sys
 import numpy as np
 import pandas as pd
 import transliterate as tr
@@ -14,7 +15,7 @@ from sklearn.metrics import accuracy_score, recall_score, f1_score
 UNK_CHAR = "🆒"
 
 # read in the data
-def main(input_filename, CHAR_WINDOW=4, sep=None):
+def main(input_filename, left=4, right=4, sep=None):
     csv_data = pd.read_csv(input_filename, header=0, sep=sep) if sep else pd.read_csv(input_filename, header=0)
 
     instances = []
@@ -33,7 +34,7 @@ def main(input_filename, CHAR_WINDOW=4, sep=None):
     transformed_instances = []
     for s, schwa_index, schwa_was_deleted in instances:
         x = []
-        for i in range(schwa_index - CHAR_WINDOW, schwa_index + CHAR_WINDOW + 1):
+        for i in range(schwa_index - left, schwa_index + right + 1):
             if i == schwa_index:
                 continue
 
@@ -46,7 +47,7 @@ def main(input_filename, CHAR_WINDOW=4, sep=None):
         y.append(schwa_was_deleted)
 
     X = pd.DataFrame(transformed_instances,
-                     columns=["s" + str(i) for i in list(range(-CHAR_WINDOW, 0)) + list(range(1, CHAR_WINDOW + 1))])
+                     columns=["s" + str(i) for i in list(range(-left, 0)) + list(range(1, right + 1))])
     X = pd.get_dummies(X)
 
     X_train, X_test, y_train, y_test = train_test_split(
@@ -57,13 +58,16 @@ def main(input_filename, CHAR_WINDOW=4, sep=None):
     y_pred = model.predict(X_test)
     # for i in zip(transformed_instances, y_pred, y_test):
     #     print(i)
-    print(accuracy_score(y_pred, y_test))
-    print(recall_score(y_pred, y_test))
-    print(f1_score(y_pred, y_test))
+
+    return accuracy_score(y_pred, y_test)
+    # print(recall_score(y_pred, y_test))
+    # print(f1_score(y_pred, y_test))
 
 
 if __name__ == "__main__":
     for i in range(1, 11):
-        print(i)
-        main('hi_ur_pron.tsv', i, '\t')
-        # main('hi_pron.csv', i)
+        print(i, end=': ')
+        for j in range(1, 11):
+            print(main('hi_pron.csv', i, j), end=' ')
+            sys.stdout.flush()
+        print()
