@@ -141,9 +141,7 @@ def narrow_categorize(word):
 # returns an array of boolean-int pairs, one for each schwa in the orthographic transliteration
 # with True meaning the schwa is kept, False meaning it is dropped
 # and the second element being the position where it is dropped
-def force_align(word, phon):
-    ortho = transliterate(word)
-
+def force_align(ortho, phon):
     # clean up phonetic
     phon = phon.replace('. ', '')
     phon = phon.split()
@@ -164,6 +162,6 @@ def force_align(word, phon):
             res.append([False, i])
             i += 1
         else:
-            raise Exception('Unable to force-align {}, orthographic {}'.format(word, ortho))
+            raise Exception('Unable to force-align {}, orthographic {}'.format(ortho, phon))
     
     return res

@@ -7,6 +7,7 @@ import sys
 import numpy as np
 import pandas as pd
 import transliterate as tr
+import scrape
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
@@ -16,13 +17,13 @@ UNK_CHAR = "🆒"
 
 # read in the data
 def main(input_filename, left=4, right=4, sep=None):
-    csv_data = pd.read_csv(input_filename, header=0, sep=sep) if sep else pd.read_csv(input_filename, header=0)
+    data = pd.read_csv(input_filename, header=0, sep=sep) if sep else pd.read_csv(input_filename, header=0)
 
     instances = []
-    for _, row in csv_data.iterrows():
+    for _, row in data.iterrows():
         try:
             instances += [[tr.narrow_categorize(row.hindi), schwa_instance[1], schwa_instance[0]]
-                    for schwa_instance in tr.force_align(str(row.hindi), str(row.phon))]
+                    for schwa_instance in tr.force_align(str(tr.transliterate(row.hindi)), str(row.phon))]
         except Exception as e:
             # print(e)
             continue
@@ -61,7 +62,17 @@ def main(input_filename, left=4, right=4, sep=None):
 
     return [accuracy_score(y_pred, y_test), recall_score(y_pred, y_test), f1_score(y_pred, y_test)]
 
+def compare_wiktionary():
+    data = pd.read_csv('hi_ur_pron.tsv', header=0, sep='\t')
+    wikt = pd.read_csv('hi_ur_pron_wikt.tsv', header=0, sep='\t')
+
+    instances = []
+    for i, row in data.iterrows():
+        w = ''.join(scrape.wiktionary_transliterate(wikt.iloc[i]['wikt']))
+        x = row.phon.replace('.', '').replace(' ', '')
+        if w != x:
+            print(w, x)
 
 if __name__ == "__main__":
-    for i in range(1, 11):
-        print(main('hi_pron.csv', i, i))
+    # print(main('hi_ur_pron.tsv', 4, 4, '\t'))
+    compare_wiktionary()
