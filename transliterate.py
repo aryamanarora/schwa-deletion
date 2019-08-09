@@ -116,7 +116,9 @@ def transliterate(word):
 def broad_categorize(word):
     word = transliterate(word)
     for i, unit in enumerate(word):
-        if unit in vow.values():
+        if unit == 'a':
+            continue
+        elif unit in vow.values():
             word[i] = ('V' if len(unit) == 2 or unit.isupper() else 'v')
         else:
             word[i] = 'C'
@@ -126,7 +128,9 @@ def broad_categorize(word):
 def narrow_categorize(word):
     word = transliterate(word)
     for i, unit in enumerate(word):
-        if unit in vow.values():
+        if unit == 'a':
+            continue
+        elif unit in vow.values():
             word[i] = ('V' if len(unit) == 2 or unit.isupper() else 'v')
         else:
             for key, val in art.items():

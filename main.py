@@ -21,7 +21,7 @@ def main(input_filename, left=4, right=4, sep=None):
     instances = []
     for _, row in csv_data.iterrows():
         try:
-            instances += [[tr.transliterate(row.hindi), schwa_instance[1], schwa_instance[0]]
+            instances += [[tr.narrow_categorize(row.hindi), schwa_instance[1], schwa_instance[0]]
                     for schwa_instance in tr.force_align(str(row.hindi), str(row.phon))]
         except Exception as e:
             # print(e)
@@ -59,15 +59,9 @@ def main(input_filename, left=4, right=4, sep=None):
     # for i in zip(transformed_instances, y_pred, y_test):
     #     print(i)
 
-    return accuracy_score(y_pred, y_test)
-    # print(recall_score(y_pred, y_test))
-    # print(f1_score(y_pred, y_test))
+    return [accuracy_score(y_pred, y_test), recall_score(y_pred, y_test), f1_score(y_pred, y_test)]
 
 
 if __name__ == "__main__":
     for i in range(1, 11):
-        print(i, end=': ')
-        for j in range(1, 11):
-            print(main('hi_pron.csv', i, j), end=' ')
-            sys.stdout.flush()
-        print()
+        print(main('hi_pron.csv', i, i))
