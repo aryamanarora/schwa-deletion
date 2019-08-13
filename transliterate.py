@@ -65,6 +65,49 @@ art = {
     's': ['s', 'sh'] # sibilants
 }
 
+phonological_features = {
+    'a': ['mid', 'central', 'unrounded', 'short', 'vowel'],
+    'aa': ['open', 'central', 'unrounded', 'long', 'vowel'],
+    'i': ['near-close', 'front', 'unrounded', 'short', 'vowel'],
+    'ii': ['close', 'front', 'unrounded', 'long', 'vowel'],
+    'u': ['near-close', 'back', 'rounded', 'short', 'vowel'],
+    'uu': ['close', 'back', 'rounded', 'long', 'vowel'],
+    'e': ['close-mid', 'front', 'unrounded', 'long', 'vowel'],
+    'E': ['open-mid', 'front', 'unrounded', 'long', 'vowel'],
+    'o': ['close-mid', 'back', 'rounded', 'long', 'vowel'],
+    'O': ['open-mid', 'back', 'rounded', 'long', 'vowel'],
+    'k': ['voiceless', 'unaspirated', 'velar', 'stop'],
+    'kh': ['voiceless', 'aspirated', 'velar', 'stop'],
+    'g': ['voiced', 'unaspirated', 'velar', 'stop'],
+    'gh': ['voiced', 'aspirated', 'velar', 'stop'],
+    'ng': ['voiced', 'unaspirated', 'velar', 'nasal'],
+    'c': ['voiceless', 'unaspirated', 'palatal', 'sibilant affricate'],
+    'ch': ['voiceless', 'aspirated', 'palatal', 'sibilant affricate'],
+    'j': ['voiced', 'unaspirated', 'palatal', 'sibilant affricate'],
+    'jh': ['voiced', 'aspirated', 'palatal', 'sibilant affricate'],
+    'tt': ['voiceless', 'unaspirated', 'retroflex', 'stop'],
+    'tth': ['voiceless', 'aspirated', 'retroflex', 'stop'],
+    'dd': ['voiced', 'unaspirated', 'retroflex', 'stop'],
+    'ddh': ['voiced', 'aspirated', 'retroflex', 'stop'],
+    't': ['voiceless', 'unaspirated', 'dental', 'stop'],
+    'th': ['voiceless', 'aspirated', 'dental', 'stop'],
+    'd': ['voiced', 'unaspirated', 'dental', 'stop'],
+    'dh': ['voiced', 'aspirated', 'dental', 'stop'],
+    'n': ['voiced', 'unaspirated', 'dental', 'nasal'],
+    'p': ['voiceless', 'unaspirated', 'bilabial', 'stop'],
+    'ph': ['voiceless', 'aspirated', 'bilabial', 'stop'],
+    'b': ['voiced', 'unaspirated', 'bilabial', 'stop'],
+    'bh': ['voiced', 'aspirated', 'bilabial', 'stop'],
+    'm': ['voiced', 'unaspirated', 'bilabial', 'nasal'],
+    'y': ['voiced', 'unaspirated', 'palatal', 'approximant'],
+    'r': ['voiced', 'unaspirated', 'dental', 'flap'],
+    'l': ['voiced', 'unaspirated', 'dental', 'approximant'],
+    'v': ['voiced', 'unaspirated', 'labiodental', 'approximant'],
+    'sh': ['voiceless', 'unaspirated', 'palatal', 'sibilant fricative'],
+    's': ['voiceless', 'unaspirated', 'dental', 'sibilant fricative'],
+    'h': ['voiced', 'aspirated', 'glottal', 'non-sibilant fricative'],
+}
+
 def transliterate(word):
     # normalize "ri" vowel
     word = word.replace('ऋ', 'रि').replace('ृ', '्रि')

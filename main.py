@@ -8,20 +8,20 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, recall_score, f1_score
 
-UNK_CHAR = "🆒"
+UNK_CHAR = '🆒'
 
-def main(input_filename, left=4, right=4, sep=None):
-    data = pd.read_csv(input_filename, header=0, sep=sep) if sep else pd.read_csv(input_filename, header=0)
+def main(input_filename, left=4, right=4):
+    data = pd.read_csv(input_filename, header=0)
 
     # force align the predicted orthographic transliteration (without schwa dropping)
     # with the actual phonetic transliteration (schwa dropping) to created training/test data
     schwa_instances = []
     for _, row in data.iterrows():
-        print(chr(27) + "[2J")
+        print(chr(27) + '[2J')
         print('Processing row', _)
         try:
             schwa_instances += [[tr.narrow_categorize(row.hindi), schwa_instance[1], schwa_instance[0]]
-                    for schwa_instance in tr.force_align(tr.transliterate(row.hindi), str(row.phon))]
+                for schwa_instance in tr.force_align(tr.transliterate(row.hindi), str(row.phon))]
         except Exception as e:
             # print(e)
             continue
@@ -44,24 +44,30 @@ def main(input_filename, left=4, right=4, sep=None):
         y.append(schwa_was_deleted)
 
     X = pd.DataFrame(transformed_instances,
-                     columns=["s" + str(i) for i in list(range(-left, 0)) + list(range(1, right + 1))])
+        columns=['s' + str(i) for i in list(range(-left, 0)) + list(range(1, right + 1))])
     X = pd.get_dummies(X)
 
+    # 20% is the final test data, 20% is for development
     X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.20, random_state=42)
+        X, y, train_size=0.60, test_size=0.40, random_state=42)
+    
+    X_dev, y_dev = X_test[:len(X_test) // 2], y_test[:len(y_test) // 2]
+    X_test, y_test = X_test[len(X_test) // 2:], y_test[len(y_test) // 2:]
 
     model = LogisticRegression(solver='liblinear', max_iter=1000)
     model.fit(X_train, y_train)
-    y_pred = model.predict(X_test)
+    y_pred = model.predict(X_dev)
+    
     # for i in zip(transformed_instances, y_pred, y_test):
     #     print(i)
 
-    print("Logistic regression:", [accuracy_score(y_pred, y_test), recall_score(y_pred, y_test), f1_score(y_pred, y_test)])
+    print('Logistic regression:', accuracy_score(y_pred, y_dev))
+    print(recall_score(y_pred, y_dev))
 
 # compare wiktionary transliterations with actual
 def compare_wiktionary():
-    data = pd.read_csv('hi_ur_pron.tsv', header=0, sep='\t')
-    wikt = pd.read_csv('hi_ur_pron_wikt.tsv', header=0, sep='\t')
+    data = pd.read_csv('data/small.csv', header=0)
+    wikt = pd.read_csv('data/small_wiktionary.csv', header=0)
 
     instances = []
     for i, row in data.iterrows():
@@ -70,6 +76,5 @@ def compare_wiktionary():
         if w != x:
             print(w, x)
 
-if __name__ == "__main__":
-    main('hi_ur_pron.tsv', 4, 4, '\t')
-    # compare_wiktionary()
+if __name__ == '__main__':
+    main('data/large.csv', 3, 3)
