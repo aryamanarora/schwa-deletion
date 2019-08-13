@@ -4,6 +4,7 @@ import pandas as pd
 import transliterate as tr
 import scrape
 from sklearn.linear_model import LogisticRegression, SGDClassifier
+from sklearn.neural_network import MLPClassifier
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, recall_score, f1_score
@@ -17,8 +18,8 @@ def main(input_filename, left=4, right=4):
     # with the actual phonetic transliteration (schwa dropping) to created training/test data
     schwa_instances = []
     for _, row in data.iterrows():
-        print(chr(27) + '[2J')
-        print('Processing row', _)
+        # print(chr(27) + '[2J')
+        # print('Processing row', _)
         try:
             schwa_instances += [[tr.narrow_categorize(row.hindi), schwa_instance[1], schwa_instance[0]]
                 for schwa_instance in tr.force_align(tr.transliterate(row.hindi), str(row.phon))]
@@ -54,7 +55,8 @@ def main(input_filename, left=4, right=4):
     X_dev, y_dev = X_test[:len(X_test) // 2], y_test[:len(y_test) // 2]
     X_test, y_test = X_test[len(X_test) // 2:], y_test[len(y_test) // 2:]
 
-    model = LogisticRegression(solver='liblinear', max_iter=1000)
+    # model = LogisticRegression(solver='liblinear', max_iter=1000)
+    model = MLPClassifier(max_iter=1000)
     model.fit(X_train, y_train)
     y_pred = model.predict(X_dev)
     
@@ -77,4 +79,5 @@ def compare_wiktionary():
             print(w, x)
 
 if __name__ == '__main__':
-    main('data/large.csv', 3, 3)
+    for i in range(1, 11):
+        main('data/small.csv', i, i)
