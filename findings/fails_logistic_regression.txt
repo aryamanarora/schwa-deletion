@@ -1,0 +1,188 @@
+incorrect predictions by
+       main('data/large.csv', 5, 5)
+       model = LogisticRegression(solver='liblinear', max_iter=1000)
+       tr.transliterate(row.hindi)
+
+1: - - t a tt [a] s th a t aa False True
+       Sanskrit compound
+34: aa d a r sh [a] - - - - - True False
+       Sanskrit
+94: - - k a r [a] f y uu - - True False
+       English
+132: - - m o h [a] l a t a - True False
+       Perso-Arabic
+156: l a k o tth [a] r ii - - - True False
+       Hindi compound
+163: - - - a s [a] ph a l a t False True
+       Sanskrit compound
+166: - - k a h [a] l a v aa n True False
+       Hindi compound
+177: - - aa t m [a] n i r bh a True False
+       Sanskrit compound
+238: - m aa r c [a] - - - - - True False
+       English
+243: e k r e tt [a] r ii - - - False True
+       English
+249: m p a n n [a] - - - - - False True
+       Sanskrit compound
+291: - - r a kh [a] r a kh aa v True False
+       Hindi compound
+293: a m aa t r [a] - - - - - True False
+       Sanskrit compound
+295: - - c i rrh [a] n aa - - - False True
+       Hindi, extraneous
+298: d a n ii y [a] - - - - - False True
+       Sanskrit compound, possible
+345: - - n aa tt [a] k ii y a - False True
+       Sanskrit compound
+356: tt aa l a m [a] tt uu l a - False True
+       Hindi compound
+364: m aa l o c [a] n aa t m a False True
+       Sanskrit compound
+379: - - - a rr [a] c a n a - True False
+       Hindi
+390: p a h a l [a] q a d a m True False
+       Perso-Arabic compound
+410: e k aa g r [a] - - - - - False True
+       Sanskrit compound, possible
+411: k l a r k [a] - - - - - True False
+       English
+413: - - p e c [a] k a s a - True False
+       Perso-Arabic compound
+417: - - v i t [a] r i t a - False True
+       Sanskrit compound
+427: - - v i c [a] l i t a - False True
+       Sanskrit compound
+430: - - sh a m [a] sh aa n a - False True
+       Sanskrit compound, spelling variant
+462: - - - u rr [a] n a sh ii l False True
+       Hindi + Sanskrit compound
+485: b a d a n [a] s ii b a - False True
+       Perso-Arabic compound
+521: - - d O l [a] t a m a n False True
+       Perso-Arabic compound
+526: - x u sh k [a] - - - - - True False
+       Perso-Arabic
+542: s ii d ii tt [a] k a tt a - True False
+       Perso-Arabic + English compound
+562: r ii bh a r [a] k a m a - True False
+       Hindi compound
+596: - p a n c [a] m ii - - - True False
+       Sanskrit compound
+607: - - j a h [a] n n u m a False True
+       Perso-Arabic
+652: - - p u n [a] r aa v r i False True
+       Sanskrit compound
+705: - kh i n n [a] - - - - - False True
+709: - d r i rrh [a] t aa p uu r False True
+723: - - a r dh [a] k u sh a l True False
+737: - - - a s [a] m aa n a - False True
+757: - - c a r [a] n a s p a False True
+803: o b a s t [a] - - - - - True False
+814: n a m a k [a] h a l aa l True False
+825: - - tt a r [a] tt a r aa n True False
+839: - - dd e y [a] r ii - - - True False
+842: l uu tt a kh [a] s o tt a - False True
+856: t a n aa t [a] n ii - - - False True
+860: r i c a y [a] p a t r a True False
+883: - - n i y [a] m aa v a l False True
+894: - - n i r [a] p a r aa dh False True
+996: - l aa u dd [a] s p ii k a True False
+1013: u p aa c y [a] - - - - - False True
+1056: sh tt r ii y [a] - - - - - False True
+1081: - - m a z [a] h a b a - True False
+1084: - m a r t [a] b aa n a - True False
+1102: s a n a s [a] n ii - - - False True
+1123: - p a n c [a] r a t n a True False
+1146: - - aa t m [a] s a n t o True False
+1170: - - n ii l [a] k a n tth a True False
+1212: - - r u p [a] y aa - - - False True
+1213: - - h aa l [a] t a - - - False True
+1245: a d a r d [a] - - - - - True False
+1282: - - j a g [a] t - - - - False True
+1293: dd a g a m [a] g aa n aa - False True
+1303: - - g a p [a] sh a p a - True False
+1311: - - n i r [a] s t r ii k False True
+1339: - - b aa y [a] l a r a - True False
+1361: - - s a t [a] h ii - - - False True
+1375: - - aa t m [a] v i sh v aa True False
+1390: - - bh uu kh [a] h a rr a t True False
+1400: a p uu r v [a] - - - - - True False
+1410: - - n a v [a] r a t n a True False
+1485: s a n a h [a] s a - - - True False
+1494: - - - o rrh [a] n ii - - - True False
+1499: - - - a v [a] n a t i - True False
+1503: - - - a n [a] b y aa h aa True False
+1544: - b i m b [a] - - - - - False True
+1565: s a d aa b [a] h aa r a - False True
+1590: - - - a p [a] h a r a n True False
+1606: e v a q t [a] - - - - - False True
+1608: c a r a p [a] r aa - - - False True
+1648: - - v i n [a] m r a t aa False True
+1655: - - c i rrh [a] - - - - - False True
+1694: - - p E r [a] v ii - - - False True
+1712: - - sh a r [a] b a t a - True False
+1719: - - n i r [a] p e k sh a False True
+1726: a p e k sh [a] - - - - - False True
+1728: - - r a h [a] n a s a h False True
+1756: - dh aa n y [a] - - - - - False True
+1763: - - ddh aa rr [a] s a - - - False True
+1801: - v aa r dd [a] - - - - - True False
+1819: q a h a q [a] h aa - - - False True
+1888: - - b a k [a] l a s a - True False
+1895: - - a r dh [a] s a r a k True False
+1901: a r g ii y [a] - - - - - False True
+1956: - - j ii v [a] n a m a r False True
+1993: - - g o r [a] kh a dh a n False True
+2047: - - - - E [a] - - - - - True False
+2052: a n m a y [a] t aa - - - True False
+2070: - - j ii v [a] n a b ii m False True
+2084: - - n aa p [a] s a n d a False True
+2101: - - p O dh [a] gh a r a - True False
+2116: - - m a sh [a] h uu r a - False True
+2149: - m u ~ h [a] a ~ dh e r False True
+2185: sh a x a b [a] r ii - - - True False
+2205: - - p u n [a] r u j j ii False True
+2237: s a k a p [a] k aa n aa - False True
+2246: - kh a ~ dd [a] h a r a - True False
+2263: - - - - - [a] - - - - - True False
+2284: m a sh ii n [a] r ii - - - True False
+2306: i sh r aa m [a] g r i h a True False
+2330: b a d a t [a] m ii z ii - False True
+2351: - - g a m [a] n aa g a m False True
+2358: th a p a th [a] p aa n aa - False True
+2392: a g a n y [a] - - - - - False True
+2410: - - n a v [a] r a s a - True False
+2417: - - m a t [a] l a b ii - True False
+2432: aa t m a k [a] th aa - - - False True
+2437: p a r i sh [a] d - - - - False True
+2440: - - t aa q [a] t a v a r False True
+2442: - k a sh tt [a] - - - - - False True
+2451: c ch i n n [a] - - - - - False True
+2454: - s a r d [a] - - - - - True False
+2464: - - c i p [a] k a n e v False True
+2468: - j a n t [a] r ii - - - True False
+2472: l a h a l [a] h aa n aa - False True
+2477: g aa n aa b [a] j aa n aa - False True
+2517: k r i sh tt [a] - - - - - True False
+2519: uu n i s tt [a] - - - - - True False
+2531: v a c a n [a] b a d dh a True False
+2585: - l a tt tth [a] - - - - - False True
+2587: - uu l a j [a] l uu l a - False True
+2613: - g u p t [a] c a r a - True False
+2625: c a m a c [a] m aa n aa - False True
+2629: - - - a s [a] ph a l a - False True
+2657: - - - aa y [a] k a r a - True False
+2661: aa g y a v [a] t ii - - - False True
+2663: - m u l k [a] - - - - - False True
+2664: - k u m h [a] l aa n aa - True False
+2673: - - t a rr [a] p a - - - False True
+2682: aa s t u k [a] l aa - - - False True
+2718: - b a r f [a] - - - - - True False
+2727: - - s a h [a] s r aa b d False True
+2737: m e h a n [a] t ii - - - False True
+2773: - m a n dd [a] l ii - - - True False
+2790: r aa s aa y [a] n i k a - True False
+2799: - - c a rrh [a] n aa - - - False True
+Logistic regression: 0.9481902058197303
+0.9525179856115108

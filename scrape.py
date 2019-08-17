@@ -4,6 +4,7 @@
 from bs4 import BeautifulSoup
 import urllib.request
 import unicodedata
+from transliterate import nasal_assim
 
 def strip_accents(s):
    return ''.join(c for c in unicodedata.normalize('NFD', s)
@@ -11,24 +12,26 @@ def strip_accents(s):
 
 conv = {
     'k': 'k', 'kh': 'kh', 'g': 'g', 'gh': 'gh', 'ṅ': 'ng',
-    'ch': 'c', 'chh': 'ch', 'j': 'j', 'jh': 'jh', 'ñ': 'n',
+    'c': 'c', 'ch': 'ch', 'j': 'j', 'jh': 'jh', 'ñ': 'n',
     'ṭ': 'tt', 'ṭh': 'tth', 'ḍ': 'dd', 'ḍh': 'ddh', 'ṇ': 'n',
     't': 't', 'th': 'th', 'd': 'd', 'dh': 'dh', 'n': 'n',
     'p': 'p', 'ph': 'ph', 'b': 'b', 'bh': 'bh', 'm': 'm',
     'y': 'y', 'r': 'r', 'l' : 'l', 'v': 'v', 'w': 'v',
-    'sh': 'sh', 'ṣ': 'sh', 's': 's', 'h': 'h',
+    'sh': 'sh', 'ṣ': 'sh', 's': 's', 'h': 'h', 'ś': 'sh',
 
-    'q': 'q', 'ḵẖ': 'x', 'G': 'Gh', 'f': 'f', 'z': 'z',
+    'q': 'q', 'ḵẖ': 'x', 'G': 'Gh', 'f': 'f', 'z': 'z', 'Kh': 'x',
 
     'ṛ': 'rr', 'ṛh': 'rrh',
 
-    'a': 'a', 'ā': 'aa',
-    'i': 'i', 'ī': 'ii',
-    'u': 'u', 'ū': 'uu',
-    'e': 'e', 'āī': 'E',
-    'o': 'o', 'āū': 'O',
+    'a': 'a', 'ā': 'aa', 'â': 'aa',
+    'i': 'i', 'ī': 'ii', 'î': 'ii', 'ï': 'i',
+    'u': 'u', 'ū': 'uu', 'û': 'uu', 'ü': 'u',
+    'e': 'e', 'ai': 'E', 'ê': 'e',
+    'o': 'o', 'au': 'O', 'ô': 'o',
+    'ă': '@',
 
-    '·': '', '-': '', '~': '~'
+    '·': '', '-': '-', '~': '~', 'ḥ': 'h',
+    '̥': 'i', 'ʾ': '', '+': '-',
 }
 
 conv_wikt = {
@@ -41,7 +44,7 @@ conv_wikt = {
     'ś': 'sh', 'ṣ': 'sh', 's': 's', 'h': 'h',
 
     'q': 'q', 'x': 'x', 'ġ': 'Gh', 'f': 'f', 'z': 'z', 'ž': 'Zh',
-    'ḥ': 'h',
+    'ḥ': 'h', 'ś': 'sh',
 
     'ṛ': 'rr', 'ṛh': 'rrh',
 
@@ -52,32 +55,27 @@ conv_wikt = {
     'o': 'o', 'au': 'O',
     'ŏ': 'O',
 
-    '·': '', '-': '', '~': '~'
+    '·': '', '~': '~',
 }
 
-def bahri():
-    PAGES = 708
+def scrape(dic, PAGES):
     with open("hi_pron.csv", "a") as fout:
         for page in range(1, PAGES + 1):
             print(page)
-            link = "https://dsalsrv04.uchicago.edu/cgi-bin/app/bahri_query.py?page=" + str(page)
+            link = "https://dsalsrv04.uchicago.edu/cgi-bin/app/" + dic + "_query.py?page=" + str(page)
             with urllib.request.urlopen(link) as resp:
                 soup = BeautifulSoup(resp, 'html.parser')
                 for s in soup.find_all("hw"):
                     s.extract()
-                    word = str(s.find('head'))[6:-7]
-                    pron = ""
-                    for char in str(s.find('tn'))[4:-5]:
-                        if 'TILDE' in unicodedata.name(char):
-                            pron += strip_accents(char) + '~'
-                        else:
-                            pron += char
-
+                    word = str(s.find('deva'))[6:-7]
+                    pron = str(s.find('tran'))[6:-7]
+                    pron.replace('jñ', 'gy')
 
                     res = []
                     i = 0
                     l = len(pron)
                     work = True
+                    n = []
                     while i != l:
                         for j in range(min(l - 1, i + 1), i - 1, -1):
                             if pron[i:j + 1] in conv:
@@ -85,11 +83,23 @@ def bahri():
                                 i = j + 1
                                 break
                         else:
-                            print('Error normalizing', word, pron, 'char', pron[i])
-                            work = False
-                            break
+                            if pron[i] == 'ṁ' or pron[i] == 'ṃ':
+                                res.append('~')
+                                if i != l - 1:
+                                    n.append(len(res) - 1)
+                                i += 1
+                            else:
+                                print('Error normalizing', word, pron, 'char', pron[i])
+                                work = False
+                                break
 
-                    if work: fout.write(word + ', ' + ' '.join(res) + '\n')
+                    if work:
+                        for pos in n:
+                            if res[pos + 1] in nasal_assim:
+                                res[pos] = nasal_assim[res[pos + 1]]
+                            elif pos + 2 < len(res) and res[pos + 2] in nasal_assim:
+                                res[pos] = nasal_assim[res[pos + 2]]
+                        fout.write(word + ', ' + ' '.join(res) + '\n')
 
 def wiktionary_transliterate(pron):
     pron = pron.replace('ŕ', 'ri')
@@ -115,4 +125,4 @@ def wiktionary_transliterate(pron):
     return res
 
 if __name__ == "__main__":
-    bahri()
+    scrape("mcgregor", 1082)

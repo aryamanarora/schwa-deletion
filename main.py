@@ -7,6 +7,7 @@ from sklearn.linear_model import LogisticRegression, SGDClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
+from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score, recall_score, f1_score
 
 UNK_CHAR = '🆒'
@@ -18,10 +19,10 @@ def main(input_filename, left=4, right=4):
     # with the actual phonetic transliteration (schwa dropping) to created training/test data
     schwa_instances = []
     for _, row in data.iterrows():
-        # print(chr(27) + '[2J')
-        # print('Processing row', _)
+        print(chr(27) + '[2J')
+        print('Processing row', _)
         try:
-            schwa_instances += [[tr.narrow_categorize(row.hindi), schwa_instance[1], schwa_instance[0]]
+            schwa_instances += [[tr.transliterate(row.hindi), schwa_instance[1], schwa_instance[0]]
                 for schwa_instance in tr.force_align(tr.transliterate(row.hindi), str(row.phon))]
         except Exception as e:
             # print(e)
@@ -46,7 +47,10 @@ def main(input_filename, left=4, right=4):
 
     X = pd.DataFrame(transformed_instances,
         columns=['s' + str(i) for i in list(range(-left, 0)) + list(range(1, right + 1))])
+    X_old = X
     X = pd.get_dummies(X)
+
+    print(y.count(True), y.count(False))
 
     # 20% is the final test data, 20% is for development
     X_train, X_test, y_train, y_test = train_test_split(
@@ -55,16 +59,24 @@ def main(input_filename, left=4, right=4):
     X_dev, y_dev = X_test[:len(X_test) // 2], y_test[:len(y_test) // 2]
     X_test, y_test = X_test[len(X_test) // 2:], y_test[len(y_test) // 2:]
 
-    # model = LogisticRegression(solver='liblinear', max_iter=1000)
-    model = MLPClassifier(max_iter=1000)
-    model.fit(X_train, y_train)
-    y_pred = model.predict(X_dev)
+    # model = LogisticRegression(solver='liblinear', max_iter=1000, verbose=True)
+    # model = MLPClassifier(max_iter=1000,  learning_rate_init=1e-4, hidden_layer_sizes=(250,), verbose=True)
+    for i in range(100, 550, 50):
+        model = XGBClassifier(verbosity=1, max_depth=10, n_estimators=i)
+        model.fit(X_train, y_train)
+        y_pred = model.predict(X_dev)
+
+        print(i, "estimators:", accuracy_score(y_pred, y_dev), recall_score(y_pred, y_dev))
+
+    # print(X_dev)
+    # print incorrect predictions
+    # for i, row in np.ndenumerate(y_pred):
+    #     if y_pred[i[0]] != y_dev[i[0]]:
+    #         dat = X_old.iloc[X_dev.iloc[i[0]].name].to_list()
+    #         print(str(i[0]) + ':', ' '.join(dat[:left]) + ' [a] ' + ' '.join(dat[left:]), y_pred[i[0]], y_dev[i[0]])
     
     # for i in zip(transformed_instances, y_pred, y_test):
     #     print(i)
-
-    print('Logistic regression:', accuracy_score(y_pred, y_dev))
-    print(recall_score(y_pred, y_dev))
 
 # compare wiktionary transliterations with actual
 def compare_wiktionary():
@@ -79,5 +91,5 @@ def compare_wiktionary():
             print(w, x)
 
 if __name__ == '__main__':
-    for i in range(1, 11):
-        main('data/small.csv', i, i)
+    main('data/small.csv', 5, 5)
+    input()

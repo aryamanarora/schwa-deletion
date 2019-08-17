@@ -5,6 +5,9 @@
 NUQTA = '़'
 VIRAMA = '्'
 
+# miscellaneous
+UNK_CHAR = '🆒'
+
 # keys for transliteration, mapping Devanagari to Latin
 # TODO: figure out how to transliterate the rare nasal consonants
 con = {
@@ -106,6 +109,16 @@ phonological_features = {
     'sh': ['voiceless', 'unaspirated', 'palatal', 'sibilant fricative'],
     's': ['voiceless', 'unaspirated', 'dental', 'sibilant fricative'],
     'h': ['voiced', 'aspirated', 'glottal', 'non-sibilant fricative'],
+    '~': ['voiceless', 'unaspirated', 'nasal'],
+    'z': ['voiced', 'unaspirated', 'dental', 'sibilant fricative'],
+    'f': ['voiced', 'unaspirated', 'bilabial', 'non-sibilant fricative'],
+    'rr': ['voiced', 'unaspirated', 'retroflex', 'flap'],
+    'rrh': ['voiced', 'aspirated', 'retroflex', 'flap'],
+    'Zh': ['voiced', 'unaspirated', 'dental', 'sibilant fricative'],
+    'q': ['voiceless', 'unaspirated', 'uvular', 'stop'],
+    'x': ['voiceless', 'unaspirated', 'velar', 'non-sibilant fricative'],
+    'Gh': ['voiced', 'unaspirated', 'velar', 'non-sibilant fricative'],
+    UNK_CHAR: []
 }
 
 def transliterate(word):
