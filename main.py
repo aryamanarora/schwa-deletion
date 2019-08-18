@@ -24,7 +24,7 @@ def main(input_filename, left=4, right=4):
         try:
             # schwa_instances += [[tr.transliterate(row.hindi), schwa_instance[1], schwa_instance[0]]
             #     for schwa_instance in tr.force_align(tr.transliterate(row.hindi), str(row.phon))]
-            schwa_instances += [[tr.transliterate(row.hindi), schwa_instance[1], schwa_instances[0]]
+            schwa_instances += [[tr.transliterate(row.hindi), schwa_instance[1], schwa_instance[0]]
                     for schwa_instance in tr.force_align_weak(tr.transliterate(row.hindi), str(row.phon))]
         except Exception as e:
             print(e)

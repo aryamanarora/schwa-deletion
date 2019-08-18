@@ -1,15 +1,15 @@
 hindi,phon
 अ, a
-अंक, a ng k
-अंकक, a ng k a k
+अंक, a ~ k
+अंकक, a ~ k a k
 अँकड़ना, a ~ k a rr n aa
 अँकड़ा, a ~ k rr aa
 अँकड़ाना, a ~ k rr aa n aa
 अँकड़ाहट, a ~ k rr aa h a tt
 अँकड़ी, a ~ k rr ii
-अंकन, a ng k a n
+अंकन, a ~ k a n
 अँकना, a ~ k n aa
-अंकनीय, a ng k @ n ii y @
+अंकनीय, a ~ k @ n ii y @
 अँकरी, a ~ k r ii
 अँकरौरी, a ~ k r O r ii
 अँकवाना, a ~ k v aa n aa
@@ -18,17 +18,17 @@ hindi,phon
 अँकाई, a ~ k aa ii
 अँकाना, a ~ k aa n aa
 अँकाव, a ~ k aa v
-अंकित, a ng k i t
+अंकित, a ~ k i t
 अँकुड़ा, a ~ k u rr aa
-अंकुर, a ng k u r
-अंकुरक, a ng k u r a k
-अंकुरण, a ng k u r a n
+अंकुर, a ~ k u r
+अंकुरक, a ~ k u r a k
+अंकुरण, a ~ k u r a n
 अँकुरना, a ~ k u r n aa
-अंकुरित, a ng k u r i t
-अंकुश, a ng k u sh
+अंकुरित, a ~ k u r i t
+अंकुश, a ~ k u sh
 अँकुसी, a ~ k u s ii
-अंकेक्षक, a ng k e k sh a k
-अंकेक्षण, a ng k e k sh a n
+अंकेक्षक, a ~ k e k sh a k
+अंकेक्षण, a ~ k e k sh a n
 अँकोड़ा, a ~ k o rr aa
 अँकोर, a ~ k o r
 अँकोरना, a ~ k o r n aa
@@ -254,10 +254,10 @@ hindi,phon
 अकर्मा, a - k a r m aa
 अकर्मी, a - k a r m ii
 अक़ल, a q l
-अकलंक, a - k a l a ng k
-अकलंकता, a - k a l a ng k @ t aa
-अकलंकित, a - k a l a ng k i t
-अकलंकी, a - k a l a ng k ii
+अकलंक, a - k a l a ~ k
+अकलंकता, a - k a l a ~ k @ t aa
+अकलंकित, a - k a l a ~ k i t
+अकलंकी, a - k a l a ~ k ii
 अकल-, a k a l -
 अकल्पनीय, a - k a l p @ n ii y @
 अकल्पित, a - k a l p i t
@@ -1088,7 +1088,7 @@ hindi,phon
 अनसूय, a n - a s uu y a
 अनसोच, a n - s o c
 अनसोचा, a n - s o c aa
-अनहंकार, a n - a h a ng k aa r
+अनहंकार, a n - a h a ~ k aa r
 अनहित, a n - h i t
 अनहितू, a n h i t uu
 अनहोता, a n - h o t aa
@@ -1416,7 +1416,7 @@ hindi,phon
 अपक, a - p a k
 अपकर्म, a p @ - k a r m
 अपकर्ष, a p @ - k a r sh
-अपकलंक, a p @ - k a l a ng k
+अपकलंक, a p @ - k a l a ~ k
 अपकार, a p @ - k aa r
 अपकारक, a p @ - k aa r a k
 अपकारिता, a p @ - k aa r i t aa
@@ -2429,8 +2429,8 @@ hindi,phon
 अव्वलन, a v v a l a n
 अव्वलियत, a v v a l i y a t
 अव्वलीन, a v v a l ii n
-अशंक, a - sh a ng k
-अशंकित, a - sh a ng k i t
+अशंक, a - sh a ~ k
+अशंकित, a - sh a ~ k i t
 अशकुन, a - sh a k u n
 अशकुनी, a - sh a k u n ii
 अशक्त, a - sh a k t
@@ -2811,10 +2811,10 @@ hindi,phon
 आकस्मिक, aa k a s m i k
 आकस्मिकता, aa k a s m i k @ t aa
 आकस्मिकी, aa k a s m i k ii
-आकांक्षक, aa - k aa ng k sh a k
-आकांक्षा, aa - k aa ng k sh aa
-आकांक्षित, aa - k aa ng k sh i t
-आकांक्षी, aa - k aa ng k sh ii
+आकांक्षक, aa - k aa ~ k sh a k
+आकांक्षा, aa - k aa ~ k sh aa
+आकांक्षित, aa - k aa ~ k sh i t
+आकांक्षी, aa - k aa ~ k sh ii
 आक़बत, aa q a b a t
 आक़ा, aa q aa
 आकार, aa - k aa r
@@ -2962,8 +2962,8 @@ hindi,phon
 आढ़े, aa rrh e
 आढय, aa ddh y @
 आणविक, aa n @ v i k
-आतंक, aa - t a ng k
-आतंकित, aa - t a ng k i t
+आतंक, aa - t a ~ k
+आतंकित, aa - t a ~ k i t
 आत, aa t
 -आत्, - aa t
 आततायी, aa - t @ t aa y ii
@@ -3371,9 +3371,9 @@ hindi,phon
 आवेदन, aa - v e d a n
 आवेश, aa - v e sh
 आशंसा, aa - sh a n s aa
-आशंकनीय, aa - sh a ng k @ n ii y @
-आशंका, aa - sh a ng k aa
-आशंकित, aa - sh a ng k i t
+आशंकनीय, aa - sh a ~ k @ n ii y @
+आशंका, aa - sh a ~ k aa
+आशंकित, aa - sh a ~ k i t
 आशना, aa sh n aa
 आशनाई, aa sh n aa ii
 आशय, aa - sh a y
@@ -3944,7 +3944,7 @@ hindi,phon
 उच्छिन्न, u c - ch i n n
 उच्छिष्ट, u c - ch i sh tt
 उच्छू, u c ch uu
-उच्छृंखलता, u c - ch r i ng kh a l @ t aa
+उच्छृंखलता, u c - ch r i ~ kh a l @ t aa
 उच्छेदन, u c - ch e d a n
 उच्छ्वास, u c - ch v aa s
 उछंग, u ch a ng g
@@ -5034,20 +5034,20 @@ hindi,phon
 औसुच, O s u c
 औसेर, O s e r
 क, k a
-कंक, k a ng k
-कंकड़, k a ng k a rr
-कंकडी़, k a ng k @ rr ii
+कंक, k a ~ k
+कंकड़, k a ~ k a rr
+कंकडी़, k a ~ k @ rr ii
 कँकडी़ला, k a ~ k rr ii l aa
 कँकडी़लापन, k a ~ k rr ii l aa p a n
-कंकण, k a ng k a n
-कंकर, k a ng k a r
-कंकरा, k a ng k r aa
-कंकरीट, k a ng k r ii tt
+कंकण, k a ~ k a n
+कंकर, k a ~ k a r
+कंकरा, k a ~ k r aa
+कंकरीट, k a ~ k r ii tt
 कँकरीला, k a ~ k r ii l aa
-कंकरोल, k a ng k r o l
-कंकल, k a ng k a l
-कंकालिन, k a ng k aa l i n
-कंकालिनी, k a ng k aa l i n ii
+कंकरोल, k a ~ k r o l
+कंकल, k a ~ k a l
+कंकालिन, k a ~ k aa l i n
+कंकालिनी, k a ~ k aa l i n ii
 कंगन, k a ng g a n
 कँगना, k a ng g n aa
 कँगनी, k a ng g n ii
@@ -5646,7 +5646,7 @@ hindi,phon
 क़याम, q a y aa m
 क़यामत, q a y aa m a t
 क़यास, q a y aa s
-करंक, k a r a ng k
+करंक, k a r a ~ k
 करंग, k a r a ng g
 करंजवा, k a r a n v aa
 करंजा, k a r a n aa
@@ -5832,9 +5832,9 @@ hindi,phon
 कर्षक, k a r sh a k
 कर्षण, k a r sh a n
 कर्षी, k a r sh ii
-कलंक, k a l a ng k
-कलंकित, k a l a ng k i t
-कलंकी, k a l a ng k ii
+कलंक, k a l a ~ k
+कलंकित, k a l a ~ k i t
+कलंकी, k a l a ~ k ii
 कलंगी, k a l a ng g ii
 क़लंदर, q a l a n d a r
 क़लंदरी, q a l a n d a r ii
@@ -6105,9 +6105,9 @@ hindi,phon
 काँइया, k aa ~ i y aa
 काँकड़ी, k aa ~ k rr ii
 काँ-काँ, k aa ~ - k aa ~
-कांक्षा, k aa ng k sh aa
-कांक्षित, k aa ng k sh i t
-कांक्षी, k aa ng k sh ii
+कांक्षा, k aa ~ k sh aa
+कांक्षित, k aa ~ k sh i t
+कांक्षी, k aa ~ k sh ii
 काँख, k aa ~ kh
 काँखना, k aa ~ kh n aa
 काँखा, k aa ~ kh aa
@@ -6370,7 +6370,7 @@ hindi,phon
 किंकर, k i ~ - k a r
 किंकरता, k i ~ k a r @ t aa
 किंकर्ततत्वयविमूढ़, k i ~ k a r t @ t a v y a v i m uu rrh
-किंकिणी, k i ng k i n ii
+किंकिणी, k i ~ k i n ii
 किंगरी, k i ng g r ii
 किंचित्, k i n c i t
 किंजल्क, k i n a l k
@@ -6545,8 +6545,8 @@ hindi,phon
 कीश, k ii sh
 कुं, k u ~
 कुँकुआना, k u ~ k u aa n aa
-कुंकुम, k u ng k u m
-कुंकुमा, k u ng k u m aa
+कुंकुम, k u ~ k u m
+कुंकुमा, k u ~ k u m aa
 कुंचित, k u n c i t
 कुंज, k u n
 कुँजड़न, k u n j rr a n
@@ -6892,7 +6892,7 @@ hindi,phon
 कुष्ठ, k u sh tth
 कुष्ठित, k u sh tth i t
 कुष्मांड, k u sh m aa n dd
-कुसंकट, k u - s a ng k a tt
+कुसंकट, k u - s a ~ k a tt
 कुसंग, k u - s a ng g
 कुसंगत, k u - s a ng g a t
 कुसंगति, k u - s a ng g a t i
@@ -7458,8 +7458,8 @@ hindi,phon
 खट्ट, kh a tt tt uu
 खड्ग, kh a dd g @
 खड़, kh a rr
-खड़ंक, kh a rr a ng k
-खड़ंख, kh a rr a ng kh
+खड़ंक, kh a rr a ~ k
+खड़ंख, kh a rr a ~ kh
 खड़ंजा, kh a rr a n aa
 खड़क, kh a rr a k
 खड़क, kh a rr a k
@@ -12719,14 +12719,14 @@ hindi,phon
 झौना, jh O n aa
 झौवा, jh O v aa
 ट, tt a
-टंकी, tt a ng k ii
-टंकी, tt a ng k ii
-टंकक, tt a ng k a k
-टंकण, tt a ng k a n
+टंकी, tt a ~ k ii
+टंकी, tt a ~ k ii
+टंकक, tt a ~ k a k
+टंकण, tt a ~ k a n
 टँकना, tt a ~ k n aa
-टंका, tt a ng k aa
+टंका, tt a ~ k aa
 टँकाना, tt a ~ k aa n aa
-टंकार, tt a ng k aa r
+टंकार, tt a ~ k aa r
 टँकारना, tt a ~ k aa r n aa
 टँकोर, tt a ~ k o r
 टँगड़ी, tt a ng g rr ii
@@ -13260,8 +13260,8 @@ hindi,phon
 ठोसाई, tth o s aa ii
 ठौर, tth O r
 ड, dd a
-डंक, dd a ng k
-डंका, dd a ng k aa
+डंक, dd a ~ k
+डंका, dd a ~ k aa
 डँकिनी, dd a ~ k i n ii
 डँकियाना, dd a ~ k i y aa n aa
 डँकिला, dd a ~ k ii l aa
@@ -13307,7 +13307,7 @@ hindi,phon
 डपट, dd a p a tt
 डपटना, dd a p a tt n aa
 डपटाना, dd a p tt aa n aa
-डपोर-संख, dd a p o r - s a ng kh
+डपोर-संख, dd a p o r - s a ~ kh
 डप्पू, dd a p p uu
 डफ, dd a ph
 डफला, dd a ph l aa
@@ -14328,7 +14328,7 @@ hindi,phon
 ताजी़म, t aa z ii m
 ताजी़रात, t aa z ii r aa t
 ताज्जुब, t aa j j u b
-ताट़क, t aa tt a ng k
+ताट़क, t aa tt a ~ k
 ताड़, t aa rr
 ताड़, t aa rr
 ताड़क, t aa rr a k
@@ -17531,7 +17531,7 @@ hindi,phon
 निंबू, n i m b uu
 निंबोली, n i m b o l ii
 निः-, n i h -
-निःशंक, n i h - sh a ng k
+निःशंक, n i h - sh a ~ k
 निःशक्त, n i h - sh a k t
 निःशब्द, n i h - sh a b d
 निःशस्त्र, n i h - sh a s t r @
@@ -17540,8 +17540,8 @@ hindi,phon
 निःशून्य, n i h - sh uu n y @
 निःशेष, n i h - sh e sh
 निःश्वास, n i h - sh v aa s
-निःसंकोच, n i h - s a ng k o c
-निःसंख्य, n i h - s a ng kh y @
+निःसंकोच, n i h - s a ~ k o c
+निःसंख्य, n i h - s a ~ kh y @
 निःसंग, n i h - s a ng g
 निःसंदेह, n i h - s a n d e h
 निःसंधि, n i h - s a n dh i
@@ -17854,9 +17854,9 @@ hindi,phon
 नियोज्य, n i - y o j y @
 नियोद्धा, n i - y o d dh aa
 निर्-, n i r -
-निरंकार, n i r - a ng k aa r
-निरंकुश, n i r - a ng k u sh
-निरंकुशता, n i r - a ng k u sh @ t aa
+निरंकार, n i r - a ~ k aa r
+निरंकुश, n i r - a ~ k u sh
+निरंकुशता, n i r - a ~ k u sh @ t aa
 निरंजन, n i r - a n a n
 निरंतर, n i r - a n t a r
 निरंध, n i r - a n dh
@@ -17901,14 +17901,14 @@ hindi,phon
 निरसा, n i r a s aa
 निरस्त, n i r - a s t
 निरस्त्र, n i r - a s t r @
-निरहंकार, n i r - a h a ng k aa r
+निरहंकार, n i r - a h a ~ k aa r
 निरा, n i r aa
 निरा-, n i r aa -
 निराई, n i r aa ii
 निराकरण, n i r - aa - k a r a n
-निराकांक्ष, n i r - aa - k aa ng k sh
-निराकांक्षा, n i r - aa - k aa ng k sh aa
-निराकांक्षी, n i r - aa - k aa ng k sh ii
+निराकांक्ष, n i r - aa - k aa ~ k sh
+निराकांक्षा, n i r - aa - k aa ~ k sh aa
+निराकांक्षी, n i r - aa - k aa ~ k sh ii
 निराकार, n i r - aa - k aa r
 निराकृत, n i r - aa - k r i t
 निराकृति, n i r - aa - k r i t i
@@ -18206,9 +18206,9 @@ hindi,phon
 निष्कपटी, n i sh - k a p @ tt ii
 निष्कर, n i sh - k a r
 निष्कर्ष, n i sh - k a r sh
-निष्कलंक, n i sh - k a l a ng k
-निष्कलंकित, n i sh - k a l a ng k i t
-निष्कलंकी, n i sh - k a l a ng k ii
+निष्कलंक, n i sh - k a l a ~ k
+निष्कलंकित, n i sh - k a l a ~ k i t
+निष्कलंकी, n i sh - k a l a ~ k ii
 निष्काम, n i sh - k aa m
 निष्कारण, n i sh - k aa r a n
 निष्कास, n i sh - k aa s
@@ -18579,22 +18579,22 @@ hindi,phon
 न्हाठ, n h aa tth
 न्हाठ-, n h aa tth -
 प, p a
-पंक, p a ng k
-पंकचर, p a ng k c a r
-पंका, p a ng k aa
-पंकार, p a ng k aa r
-पंकिल, p a ng k i l
-पंकीला, p a ng k ii l aa
-पंकेरुह, p a ng k e r u h
-पंकेला, p a ng k e l aa
-पंक्ति, p a ng k t i
-पंख, p a ng kh
+पंक, p a ~ k
+पंकचर, p a ~ k c a r
+पंका, p a ~ k aa
+पंकार, p a ~ k aa r
+पंकिल, p a ~ k i l
+पंकीला, p a ~ k ii l aa
+पंकेरुह, p a ~ k e r u h
+पंकेला, p a ~ k e l aa
+पंक्ति, p a ~ k t i
+पंख, p a ~ kh
 पँखड़ी, p a ~ kh rr ii
-पंखा, p a ng kh aa
-पंखिया, p a ng kh i y aa
-पंखी, p a ng kh ii
-पंखी, p a ng kh ii
-पंखी, p a ng kh ii
+पंखा, p a ~ kh aa
+पंखिया, p a ~ kh i y aa
+पंखी, p a ~ kh ii
+पंखी, p a ~ kh ii
+पंखी, p a ~ kh ii
 पंग, p a ng g
 पंगत, p a ng g a t
 पंगा, p a ng g aa
@@ -19383,7 +19383,7 @@ hindi,phon
 परिवेष्टित, p a r i - v e sh tt i t
 परिव्यय, p a r i - v y a y
 परिव्राजक, p a r i - v r aa j a k
-परिशंकनीय, p a r i - sh a ng k @ n ii y @
+परिशंकनीय, p a r i - sh a ~ k @ n ii y @
 परिशाप, p a r i - sh aa p
 परिशिष्ट, p a r i - sh i sh tt
 परिशुद्ध, p a r i - sh u d dh
@@ -19460,7 +19460,7 @@ hindi,phon
 पर्ण, p a r n
 पर्णी, p a r n ii
 पर्पटी, p a r p a tt ii
-पर्यंक, p a r y - a ng k
+पर्यंक, p a r y - a ~ k
 पर्यंत, p a r y - a n t
 पर्यटक, p a r y - a tt a k
 पर्यटन, p a r y - a tt a n
@@ -19882,7 +19882,7 @@ hindi,phon
 पारायण, p aa r aa y a n
 पारायनिक, p aa r aa y a n i k
 पारावत, p aa r aa v a t
-पारिकांक्षी, p aa r i k aa ng k sh ii
+पारिकांक्षी, p aa r i k aa ~ k sh ii
 पारिजात, p aa r i j aa t
 पारिणाय, p aa r i n aa y
 पारिणाय्य, p aa r i n aa y y @
@@ -19906,7 +19906,7 @@ hindi,phon
 पार्श्व, p aa r sh v @
 पार्श्विक, p aa r sh v i k
 पार्षद, p aa r sh a d
-पालंक, p aa l a ng k
+पालंक, p aa l a ~ k
 पाल, p aa l
 पाल, p aa l
 पाल, p aa l
@@ -21078,7 +21078,7 @@ hindi,phon
 प्रतिविधि, p r a t i - v i - dh i
 प्रतिवेदन, p r a t i - v e d a n
 प्रतिवेदित, p r a t i - v e d i t
-प्रतिशंका, p r a t i - sh a ng k aa
+प्रतिशंका, p r a t i - sh a ~ k aa
 प्रतिशत, p r a t i - sh a t
 प्रतिशतता, p r a t i - sh a t @ t aa
 प्रतिशब्द, p r a t i - sh a b d
@@ -21299,7 +21299,7 @@ hindi,phon
 प्रलंब, p r a - l a m b
 प्रलंबन, p r a - l a m b a n
 प्रलय, p r a - l a y
-प्रलयंकर, p r a - l a y a ng k a r
+प्रलयंकर, p r a - l a y a ~ k a r
 प्रलाप, p r a - l aa p
 प्रलापक, p r a - l aa p a k
 प्रलापी, p r a - l aa p ii
@@ -21607,7 +21607,7 @@ hindi,phon
 प्लीहा, p l ii h aa
 प्लुत, p l u t
 फ, ph a
-फंका, ph a ng k aa
+फंका, ph a ~ k aa
 फँकाना, ph a ~ k aa n aa
 फँकी, ph a ~ k ii
 फंगा, ph a ng g aa
@@ -22153,7 +22153,7 @@ hindi,phon
 फ़ैसला, f E s l aa
 फोंक, ph o ~ k
 फोंका, ph o ~ k aa
-फोंका, ph o ng k aa
+फोंका, ph o ~ k aa
 फोंफी, ph o m ph ii
 फोक, ph o k
 फोक, ph o k
@@ -22178,10 +22178,10 @@ hindi,phon
 फ़्रांसीसी, f r aa n s ii s ii
 फ़्रांसीसी, f r aa n s ii s ii
 ब, b a
-बंक, b a ng k
+बंक, b a ~ k
 बँकाई, b a ~ k aa ii
 बँकारना, b a ~ k aa r n aa
-बंकिम, b a ng k i m
+बंकिम, b a ~ k i m
 बंग, b a ng g
 बंग, b a ng g
 बँग, b a ng g
@@ -24484,7 +24484,7 @@ hindi,phon
 भभर-, bh a bh a r -
 भभूका, bh a bh uu k aa
 भभूत, bh a bh uu t
-भयंकर, bh a y a ng k a r
+भयंकर, bh a y a ~ k a r
 भय, bh a y
 भयानक, bh a y aa n a k
 भयावन, bh a y aa v a n
@@ -25557,7 +25557,7 @@ hindi,phon
 ममिया, m a m i y aa
 ममेरा, m a m e r aa
 ममोला, m a m o l aa
-मयंक, m a y a ng k
+मयंक, m a y a ~ k
 मय, m a y
 मय, m a y
 -मय, - m a y
@@ -27348,9 +27348,9 @@ hindi,phon
 यौम, y O m
 यौवन, y O v a n
 र, r a
-रंक, r a ng k
-रंकता, r a ng k @ t aa
-रंकिणी, r a ng k i n ii
+रंक, r a ~ k
+रंकता, r a ~ k @ t aa
+रंकिणी, r a ~ k i n ii
 रंग, r a ng g
 रंग, r a ng g
 रंगत, r a ng g a t
@@ -28252,12 +28252,12 @@ hindi,phon
 रौसली, r O s l ii
 रौहिण, r O h i n
 ल, l a
-लंक, l a ng k
-लंका, l a ng k aa
-लंकाई, l a ng k aa ii
-लंकायिका, l a ng k aa y i k aa
-लंकिलाट, l a ng k i l aa tt
-लंकेसर, l a ng k e s a r
+लंक, l a ~ k
+लंका, l a ~ k aa
+लंकाई, l a ~ k aa ii
+लंकायिका, l a ~ k aa y i k aa
+लंकिलाट, l a ~ k i l aa tt
+लंकेसर, l a ~ k e s a r
 लंग, l a ng g
 लंगड़, l a ng g a rr
 लँगड़, l a ng g a rr
@@ -29188,8 +29188,8 @@ hindi,phon
 लौहडा़, l O h rr aa
 ल्हेसना, l h e s n aa
 व, v a
-वंका, v a ng k aa
-वंकिम, v a ng k i m
+वंका, v a ~ k aa
+वंकिम, v a ~ k i m
 वंग, v a ng g
 वंगीय, v a ng g ii y @
 वंचक, v a n c a k
@@ -30075,7 +30075,7 @@ hindi,phon
 विशिख, v i - sh i kh
 विशिष्ट, v i - sh i sh tt
 विशिष्टता, v i - sh i sh tt @ t aa
-विशृंखल, v i - sh r i ng kh a l
+विशृंखल, v i - sh r i ~ kh a l
 विशेष, v i - sh e sh
 विशेषक, v i - sh e sh a k
 विशेषण, v i - sh e sh a n
@@ -30434,13 +30434,13 @@ hindi,phon
 व्रीड़ा, v r ii rr aa
 व्रीड़ित, v r ii rr i t
 श, sh a
-शंकर, sh a ng k a r
-शंकरा, sh a ng k @ r aa
-शंका, sh a ng k aa
-शंकित, sh a ng k i t
-शंकु, sh a ng k u
-शंख, sh a ng kh
-शंखिनी, sh a ng kh i n ii
+शंकर, sh a ~ k a r
+शंकरा, sh a ~ k @ r aa
+शंका, sh a ~ k aa
+शंकित, sh a ~ k i t
+शंकु, sh a ~ k u
+शंख, sh a ~ kh
+शंखिनी, sh a ~ kh i n ii
 शंड, sh a n dd
 शंबुक, sh a m b u k
 शंबूक, sh a m b uu k
@@ -30855,9 +30855,9 @@ hindi,phon
 शूर्पी, sh uu r p ii
 शूल, sh uu l
 शूली, sh uu l ii
-शृंखल, sh r i ng kh a l
-शृंखला, sh r i ng kh @ l aa
-शृखलित, sh r i ng kh @ l i t
+शृंखल, sh r i ~ kh a l
+शृंखला, sh r i ~ kh @ l aa
+शृखलित, sh r i ~ kh @ l i t
 शृंग, sh r i ng g
 शृंगार, sh r i ng g aa r
 शृंगारिक, sh r i ng g aa r i k
@@ -31018,13 +31018,13 @@ hindi,phon
 षष्ठ, sh a sh tth
 षष्ठी, sh a sh tth ii
 स, s a
-शंक-, sh a ng k -
+शंक-, sh a ~ k -
 संकट, s a ng - k a tt
 सँकड़ा, s a ~ k rr aa
 सँकड़ाना, s a ~ k rr aa n aa
 संकर, s a ng - k a r
 संकर्षण, s a ng - k a r sh a n
-संकल, s a ng k a l
+संकल, s a ~ k a l
 संकल, s a ng - k a l
 संकलन, s a ng - k a l a n
 संकलप-, s a ng - k a l p -
@@ -31036,7 +31036,7 @@ hindi,phon
 संकल्पित, s a ng - k a l p i t
 संकाय, s a ng - k aa y
 संकार, s a ng - k aa r
-संकारना, s a ng k aa r n aa
+संकारना, s a ~ k aa r n aa
 संकास, s a ng - k aa s
 संकीर्ण, s a ng - k ii r n
 संकीर्णता, s a ng - k ii r n @ t aa
@@ -31045,7 +31045,7 @@ hindi,phon
 संकुल, s a ng - k u l
 संकुलता, s a ng - k u l @ t aa
 संकुलित, s a ng - k u l i t
-संकुश, s a ng k u sh
+संकुश, s a ~ k u sh
 संकेत, s a ng - k e t
 संकेतन, s a ng - k e t a n
 संकेतित, s a ng - k e t i t
@@ -31066,8 +31066,8 @@ hindi,phon
 संक्षेपक, s a ng - k sh e p a k
 संक्षेपण, s a ng - k sh e p a n
 संक्षोभ, s a ng - k sh o bh
-संखा, s a ng kh aa
-संखिया, s a ng kh i y aa
+संखा, s a ~ kh aa
+संखिया, s a ~ kh i y aa
 संख्या, s a ng - kh y aa
 संख्येय, s a ng - kh y e y @
 संग, s a ng g
@@ -32190,8 +32190,8 @@ hindi,phon
 सवेरा, s a v e r aa
 सवैया, s a v E y aa
 सव्य, s a v y @
-सशंक, s a - sh a ng k
-सशंकित, s a - sh a ng k i t
+सशंक, s a - sh a ~ k
+सशंकित, s a - sh a ~ k i t
 सशक्त, s a - sh a k t
 सशक्तता, s a - sh a k t a t aa
 सशरीर, s a - sh a r ii r
@@ -32306,14 +32306,14 @@ hindi,phon
 साँकरी, s aa ~ k r ii
 साँकल, s aa ~ k a l
 साँका, s aa ~ k aa
-सांकेतिक, s aa ng k e t i k
+सांकेतिक, s aa ~ k e t i k
 साँखा, s aa ~ kh aa
 साँखा, s aa ~ kh aa
-सांखू, s aa ng kh uu
+सांखू, s aa ~ kh uu
 साँखौ, s aa ~ kh O
-सांख्य, s aa ng kh y @
-सांख्यिक़ी, s aa ng kh y i k ii
-सांख्यिकीय, s aa ng kh y i k ii y @
+सांख्य, s aa ~ kh y @
+सांख्यिक़ी, s aa ~ kh y i k ii
+सांख्यिकीय, s aa ~ kh y i k ii y @
 सांग, s aa ng g
 साँग, s aa ng g
 साँग, s aa ng g

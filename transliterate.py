@@ -236,18 +236,17 @@ def force_align_weak(ortho, phon):
     res = []
     while i < n:
         if j >= m:
-            res.append([False, i])
+            res.append([2, i])
             i += 1
         elif ortho[i] == phon[j]:
             if ortho[i] == 'a': res.append([0, i])
             i += 1
             j += 1
         elif ortho[i] == 'a':
-            res.append([1, i])
+            res.append([1 if phon[j] == '@' else 2, i])
+            if phon[j] == '@': j += 1
             i += 1
-        elif ortho[i] == '@':
-            res.append([2, i])
         else:
-            raise Exception('Unable to force-align {}, phon {}'.format(ortho, phon))
+            raise Exception('Unable to force-align {}, phon {}\nCompare {} and {}'.format(ortho, phon, ortho[i], phon[j]))
     
     return res
