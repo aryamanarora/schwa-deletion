@@ -221,3 +221,33 @@ def force_align(ortho, phon):
             raise Exception('Unable to force-align {}, phon {}'.format(ortho, phon))
     
     return res
+
+# force_align but with weakened schwas as well
+def force_align_weak(ortho, phon):
+    # clean up phonetic
+    phon = phon.replace('. ', '')
+    phon = phon.replace('  ', ' ')
+    phon = phon.replace('-', '')
+    phon = phon.split()
+
+    # two pointer technique, compares in linear time
+    i, j = 0, 0
+    n, m = len(ortho), len(phon)
+    res = []
+    while i < n:
+        if j >= m:
+            res.append([False, i])
+            i += 1
+        elif ortho[i] == phon[j]:
+            if ortho[i] == 'a': res.append([0, i])
+            i += 1
+            j += 1
+        elif ortho[i] == 'a':
+            res.append([1, i])
+            i += 1
+        elif ortho[i] == '@':
+            res.append([2, i])
+        else:
+            raise Exception('Unable to force-align {}, phon {}'.format(ortho, phon))
+    
+    return res

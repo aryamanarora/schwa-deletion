@@ -19,14 +19,18 @@ def main(input_filename, left=4, right=4):
     # with the actual phonetic transliteration (schwa dropping) to created training/test data
     schwa_instances = []
     for _, row in data.iterrows():
-        print(chr(27) + '[2J')
-        print('Processing row', _)
+        # print(chr(27) + '[2J')
+        # print('Processing row', _)
         try:
-            schwa_instances += [[tr.transliterate(row.hindi), schwa_instance[1], schwa_instance[0]]
-                for schwa_instance in tr.force_align(tr.transliterate(row.hindi), str(row.phon))]
+            # schwa_instances += [[tr.transliterate(row.hindi), schwa_instance[1], schwa_instance[0]]
+            #     for schwa_instance in tr.force_align(tr.transliterate(row.hindi), str(row.phon))]
+            schwa_instances += [[tr.transliterate(row.hindi), schwa_instance[1], schwa_instances[0]]
+                    for schwa_instance in tr.force_align_weak(tr.transliterate(row.hindi), str(row.phon))]
         except Exception as e:
-            # print(e)
+            print(e)
             continue
+    
+    print(len(schwa_instances))
     
     # clean up the data
     y = []
@@ -59,14 +63,14 @@ def main(input_filename, left=4, right=4):
     X_dev, y_dev = X_test[:len(X_test) // 2], y_test[:len(y_test) // 2]
     X_test, y_test = X_test[len(X_test) // 2:], y_test[len(y_test) // 2:]
 
-    # model = LogisticRegression(solver='liblinear', max_iter=1000, verbose=True)
+    model = LogisticRegression(solver='liblinear', max_iter=1000, verbose=True)
     # model = MLPClassifier(max_iter=1000,  learning_rate_init=1e-4, hidden_layer_sizes=(250,), verbose=True)
-    for i in range(100, 550, 50):
-        model = XGBClassifier(verbosity=1, max_depth=10, n_estimators=i)
-        model.fit(X_train, y_train)
-        y_pred = model.predict(X_dev)
+    # model = XGBClassifier(verbosity=1, max_depth=10, n_estimators=100)
 
-        print(i, "estimators:", accuracy_score(y_pred, y_dev), recall_score(y_pred, y_dev))
+    model.fit(X_train, y_train)
+    y_pred = model.predict(X_dev)
+
+    print(i, "estimators:", accuracy_score(y_pred, y_dev), recall_score(y_pred, y_dev))
 
     # print(X_dev)
     # print incorrect predictions
@@ -91,5 +95,5 @@ def compare_wiktionary():
             print(w, x)
 
 if __name__ == '__main__':
-    main('data/small.csv', 5, 5)
+    main('data/extra_large.csv', 5, 5)
     input()
