@@ -70,7 +70,14 @@ def main(input_filename, left=4, right=4):
     model.fit(X_train, y_train)
     y_pred = model.predict(X_dev)
 
-    print(i, "estimators:", accuracy_score(y_pred, y_dev), recall_score(y_pred, y_dev))
+    # print(
+    #     accuracy_score(y_pred, y_dev),
+    #     recall_score(y_pred, y_dev))
+
+    correct = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+    for i in range(len(y_pred)):
+        correct[y_pred[i]][y_dev[i]] += 1
+    print(correct)
 
     # print(X_dev)
     # print incorrect predictions
@@ -96,4 +103,3 @@ def compare_wiktionary():
 
 if __name__ == '__main__':
     main('data/extra_large.csv', 5, 5)
-    input()

@@ -69,37 +69,39 @@ def scrape(dic, PAGES):
                     s.extract()
                     word = str(s.find('deva'))[6:-7]
                     pron = str(s.find('tran'))[6:-7]
-                    pron.replace('jñ', 'gy')
+                    fout.write(word + ',' + pron + '\n')
 
-                    res = []
-                    i = 0
-                    l = len(pron)
-                    work = True
-                    n = []
-                    while i != l:
-                        for j in range(min(l - 1, i + 1), i - 1, -1):
-                            if pron[i:j + 1] in conv:
-                                res.append(conv[pron[i:j + 1]])
-                                i = j + 1
-                                break
-                        else:
-                            if pron[i] == 'ṁ' or pron[i] == 'ṃ':
-                                res.append('~')
-                                if i != l - 1:
-                                    n.append(len(res) - 1)
-                                i += 1
-                            else:
-                                print('Error normalizing', word, pron, 'char', pron[i])
-                                work = False
-                                break
+                    # pron.replace('jñ', 'gy')
 
-                    if work:
-                        for pos in n:
-                            if res[pos + 1] in nasal_assim:
-                                res[pos] = nasal_assim[res[pos + 1]]
-                            elif pos + 2 < len(res) and res[pos + 2] in nasal_assim:
-                                res[pos] = nasal_assim[res[pos + 2]]
-                        fout.write(word + ', ' + ' '.join(res) + '\n')
+                    # res = []
+                    # i = 0
+                    # l = len(pron)
+                    # work = True
+                    # n = []
+                    # while i != l:
+                    #     for j in range(min(l - 1, i + 1), i - 1, -1):
+                    #         if pron[i:j + 1] in conv:
+                    #             res.append(conv[pron[i:j + 1]])
+                    #             i = j + 1
+                    #             break
+                    #     else:
+                    #         if pron[i] == 'ṁ' or pron[i] == 'ṃ':
+                    #             res.append('~')
+                    #             if i != l - 1:
+                    #                 n.append(len(res) - 1)
+                    #             i += 1
+                    #         else:
+                    #             print('Error normalizing', word, pron, 'char', pron[i])
+                    #             work = False
+                    #             break
+
+                    # if work:
+                    #     for pos in n:
+                    #         if res[pos + 1] in nasal_assim:
+                    #             res[pos] = nasal_assim[res[pos + 1]]
+                    #         elif pos + 2 < len(res) and res[pos + 2] in nasal_assim:
+                    #             res[pos] = nasal_assim[res[pos + 2]]
+                    #     fout.write(word + ', ' + ' '.join(res) + '\n')
 
 def wiktionary_transliterate(pron):
     pron = pron.replace('ŕ', 'ri')
