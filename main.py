@@ -9,6 +9,7 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
 from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score, recall_score, f1_score
+from joblib import dump, load
 
 UNK_CHAR = '🆒'
 
@@ -22,10 +23,10 @@ def main(input_filename, left=4, right=4):
         # print(chr(27) + '[2J')
         # print('Processing row', _)
         try:
-            # schwa_instances += [[tr.transliterate(row.hindi), schwa_instance[1], schwa_instance[0]]
-            #     for schwa_instance in tr.force_align(tr.transliterate(row.hindi), str(row.phon))]
             schwa_instances += [[tr.transliterate(row.hindi), schwa_instance[1], schwa_instance[0]]
-                    for schwa_instance in tr.force_align_weak(tr.transliterate(row.hindi), str(row.phon))]
+                for schwa_instance in tr.force_align(tr.transliterate(row.hindi), str(row.phon))]
+            # schwa_instances += [[tr.transliterate(row.hindi), schwa_instance[1], schwa_instance[0]]
+            #         for schwa_instance in tr.force_align_weak(tr.transliterate(row.hindi), str(row.phon))]
         except Exception as e:
             print(e)
             continue
@@ -63,28 +64,34 @@ def main(input_filename, left=4, right=4):
     X_dev, y_dev = X_test[:len(X_test) // 2], y_test[:len(y_test) // 2]
     X_test, y_test = X_test[len(X_test) // 2:], y_test[len(y_test) // 2:]
 
-    model = LogisticRegression(solver='liblinear', max_iter=1000, verbose=True)
-    # model = MLPClassifier(max_iter=1000,  learning_rate_init=1e-4, hidden_layer_sizes=(250,), verbose=True)
+    # model = LogisticRegression(solver='liblinear', max_iter=1000, verbose=True)
+    model = MLPClassifier(max_iter=1000,  learning_rate_init=1e-4, hidden_layer_sizes=(250,), verbose=True)
     # model = XGBClassifier(verbosity=1, max_depth=10, n_estimators=100)
 
-    model.fit(X_train, y_train)
+    model = load('models/neural_net.joblib')
+    # model.fit(X_train, y_train)
+    # dump(model, 'neural_net.joblib') 
     y_pred = model.predict(X_dev)
 
     # print(
     #     accuracy_score(y_pred, y_dev),
     #     recall_score(y_pred, y_dev))
 
-    correct = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
-    for i in range(len(y_pred)):
-        correct[y_pred[i]][y_dev[i]] += 1
-    print(correct)
+    # correct = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+    # for i in range(len(y_pred)):
+    #     correct[y_pred[i]][y_dev[i]] += 1
+    # print(correct)
 
     # print(X_dev)
     # print incorrect predictions
-    # for i, row in np.ndenumerate(y_pred):
-    #     if y_pred[i[0]] != y_dev[i[0]]:
-    #         dat = X_old.iloc[X_dev.iloc[i[0]].name].to_list()
-    #         print(str(i[0]) + ':', ' '.join(dat[:left]) + ' [a] ' + ' '.join(dat[left:]), y_pred[i[0]], y_dev[i[0]])
+    ct = {}
+    for i, row in np.ndenumerate(y_pred):
+        if y_pred[i[0]] != y_dev[i[0]]:
+            dat = X_old.iloc[X_dev.iloc[i[0]].name].to_list()
+            if dat[left] not in ct: ct[dat[left]] = 0
+            ct[dat[left]] += 1
+            print(str(i[0]) + ':', ' '.join(dat[:left]) + ' [a] ' + ' '.join(dat[left:]), y_pred[i[0]], y_dev[i[0]])
+    for i, c in ct.items(): print(i, c)
     
     # for i in zip(transformed_instances, y_pred, y_test):
     #     print(i)
@@ -102,4 +109,4 @@ def compare_wiktionary():
             print(w, x)
 
 if __name__ == '__main__':
-    main('data/extra_large.csv', 5, 5)
+    main('data/large.csv', 5, 5)

@@ -111,3 +111,59 @@
 
 Neural network: 0.9609375
 0.9535864978902954
+
+left:
+    s 9
+    h 7
+    v 7
+    d 3
+    k 8
+    l 2
+    m 3
+    r 6
+    t 6
+    b 3
+    dd 3
+    p 4
+    rrh 5
+    dh 1
+    y 3
+    c 2
+    n 5
+    sh 3
+    tt 2
+    ph 1
+    rr 2
+    kh 1
+    g 2
+    tth 1
+    E 1
+    gh 1
+    j 2
+    🆒 1
+
+right:
+    m 8
+    s 6
+    n 11
+    l 6
+    🆒 20
+    bh 1
+    f 1
+    h 6
+    p 3
+    r 9
+    k 3
+    ph 2
+    t 5
+    b 1
+    a 1
+    tt 3
+    d 1
+    kh 2
+    j 2
+    sh 1
+    th 1
+    c 1
+
+
