@@ -1,4 +1,9 @@
 import re
+import unicodedata
+
+def strip_accents(s):
+   return ''.join(c for c in unicodedata.normalize('NFD', s)
+                  if unicodedata.category(c) != 'Mn')
 
 conv = {
     # consonants
@@ -57,6 +62,30 @@ conv = {
     '॰': '.',
 }
 
+conv_wikt = {
+    'k': 'k', 'kh': 'kh', 'g': 'g', 'gh': 'gh', 'ṅ': 'ng',
+    'c': 'c', 'ch': 'ch', 'j': 'j', 'jh': 'jh', 'ñ': 'n',
+    'ṭ': 'tt', 'ṭh': 'tth', 'ḍ': 'dd', 'ḍh': 'ddh', 'ṇ': 'n',
+    't': 't', 'th': 'th', 'd': 'd', 'dh': 'dh', 'n': 'n',
+    'p': 'p', 'ph': 'ph', 'b': 'b', 'bh': 'bh', 'm': 'm',
+    'y': 'y', 'r': 'r', 'l' : 'l', 'v': 'v', 'w': 'v',
+    'ś': 'sh', 'ṣ': 'sh', 's': 's', 'h': 'h',
+
+    'q': 'q', 'x': 'x', 'ġ': 'Gh', 'f': 'f', 'z': 'z', 'ž': 'Zh',
+    'ḥ': 'h', 'ś': 'sh',
+
+    'ṛ': 'rr', 'ṛh': 'rrh',
+
+    'a': 'a', 'ā': 'aa',
+    'i': 'i', 'ī': 'ii',
+    'u': 'u', 'ū': 'uu',
+    'e': 'e', 'ai': 'E',
+    'o': 'o', 'au': 'O',
+    'ŏ': 'O',
+
+    '·': '', '~': '~',
+}
+
 nasal_assim = {
     'क': 'ङ', 'ख': 'ङ', 'ग': 'ङ', 'घ': 'ङ', 
     'च': 'ञ', 'छ': 'ञ', 'ज': 'ञ', 'झ': 'ञ',  
@@ -82,16 +111,15 @@ def magic(x):
 
 def translit(text):
     # adds inherent schwas wherever they are possible
+    text = unicodedata.normalize('NFD', text)
     text = re.sub('([' + all_cons + ']़?)([' + vowel + '्]?)',
         lambda x: x.group(1) + ('a' if x.group(2) == "" else x.group(2)), text)
-    print(text)
     for word in re.findall(r"[ऀ-ॿa]+", text):
         orig_word = word
         word = word[::-1]
         word = re.sub(r'^a(़?)([' + all_cons + r'])(.)(.?)', magic, word)
-        print(word)
         while re.search(syncope_pattern, word):
-            word = re.sub(syncope_pattern, r'\1\2\3\4')
+            word = re.sub(syncope_pattern, r'\1\2\3\4', word)
         word = re.sub(r'(.?)ं(.)', lambda x:
             x.group(1) + (x.group(1) + x.group(2) == "a" and "्म" or 
             (x.group(1) == "" and re.search(r'[' + vowel + r']', x.group(2)) and "̃" or (nasal_assim[x.group(1)] if x.group(1) in nasal_assim else "n"))) + x.group(2), word)
@@ -100,9 +128,33 @@ def translit(text):
     text = re.sub(r'a([iu])̃', r'a͠\1', text)
     text = re.sub(r'jñ', r'gy', text)
     text = re.sub(r'ñz', r'nz', text)
-    print(text)
     return text
+
+# converts from the Wiktionary translit scheme to our scheme
+def convert(pron):
+    pron = pron.replace('ŕ', 'ri')
+    temp = ""
+    for char in pron:
+        if 'TILDE' in unicodedata.name(char):
+            temp += strip_accents(char) + '~'
+        else:
+            temp += char
+    pron = temp
+
+    res = []
+    i = 0
+    l = len(pron)
+    while i != l:
+        for j in range(min(l - 1, i + 1), i - 1, -1):
+            if pron[i:j + 1] in conv_wikt:
+                res.append(conv_wikt[pron[i:j + 1]])
+                i = j + 1
+                break
+        else:
+            res.append(pron[i])
+            i += 1
+    return res
 
 if __name__ == "__main__":
     while True:
-        translit(input())
+        print(translit(input()))

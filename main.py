@@ -10,6 +10,7 @@ from sklearn.model_selection import train_test_split
 from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score, recall_score, f1_score
 from joblib import dump, load
+import other.wiktionary as wikt
 
 UNK_CHAR = '🆒'
 
@@ -98,15 +99,34 @@ def main(input_filename, left=4, right=4):
 
 # compare wiktionary transliterations with actual
 def compare_wiktionary():
-    data = pd.read_csv('data/small.csv', header=0)
-    wikt = pd.read_csv('data/small_wiktionary.csv', header=0)
-
-    instances = []
-    for i, row in data.iterrows():
-        w = ''.join(scrape.wiktionary_transliterate(wikt.iloc[i]['wikt']))
-        x = row.phon.replace('.', '').replace(' ', '')
-        if w != x:
-            print(w, x)
+    data = pd.read_csv('data/extra_large.csv', header=0)
+    tot, corr = 0, 0
+    for _, row in data.iterrows():
+        h = row.hindi.replace(' - ', '')
+        p = row.phon.replace(' - ', ' ').split()
+        w = ' '.join(wikt.convert(wikt.translit(h))).replace(' - ', ' ')
+        w = w.split()
+        i, j = 0, 0
+        n, m = len(p), len(w)
+        c = 1
+        while i < n and j < m:
+            if p[i] == w[j]:
+                i += 1
+                j += 1
+            elif p[i] == 'a' or w[j] == 'a':
+                c = 0
+                if p[i] == 'a': i += 1
+                else: j += 1
+            else:
+                c = 2
+                break
+        if c == 1: corr += 1
+        elif c == 0: print(h)
+        if c != 2: tot += 1
+    print(corr / tot)
+        
+        
 
 if __name__ == '__main__':
-    main('data/large.csv', 5, 5)
+    # main('data/large.csv', 5, 5)
+    compare_wiktionary()

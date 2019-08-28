@@ -34,30 +34,6 @@ conv = {
     '̥': 'i', 'ʾ': '', '+': '-',
 }
 
-conv_wikt = {
-    'k': 'k', 'kh': 'kh', 'g': 'g', 'gh': 'gh', 'ṅ': 'ng',
-    'c': 'c', 'ch': 'ch', 'j': 'j', 'jh': 'jh', 'ñ': 'n',
-    'ṭ': 'tt', 'ṭh': 'tth', 'ḍ': 'dd', 'ḍh': 'ddh', 'ṇ': 'n',
-    't': 't', 'th': 'th', 'd': 'd', 'dh': 'dh', 'n': 'n',
-    'p': 'p', 'ph': 'ph', 'b': 'b', 'bh': 'bh', 'm': 'm',
-    'y': 'y', 'r': 'r', 'l' : 'l', 'v': 'v', 'w': 'v',
-    'ś': 'sh', 'ṣ': 'sh', 's': 's', 'h': 'h',
-
-    'q': 'q', 'x': 'x', 'ġ': 'Gh', 'f': 'f', 'z': 'z', 'ž': 'Zh',
-    'ḥ': 'h', 'ś': 'sh',
-
-    'ṛ': 'rr', 'ṛh': 'rrh',
-
-    'a': 'a', 'ā': 'aa',
-    'i': 'i', 'ī': 'ii',
-    'u': 'u', 'ū': 'uu',
-    'e': 'e', 'ai': 'E',
-    'o': 'o', 'au': 'O',
-    'ŏ': 'O',
-
-    '·': '', '~': '~',
-}
-
 def scrape(dic, PAGES):
     with open("hi_pron.csv", "a") as fout:
         for page in range(1, PAGES + 1):
@@ -102,29 +78,6 @@ def scrape(dic, PAGES):
                     #         elif pos + 2 < len(res) and res[pos + 2] in nasal_assim:
                     #             res[pos] = nasal_assim[res[pos + 2]]
                     #     fout.write(word + ', ' + ' '.join(res) + '\n')
-
-def wiktionary_transliterate(pron):
-    pron = pron.replace('ŕ', 'ri')
-    temp = ""
-    for char in pron:
-        if 'TILDE' in unicodedata.name(char):
-            temp += strip_accents(char) + '~'
-        else:
-            temp += char
-    pron = temp
-
-    res = []
-    i = 0
-    l = len(pron)
-    while i != l:
-        for j in range(min(l - 1, i + 1), i - 1, -1):
-            if pron[i:j + 1] in conv_wikt:
-                res.append(conv_wikt[pron[i:j + 1]])
-                i = j + 1
-                break
-        else:
-            raise Exception('Error normalizing ' + pron + ' char ' + pron[i])
-    return res
 
 if __name__ == "__main__":
     scrape("mcgregor", 1082)
