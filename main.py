@@ -11,6 +11,7 @@ from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score, recall_score, f1_score
 from joblib import dump, load
 import other.wiktionary as wikt
+import re
 
 UNK_CHAR = '🆒'
 
@@ -33,6 +34,12 @@ def main(input_filename, left=4, right=4):
             continue
     
     print(len(schwa_instances))
+    chars = set()
+    for word in schwa_instances:
+        for char in word[0]:
+            chars.add(char)
+    chars.add(UNK_CHAR)
+    chars = list(chars)
     
     # clean up the data
     y = []
@@ -42,19 +49,26 @@ def main(input_filename, left=4, right=4):
         for i in range(schwa_index - left, schwa_index + right + 1):
             if i == schwa_index:
                 continue
-
-            if i < 0 or i >= len(s):
-                x.append(UNK_CHAR)
-            else:
-                x.append(s[i])
+            
+            for char in chars:
+                if i < 0 or i >= len(s): 
+                    if char == UNK_CHAR: x.append(1)
+                    else: x.append(0)
+                else:
+                    if char == s[i]: x.append(1)
+                    else: x.append(0)
 
         transformed_instances.append(x)
         y.append(schwa_was_deleted)
+    
+    col = []
+    for i in list(range(-left, 0)) + list(range(1, right + 1)):
+        for j in chars:
+            col.append('s' + str(i) + '_' + str(j))
+    print(col)
 
     X = pd.DataFrame(transformed_instances,
-        columns=['s' + str(i) for i in list(range(-left, 0)) + list(range(1, right + 1))])
-    X_old = X
-    X = pd.get_dummies(X)
+        columns=col)
 
     print(y.count(True), y.count(False))
 
@@ -69,14 +83,15 @@ def main(input_filename, left=4, right=4):
     model = MLPClassifier(max_iter=1000,  learning_rate_init=1e-4, hidden_layer_sizes=(250,), verbose=True)
     # model = XGBClassifier(verbosity=1, max_depth=10, n_estimators=100)
 
-    model = load('models/neural_net.joblib')
-    # model.fit(X_train, y_train)
-    # dump(model, 'neural_net.joblib') 
+    # model = load('models/neural_net.joblib')
+    model.fit(X_train, y_train)
+    dump(model, 'models/neural_net.joblib')
+    dump(chars, 'models/neural_net_chars.joblib')
     y_pred = model.predict(X_dev)
 
-    # print(
-    #     accuracy_score(y_pred, y_dev),
-    #     recall_score(y_pred, y_dev))
+    print(
+        accuracy_score(y_pred, y_dev),
+        recall_score(y_pred, y_dev))
 
     # correct = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
     # for i in range(len(y_pred)):
@@ -85,14 +100,6 @@ def main(input_filename, left=4, right=4):
 
     # print(X_dev)
     # print incorrect predictions
-    ct = {}
-    for i, row in np.ndenumerate(y_pred):
-        if y_pred[i[0]] != y_dev[i[0]]:
-            dat = X_old.iloc[X_dev.iloc[i[0]].name].to_list()
-            if dat[left] not in ct: ct[dat[left]] = 0
-            ct[dat[left]] += 1
-            print(str(i[0]) + ':', ' '.join(dat[:left]) + ' [a] ' + ' '.join(dat[left:]), y_pred[i[0]], y_dev[i[0]])
-    for i, c in ct.items(): print(i, c)
     
     # for i in zip(transformed_instances, y_pred, y_test):
     #     print(i)
@@ -125,8 +132,67 @@ def compare_wiktionary():
         if c != 2: tot += 1
     print(corr / tot)
         
-        
+def corpus_freq():
+    count = {}
+    i = 0
+    with open('corpora/monolingual.hi', 'r') as fin:
+        line = fin.readline()
+        while line:
+            for word in re.findall(r'[ऀ-ॿa]+', line):
+                if word not in count:
+                    count[word] = 0
+                count[word] += 1
+            if i % 10000 == 0:
+                print(i)
+            i += 1
+            line = fin.readline()
+    with open('corpora/freq.csv', 'w') as fout:
+        for word, freq in count.items():
+            fout.write(word + ',' + str(freq) + '\n')
+
+def test(word, model_path, chars_path, left=4, right=4):
+    model = load(model_path)
+    chars = load(chars_path)
+    print(chars)
+    transliteration = tr.transliterate(word)
+    transformed_instances = []
+    for i, phone in enumerate(transliteration):
+        if phone == 'a':
+            x = []
+            for j in range(i - left, i + right + 1):
+                if j == i: continue
+                for char in chars:
+                    if j < 0 or j >= len(transliteration): 
+                        if char == UNK_CHAR: x.append(1)
+                        else: x.append(0)
+                    else:
+                        if char == transliteration[j]: x.append(1)
+                        else: x.append(0)
+            transformed_instances.append(x)
+
+    col = []
+    for i in list(range(-left, 0)) + list(range(1, right + 1)):
+        for j in chars:
+            col.append('s' + str(i) + '_' + str(j))
+
+    X = pd.DataFrame(transformed_instances,
+        columns=col)
+    Y = model.predict(X)
+    pos = 0
+    print(Y)
+    for phone in transliteration:
+        if phone == 'a':
+            print('a' if Y[pos] else '', end='')
+            pos += 1
+        else:
+            print(phone, end='')
+    print()
+    
+
 
 if __name__ == '__main__':
-    # main('data/large.csv', 5, 5)
-    compare_wiktionary()
+    main('data/large.csv', 5, 5)
+    # compare_wiktionary()
+    # corpus_freq()
+    while True:
+        test(input(), 'models/neural_net.joblib', 'models/neural_net_chars.joblib', 5, 5)
