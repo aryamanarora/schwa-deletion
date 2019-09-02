@@ -30,7 +30,7 @@ def main(input_filename, left=4, right=4):
             # schwa_instances += [[tr.transliterate(row.hindi), schwa_instance[1], schwa_instance[0]]
             #         for schwa_instance in tr.force_align_weak(tr.transliterate(row.hindi), str(row.phon))]
         except Exception as e:
-            print(e)
+            # print(e)
             continue
     
     print(len(schwa_instances))
@@ -65,7 +65,6 @@ def main(input_filename, left=4, right=4):
     for i in list(range(-left, 0)) + list(range(1, right + 1)):
         for j in chars:
             col.append('s' + str(i) + '_' + str(j))
-    print(col)
 
     X = pd.DataFrame(transformed_instances,
         columns=col)
@@ -80,7 +79,7 @@ def main(input_filename, left=4, right=4):
     X_test, y_test = X_test[len(X_test) // 2:], y_test[len(y_test) // 2:]
 
     # model = LogisticRegression(solver='liblinear', max_iter=1000, verbose=True)
-    model = MLPClassifier(max_iter=1000,  learning_rate_init=1e-4, hidden_layer_sizes=(250,), verbose=True)
+    model = MLPClassifier(max_iter=1000,  learning_rate_init=1e-4, hidden_layer_sizes=(400,), verbose=True)
     # model = XGBClassifier(verbosity=1, max_depth=10, n_estimators=100)
 
     # model = load('models/neural_net.joblib')
@@ -191,8 +190,8 @@ def test(word, model_path, chars_path, left=4, right=4):
 
 
 if __name__ == '__main__':
-    main('data/large.csv', 5, 5)
+    main('data/extra_large.csv', 5, 5)
     # compare_wiktionary()
     # corpus_freq()
-    while True:
-        test(input(), 'models/neural_net.joblib', 'models/neural_net_chars.joblib', 5, 5)
+    # while True:
+    #     test(input(), 'models/neural_net.joblib', 'models/neural_net_chars.joblib', 5, 5)

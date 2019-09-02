@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 import urllib.request
 import unicodedata
 from transliterate import nasal_assim
+import re
 
 def strip_accents(s):
    return ''.join(c for c in unicodedata.normalize('NFD', s)
@@ -35,13 +36,13 @@ conv = {
 }
 
 def scrape(dic, PAGES):
-    with open("hi_pron.csv", "a") as fout:
+    with open('hi_pron.csv', 'a') as fout:
         for page in range(1, PAGES + 1):
             print(page)
-            link = "https://dsalsrv04.uchicago.edu/cgi-bin/app/" + dic + "_query.py?page=" + str(page)
+            link = 'https://dsalsrv04.uchicago.edu/cgi-bin/app/' + dic + '_query.py?page=' + str(page)
             with urllib.request.urlopen(link) as resp:
                 soup = BeautifulSoup(resp, 'html.parser')
-                for s in soup.find_all("hw"):
+                for s in soup.find_all('hw'):
                     s.extract()
                     word = str(s.find('deva'))[6:-7]
                     pron = str(s.find('tran'))[6:-7]
@@ -79,5 +80,17 @@ def scrape(dic, PAGES):
                     #             res[pos] = nasal_assim[res[pos + 2]]
                     #     fout.write(word + ', ' + ' '.join(res) + '\n')
 
-if __name__ == "__main__":
-    scrape("mcgregor", 1082)
+def scrape_etym(dic, PAGES):
+    with open('data/result.csv', 'w') as fout:
+        for page in range(1, PAGES + 1):
+            print(page)
+            link = 'https://dsalsrv04.uchicago.edu/cgi-bin/app/' + dic + '_query.py?page=' + str(page)
+            with urllib.request.urlopen(link) as resp:
+                soup = str(BeautifulSoup(resp, 'html.parser'))
+                for i in re.findall(r'\<tran\>.*?\<\/tran\>\<\/hw\> \[\<i\>.*?\</i\>', soup):
+                    res = i[6:-4].split('</tran></hw> [<i>')
+                    fout.write(res[0] + ',' + res[1] + '\n')
+
+if __name__ == '__main__':
+    # scrape('mcgregor', 1082)
+    scrape_etym('mcgregor', 1082)

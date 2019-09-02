@@ -3,14 +3,13 @@ from keras.layers import Input, LSTM, Dense
 import numpy as np
 
 batch_size = 128  # Batch size for training.
-epochs = 50  # Number of epochs to train for.
+epochs = 1000  # Number of epochs to train for.
 latent_dim = 256  # Latent dimensionality of the encoding space.
-num_samples = 30000  # Number of samples to train on.
 # Path to the data txt file on disk.
-data_path = 'data/extra_large_unicode.csv'
+data_path = 'data/extra_large_sanskrit_etym.csv'
 
 
-def main(reuse):
+def main(reuse, save):
     # Vectorize the data.
     hindis = []
     translits = []
@@ -18,9 +17,11 @@ def main(reuse):
     target_characters = set()
     with open(data_path, 'r', encoding='utf-8') as f:
         lines = f.read().split('\n')
-    for line in lines[1 : min(num_samples, len(lines) - 1)]:
+    for line in lines:
         print(line)
         hindi, translit = line.split(',')
+        # USE FOR ETYM, REMOVE OTHERWISE
+        hindi, translit = translit, hindi
         # \t and \n are delimiters
         translit = '\t' + translit + '\n'
         hindis.append(hindi)
@@ -94,7 +95,7 @@ def main(reuse):
     model = Model([encoder_inputs, decoder_inputs], decoder_outputs)
 
     if reuse:
-        model.load_weights('s2s.h5')
+        model.load_weights('models/' + save)
     else:
         # Run training
         model.compile(optimizer='rmsprop', loss='categorical_crossentropy')
@@ -103,7 +104,7 @@ def main(reuse):
                 epochs=epochs,
                 validation_split=0.2)
         # Save model
-        model.save('s2s.h5')
+        model.save('models/' + save)
 
     # Next: inference mode (sampling).
     # Here's the drill:
@@ -181,23 +182,21 @@ def main(reuse):
         print('Input sentence:', hindis[seq_index])
         print('Decoded sentence:', decoded_sentence)
     
-    while True:
-        hindi_t = input()
-        encoder_input_data_t = np.zeros(
-            (1, max_encoder_seq_length, num_encoder_tokens),
-            dtype='float32')
-        print(encoder_input_data_t)
-        for t, char in enumerate(hindi_t):
-            encoder_input_data_t[0, t, input_token_index[char]] = 1.
-        decoded_sentence = decode_sequence(encoder_input_data_t)
-        print('-')
-        print('Decoded sentence:', decoded_sentence)
+    # while True:
+    #     hindi_t = input()
+    #     encoder_input_data_t = np.zeros(
+    #         (1, max_encoder_seq_length, num_encoder_tokens),
+    #         dtype='float32')
+    #     for t, char in enumerate(hindi_t):
+    #         encoder_input_data_t[0, t, input_token_index[char]] = 1.
+    #     decoded_sentence = decode_sequence(encoder_input_data_t)
+    #     print(hindi_t, decoded_sentence)
         
 
 
 
 if __name__ == '__main__':
-    main(True)
+    main(False, 'etym3.h5')
 
 # ओव्वो
 # [[[0. 0. 0. ... 0. 0. 0.]
@@ -208,7 +207,7 @@ if __name__ == '__main__':
 # [0. 0. 0. ... 0. 0. 0.]
 # [0. 0. 0. ... 0. 0. 0.]]]
 # -
-# Decoded sentence: ovvo
+# Decoded sentence: ovv
 
 # रेडियोएक्टिव
 # [[[0. 0. 0. ... 0. 0. 0.]

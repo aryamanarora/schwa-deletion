@@ -20,7 +20,8 @@ con = {
     'श': 'sh', 'ष': 'sh', 'स': 's',
     'ह': 'h',
 
-    'क़': 'q', 'ख़': 'x', 'ग़': 'Gh', 'ज़': 'z', 'ड़': 'rr', 'ढ़': 'rrh', 'फ़': 'f'
+    'क़': 'q', 'ख़': 'x', 'ग़': 'Gh', 'ज़': 'z', 'ड़': 'rr', 'ढ़': 'rrh', 'फ़': 'f',
+    '-': '-'
 }
 vow = {
     'अ': 'a', 'आ': 'aa',
@@ -219,8 +220,10 @@ def force_align(ortho, phon):
         elif ortho[i] == 'a':
             res.append([False, i])
             i += 1
+        elif ortho[i] in [UNK_CHAR, '-']:
+            i += 1
         else:
-            raise Exception('Unable to force-align {}, phon {}'.format(ortho, phon))
+            raise Exception('Unable to force-align {}, phon {}\nCompare {} and {}'.format(ortho, phon, ortho[i], phon[j]))
     
     return res
 
@@ -247,6 +250,8 @@ def force_align_weak(ortho, phon):
         elif ortho[i] == 'a':
             res.append([1 if phon[j] == '@' else 2, i])
             if phon[j] == '@': j += 1
+            i += 1
+        elif ortho[i] in [UNK_CHAR, '-']:
             i += 1
         else:
             raise Exception('Unable to force-align {}, phon {}\nCompare {} and {}'.format(ortho, phon, ortho[i], phon[j]))
