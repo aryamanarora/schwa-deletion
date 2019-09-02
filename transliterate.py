@@ -21,7 +21,6 @@ con = {
     'ह': 'h',
 
     'क़': 'q', 'ख़': 'x', 'ग़': 'Gh', 'ज़': 'z', 'ड़': 'rr', 'ढ़': 'rrh', 'फ़': 'f',
-    '-': '-'
 }
 vow = {
     'अ': 'a', 'आ': 'aa',
@@ -121,6 +120,7 @@ phonological_features = {
     'q': ['voiceless', 'unaspirated', 'uvular', 'stop'],
     'x': ['voiceless', 'unaspirated', 'velar', 'non-sibilant fricative'],
     'Gh': ['voiced', 'unaspirated', 'velar', 'non-sibilant fricative'],
+    '-': [],
     UNK_CHAR: []
 }
 
@@ -135,6 +135,10 @@ def transliterate(word):
         if char == VIRAMA:
             # virama suppresses the inherent schwa
             res.pop()
+        
+        elif char == '-':
+            if char in con:
+                res.append(con[char])
 
         elif char == NUQTA:
             # nuqta transforms a consonant, so we remove the schwa, change the consonant,

@@ -15,7 +15,7 @@ import re
 
 UNK_CHAR = '🆒'
 
-def main(input_filename, left=4, right=4):
+def main(input_filename, use_phon, left=4, right=4):
     data = pd.read_csv(input_filename, header=0)
 
     # force align the predicted orthographic transliteration (without schwa dropping)
@@ -40,6 +40,13 @@ def main(input_filename, left=4, right=4):
             chars.add(char)
     chars.add(UNK_CHAR)
     chars = list(chars)
+    phons = set()
+
+    if use_phon:
+        for phoneme, features in tr.phonological_features.items():
+            for feature in features:
+                phons.add(feature)
+        phons = list(phons)
     
     # clean up the data
     y = []
@@ -50,21 +57,34 @@ def main(input_filename, left=4, right=4):
             if i == schwa_index:
                 continue
             
-            for char in chars:
-                if i < 0 or i >= len(s): 
-                    if char == UNK_CHAR: x.append(1)
-                    else: x.append(0)
-                else:
-                    if char == s[i]: x.append(1)
-                    else: x.append(0)
+            if use_phon:
+                for phon in phons:
+                    if i < 0 or i >= len(s): 
+                        x.append(0)
+                    else:
+                        if phon in tr.phonological_features[s[i]]: x.append(1)
+                        else: x.append(0)
+            else:
+                for char in chars:
+                    if i < 0 or i >= len(s): 
+                        if char == UNK_CHAR: x.append(1)
+                        else: x.append(0)
+                    else:
+                        if char == s[i]: x.append(1)
+                        else: x.append(0)
 
         transformed_instances.append(x)
         y.append(schwa_was_deleted)
     
     col = []
-    for i in list(range(-left, 0)) + list(range(1, right + 1)):
-        for j in chars:
-            col.append('s' + str(i) + '_' + str(j))
+    if use_phon:
+        for i in list(range(-left, 0)) + list(range(1, right + 1)):
+            for j in phons:
+                col.append('s' + str(i) + '_' + str(j))
+    else:
+        for i in list(range(-left, 0)) + list(range(1, right + 1)):
+            for j in chars:
+                col.append('s' + str(i) + '_' + str(j))
 
     X = pd.DataFrame(transformed_instances,
         columns=col)
@@ -79,13 +99,14 @@ def main(input_filename, left=4, right=4):
     X_test, y_test = X_test[len(X_test) // 2:], y_test[len(y_test) // 2:]
 
     # model = LogisticRegression(solver='liblinear', max_iter=1000, verbose=True)
-    model = MLPClassifier(max_iter=1000,  learning_rate_init=1e-4, hidden_layer_sizes=(400,), verbose=True)
-    # model = XGBClassifier(verbosity=1, max_depth=10, n_estimators=100)
+    model = MLPClassifier(max_iter=1000,  learning_rate_init=1e-4, hidden_layer_sizes=(250,), verbose=True)
+    # model = XGBClassifier(verbosity=2, max_depth=10, n_estimators=250)
 
     # model = load('models/neural_net.joblib')
     model.fit(X_train, y_train)
-    dump(model, 'models/neural_net.joblib')
-    dump(chars, 'models/neural_net_chars.joblib')
+    # dump(model, 'models/neural_net.joblib')
+    # dump(chars, 'models/neural_net_chars.joblib')
+    # dump(phons, 'models/neural_net_phons.joblib')
     y_pred = model.predict(X_dev)
 
     print(
@@ -190,7 +211,7 @@ def test(word, model_path, chars_path, left=4, right=4):
 
 
 if __name__ == '__main__':
-    main('data/extra_large.csv', 5, 5)
+    main('data/extra_large.csv', False, 5, 5)
     # compare_wiktionary()
     # corpus_freq()
     # while True:

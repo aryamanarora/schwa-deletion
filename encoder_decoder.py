@@ -182,21 +182,21 @@ def main(reuse, save):
         print('Input sentence:', hindis[seq_index])
         print('Decoded sentence:', decoded_sentence)
     
-    # while True:
-    #     hindi_t = input()
-    #     encoder_input_data_t = np.zeros(
-    #         (1, max_encoder_seq_length, num_encoder_tokens),
-    #         dtype='float32')
-    #     for t, char in enumerate(hindi_t):
-    #         encoder_input_data_t[0, t, input_token_index[char]] = 1.
-    #     decoded_sentence = decode_sequence(encoder_input_data_t)
-    #     print(hindi_t, decoded_sentence)
+    while True:
+        hindi_t = input()
+        encoder_input_data_t = np.zeros(
+            (1, max_encoder_seq_length, num_encoder_tokens),
+            dtype='float32')
+        for t, char in enumerate(hindi_t):
+            encoder_input_data_t[0, t, input_token_index[char]] = 1.
+        decoded_sentence = decode_sequence(encoder_input_data_t)
+        print(hindi_t, decoded_sentence)
         
 
 
 
 if __name__ == '__main__':
-    main(False, 'etym3.h5')
+    main(True, 'etym3.h5')
 
 # ओव्वो
 # [[[0. 0. 0. ... 0. 0. 0.]
