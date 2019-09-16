@@ -113,17 +113,6 @@ def main(input_filename, use_phon, left=4, right=4):
         accuracy_score(y_pred, y_dev),
         recall_score(y_pred, y_dev))
 
-    # correct = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
-    # for i in range(len(y_pred)):
-    #     correct[y_pred[i]][y_dev[i]] += 1
-    # print(correct)
-
-    # print(X_dev)
-    # print incorrect predictions
-    
-    # for i in zip(transformed_instances, y_pred, y_test):
-    #     print(i)
-
 # compare wiktionary transliterations with actual
 def compare_wiktionary():
     data = pd.read_csv('data/extra_large.csv', header=0)
