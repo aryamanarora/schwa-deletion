@@ -211,7 +211,7 @@ def test(word, model_path, chars_path, left=4, right=4):
 
 
 if __name__ == '__main__':
-    main('data/extra_large.csv', False, 5, 5)
+    main('data/extra_large.csv', True, 5, 5)
     # compare_wiktionary()
     # corpus_freq()
     # while True:
