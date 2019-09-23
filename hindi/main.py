@@ -9,15 +9,15 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
 from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score, recall_score, f1_score
+from sklearn.model_selection import GridSearchCV
 from joblib import dump, load
 import other.wiktionary as wikt
 import re
 
 UNK_CHAR = '🆒'
 
-def main(input_filename, use_phon, left=4, right=4):
+def get_data(input_filename):
     data = pd.read_csv(input_filename, header=0)
-
     # force align the predicted orthographic transliteration (without schwa dropping)
     # with the actual phonetic transliteration (schwa dropping) to created training/test data
     schwa_instances = []
@@ -33,15 +33,23 @@ def main(input_filename, use_phon, left=4, right=4):
             # print(e)
             continue
     
+    return schwa_instances
+
+def main(input_filename, use_phon, left=4, right=4):
+    # get the data
+    schwa_instances = get_data(input_filename)
     print(len(schwa_instances))
+
+    # generate set of phonemes to store for later
     chars = set()
     for word in schwa_instances:
         for char in word[0]:
             chars.add(char)
     chars.add(UNK_CHAR)
     chars = list(chars)
-    phons = set()
 
+    # if phonological features are considered we need to store them too
+    phons = set()
     if use_phon:
         for phoneme, features in tr.phonological_features.items():
             for feature in features:
@@ -49,6 +57,7 @@ def main(input_filename, use_phon, left=4, right=4):
         phons = list(phons)
     
     # clean up the data
+    # generate features (with or without phonological descriptions)
     y = []
     transformed_instances = []
     for s, schwa_index, schwa_was_deleted in schwa_instances:
@@ -76,6 +85,8 @@ def main(input_filename, use_phon, left=4, right=4):
         transformed_instances.append(x)
         y.append(schwa_was_deleted)
     
+    # generate the columns of our input
+    # is x char/feature present at position y?
     col = []
     if use_phon:
         for i in list(range(-left, 0)) + list(range(1, right + 1)):
@@ -86,9 +97,11 @@ def main(input_filename, use_phon, left=4, right=4):
             for j in chars:
                 col.append('s' + str(i) + '_' + str(j))
 
+    # create the input columns
     X = pd.DataFrame(transformed_instances,
         columns=col)
 
+    # schwa retention/deletion rate
     print(y.count(True), y.count(False))
 
     # 20% is the final test data, 20% is for development
@@ -99,19 +112,37 @@ def main(input_filename, use_phon, left=4, right=4):
     X_test, y_test = X_test[len(X_test) // 2:], y_test[len(y_test) // 2:]
 
     # model = LogisticRegression(solver='liblinear', max_iter=1000, verbose=True)
-    model = MLPClassifier(max_iter=1000,  learning_rate_init=1e-4, hidden_layer_sizes=(250,), verbose=True)
+    # model = MLPClassifier(max_iter=1000,  learning_rate_init=1e-4, hidden_layer_sizes=(250,), verbose=True)
     # model = XGBClassifier(verbosity=2, max_depth=10, n_estimators=250)
 
+
+
+
+    # TUNING
+
+    # NEURAL NETWORK
+    model = MLPClassifier(max_iter=1000, verbose=True)
+    grid_values = {
+        'learning_rate_init': [1e-4, 1e-3, 1e-2, 0.1, 0.5, 1, 5, 10],
+        'hidden_layer_sizes': [(10), (50), (100), (200), (500), (750), (1000)],
+    }
+    grid_search_model = GridSearchCV(model, param_grid=grid_values, scoring='accuracy')
+    grid_search_model.fit(X_train, y_train)
+
+    print('Best parameters found by grid search:')
+    print(grid_search_model.best_params_)
+    y_pred = grid_search_model.predict(X_dev)
+    print(accuracy_score(y_pred, y_dev))
+
+
+
+
     # model = load('models/neural_net.joblib')
-    model.fit(X_train, y_train)
+    # model.fit(X_train, y_train)
     # dump(model, 'models/neural_net.joblib')
     # dump(chars, 'models/neural_net_chars.joblib')
     # dump(phons, 'models/neural_net_phons.joblib')
-    y_pred = model.predict(X_dev)
-
-    print(
-        accuracy_score(y_pred, y_dev),
-        recall_score(y_pred, y_dev))
+    # y_pred = model.predict(X_dev)
 
 # compare wiktionary transliterations with actual
 def compare_wiktionary():
