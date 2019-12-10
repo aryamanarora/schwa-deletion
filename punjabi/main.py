@@ -8,7 +8,7 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
 from xgboost import XGBClassifier
-from sklearn.metrics import accuracy_score, recall_score, f1_score
+from sklearn.metrics import accuracy_score, recall_score, f1_score, precision_score
 from joblib import dump, load
 import re
 
@@ -46,6 +46,9 @@ def main(input_filename, use_phon, left=4, right=4):
             for feature in features:
                 phons.add(feature)
         phons = list(phons)
+
+    # chars = load('models/xgboost_chars.joblib')
+    # phons = load('models/xgboost_phons.joblib')
     
     # clean up the data
     y = []
@@ -97,20 +100,21 @@ def main(input_filename, use_phon, left=4, right=4):
     X_dev, y_dev = X_test[:len(X_test) // 2], y_test[:len(y_test) // 2]
     X_test, y_test = X_test[len(X_test) // 2:], y_test[len(y_test) // 2:]
 
-    # model = LogisticRegression(solver='liblinear', max_iter=1000, verbose=True)
-    model = MLPClassifier(max_iter=1000,  learning_rate_init=1e-3, hidden_layer_sizes=(250,), verbose=True)
-    # model = XGBClassifier(verbosity=2, max_depth=10, n_estimators=250)
+    model = LogisticRegression(solver='liblinear', max_iter=1000, verbose=True)
+    # model = MLPClassifier(max_iter=1000,  learning_rate_init=1e-4, hidden_layer_sizes=(250,), verbose=True)
+    # model = XGBClassifier(verbosity=2, max_depth=11, n_estimators=200)
 
     # model = load('models/neural_net.joblib')
     model.fit(X_train, y_train)
-    dump(model, 'models/neural_net.joblib')
-    dump(chars, 'models/neural_net_chars.joblib')
-    # dump(phons, 'models/neural_net_phons.joblib')
-    y_pred = model.predict(X_dev)
+    dump(model, 'models/neural/neural.joblib')
+    dump(chars, 'models/neural/neural_chars.joblib')
+    dump(phons, 'models/neural/neural_phons.joblib')
+    y_pred = model.predict(X_test)
 
     print(
-        accuracy_score(y_pred, y_dev),
-        recall_score(y_pred, y_dev))
+        accuracy_score(y_pred, y_test),
+        precision_score(y_pred, y_test),
+        recall_score(y_pred, y_test))
 
 if __name__ == "__main__":
     main('data/large.csv', False, 5, 5)

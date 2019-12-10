@@ -7,10 +7,12 @@ from sklearn.linear_model import LogisticRegression, SGDClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
-from xgboost import XGBClassifier
-from sklearn.metrics import accuracy_score, recall_score, f1_score
+from xgboost import XGBClassifier, plot_tree
+from sklearn.metrics import accuracy_score, recall_score, f1_score, precision_score
 from sklearn.model_selection import GridSearchCV
 from joblib import dump, load
+from matplotlib.pylab import rcParams
+from matplotlib import pyplot as plt
 import other.wiktionary as wikt
 import re
 
@@ -55,6 +57,9 @@ def main(input_filename, use_phon, left=4, right=4):
             for feature in features:
                 phons.add(feature)
         phons = list(phons)
+
+    # chars = load('models/xgboost/xgboost_chars.joblib')
+    # phons = load('models/xgboost/xgboost_phons.joblib')
     
     # clean up the data
     # generate features (with or without phonological descriptions)
@@ -113,36 +118,47 @@ def main(input_filename, use_phon, left=4, right=4):
 
     # model = LogisticRegression(solver='liblinear', max_iter=1000, verbose=True)
     # model = MLPClassifier(max_iter=1000,  learning_rate_init=1e-4, hidden_layer_sizes=(250,), verbose=True)
-    # model = XGBClassifier(verbosity=2, max_depth=10, n_estimators=250)
+    model = XGBClassifier(verbosity=2, max_depth=11, n_estimators=200)
+
+
 
 
 
 
     # TUNING
 
-    # NEURAL NETWORK
-    model = MLPClassifier(max_iter=1000, verbose=True)
-    grid_values = {
-        'learning_rate_init': [1e-4, 1e-3, 1e-2, 0.1, 0.5, 1, 5, 10],
-        'hidden_layer_sizes': [(10), (50), (100), (200), (500), (750), (1000)],
-    }
-    grid_search_model = GridSearchCV(model, param_grid=grid_values, scoring='accuracy')
-    grid_search_model.fit(X_train, y_train)
+    # xgboost NETWORK
+    # model = MLPClassifier(max_iter=1000, verbose=True)
+    # grid_values = {
+    #     'learning_rate_init': [1e-4, 1e-3, 1e-2, 0.1, 0.5, 1, 5, 10],
+    #     'hidden_layer_sizes': [(10), (50), (100), (200), (500), (750), (1000)],
+    # }
+    # grid_search_model = GridSearchCV(model, param_grid=grid_values, scoring='accuracy')
+    # grid_search_model.fit(X_train, y_train)
 
-    print('Best parameters found by grid search:')
-    print(grid_search_model.best_params_)
-    y_pred = grid_search_model.predict(X_dev)
-    print(accuracy_score(y_pred, y_dev))
-
-
+    # print('Best parameters found by grid search:')
+    # print(grid_search_model.best_params_)
+    # y_pred = grid_search_model.predict(X_dev)
+    # print(accuracy_score(y_pred, y_dev))
 
 
-    # model = load('models/neural_net.joblib')
-    # model.fit(X_train, y_train)
-    # dump(model, 'models/neural_net.joblib')
-    # dump(chars, 'models/neural_net_chars.joblib')
-    # dump(phons, 'models/neural_net_phons.joblib')
-    # y_pred = model.predict(X_dev)
+
+
+    # model = load('models/xgboost/xgboost.joblib')
+    model.fit(X_train, y_train)
+    dump(model, 'models/xgboost/xgboost_nophon.joblib')
+    dump(chars, 'models/xgboost/xgboost_nophon_chars.joblib')
+    dump(phons, 'models/xgboost/xgboost_nophon_phons.joblib')
+    # plot_tree(model)
+    y_pred = model.predict(X_test)
+    print(accuracy_score(y_pred, y_test), recall_score(y_pred, y_test), precision_score(y_pred, y_test))
+    for i in range(len(X_test)):
+        if y_pred[i] != y_test[i]:
+            print(' '.join(schwa_instances[X_test.iloc[i].name][0]), schwa_instances[X_test.iloc[i].name][1], y_pred[i], y_test[i])
+
+    # fig = plt.gcf()
+    # fig.set_size_inches(150, 100)
+    # fig.savefig('tree5.png')
 
 # compare wiktionary transliterations with actual
 def compare_wiktionary():
@@ -231,7 +247,7 @@ def test(word, model_path, chars_path, left=4, right=4):
 
 
 if __name__ == '__main__':
-    main('data/extra_large.csv', True, 5, 5)
+    main('data/extra_large.csv', False, 5, 5)
     # compare_wiktionary()
     # corpus_freq()
     # while True:

@@ -1,0 +1,185 @@
+36183
+17028 19155
+0.9792731794942656 0.9812291855888586 0.9735656353259237
+e k a v i n sh a 7 False True
+z y aa d a t ii 4 False True
+m a n dd a l i y aa 4 True False
+m a h a r a 3 False True
+n i dd a r a p a n aa 5 True False
+n i gh a r aa 3 False True
+s a n a d ii 3 False True
+f a t a h a 3 False True
+m u t a v aa t i r a 3 False True
+b i h a r a 3 False True
+b a j a n i y aa 3 False True
+n i ch a n i y aa ~ 3 False True
+k a r m a c aa r ii 4 True False
+l a c a l a c aa 5 False True
+c a n c a l aa 4 False True
+t i d a r ii 3 False True
+c a p a rr a q a n aa t ii 5 True False
+m a tt a r a g a sh t ii 5 True False
+n i dd a r a p a n aa 7 False True
+c a r r a m a r r a 4 True False
+r a m a l a 3 True False
+ch u tt a p a n aa 3 True False
+u s t a r aa 3 True False
+d u b a l aa p a n aa 7 False True
+a rrh a t i y aa 2 False True
+d a m a k a l aa 5 False True
+p e c ii d a g ii 5 False True
+d a m a k a rr aa 3 False True
+n a s a l a 3 True False
+b i h a r a 3 False True
+a r a th a 2 True False
+q a d a m a c aa 3 False True
+d o p a h a r a 5 True False
+p a r a m aa n u 3 False True
+c i t a k a b a r aa 5 False True
+m O l a s a r aa 3 False True
+b u rrh aa p a n aa 5 False True
+t aa y a b a 3 True False
+kh u r a d a r aa p a n a 5 False True
+c uu m a n i 3 False True
+f a l a k a 3 False True
+u m a r a 2 True False
+gh uu m a r a 3 True False
+p r a g a tt i t a 4 False True
+j aa t y a 4 False True
+dh uu s a r i t a 3 False True
+m a l a y aa l ii 3 False True
+s a b a d a r aa 5 False True
+k a l a h a tt ii 3 False True
+bh a n dd a r i y aa 4 True False
+x a l a q a 3 True False
+p a l e h a n dd ii 5 True False
+c i l a m a c ii 3 False True
+a r a p a 2 True False
+s a rr a p a n aa 3 False True
+u p a r o k t a 2 False True
+n a f a s a 3 True False
+ph uu h a rr a p a n aa 7 False True
+n a r a m a 3 True False
+p a h a l a v aa n ii 3 True False
+t a t a h a rr aa 5 True False
+d a ~ v a r ii 4 True False
+kh u r a d a r aa 5 False True
+E k a m a t y a 2 True False
+r uu r a 3 False True
+b a r a b a tt a 3 False True
+k a tt a kh a n aa 5 False True
+d e u h a r aa 4 False True
+a h a d a 2 True False
+b a r a s a t aa 3 False True
+p a tt a k a n aa 5 False True
+c a n c a l aa h a tt a 4 False True
+a g a h a n ii 4 False True
+dh uu m r a 4 False True
+t a n a t a n aa 3 True False
+b i th a k i t a 3 False True
+p a r a m aa n v i k ii 3 False True
+h a r a d a 3 False True
+x a t a m a 3 True False
+c a r a g a 3 True False
+m a s a h a r ii 5 True False
+u t a r a ng g a 2 True False
+q a l a q a 3 False True
+a f a s a r ii 4 False True
+d u p a h a r a 3 False True
+bh a rr a r ii 3 False True
+a h a m i t i 2 False True
+k a tt a kh a n aa 3 True False
+sh a r a m a 3 True False
+m u s a k a r aa ii 5 False True
+n a h a r a 3 True False
+p a tth a y a 3 True False
+c a r a x a 3 True False
+s u r a h a r a 3 False True
+a m a n a 2 True False
+q a b a r a 3 True False
+v a h a sh ii p a n aa 7 False True
+b a l a d a 3 False True
+m a h o d a y aa 5 False True
+p a p a rr i y aa n aa 3 True False
+q a d a m a 3 True False
+h a r sh a n aa 4 True False
+b O t ii z a m ii n a 5 False True
+p a r a kh a n aa 5 True False
+g o r a kh a n aa th a 5 True False
+sh a s t r a 5 False True
+g a l a t a n s a 3 True False
+m a h a r a 3 False True
+g o r a kh a n aa th a 3 False True
+O s a t a n a 2 False True
+b a r a s a t aa 5 True False
+v a k sh a 4 False True
+t a l a x a 3 True False
+a r a m a n ii 4 False True
+n aa y a b ii 3 True False
+v i l v a 4 True False
+b i tt a l a v a n a 5 False True
+d e v a h a r aa 5 False True
+b i r aa d a r aa n aa 5 False True
+s aa r i kh a n aa 5 True False
+v i k aa l a t aa 5 False True
+p a n a p a n aa 5 True False
+tt a h a l a n ii 3 False True
+a r a g aa 2 False True
+d aa y a r a 3 True False
+g a rr a r i y aa 3 False True
+k a r a m a k a l l aa 3 False True
+s i r a j a n a h aa r a 7 True False
+p a tt a k a n aa 3 True False
+k u d a k k a rr aa 6 False True
+p a p a rr i y aa 3 True False
+m a n a s i j a 3 False True
+k u n a h a 3 True False
+j a n a m a n aa 3 False True
+s u h aa g a v a t ii 5 True False
+k u r a r ii 3 False True
+c a p a rr a q a n aa t ii 7 False True
+m a n a s aa 3 False True
+t e j a s ii 3 False True
+m a n a h u ~ 3 False True
+m u q a d a m aa 3 False True
+p a r a kh a n aa 5 True False
+a g a rr a dh a t t a 4 True False
+Gh a b a n a 3 True False
+bh a g a t i y aa 3 True False
+x i l a a t a 3 False True
+t a r a b a 3 True False
+k a th aa k a l ii 5 False True
+z a m aa n a t a n a 5 False True
+m u r a jh a 3 True False
+
+
+etymologies to sample:
+[6, 19, 21, 25, 30, 37, 42, 49, 50, 56, 79, 102, 105, 107, 115, 116, 127, 129, 133, 144]
+
+Tatsam      xxxx
+Tadbhav     xxxxx xxxxx
+Persian     xxxxx
+English
+Dravidian   x
+Compound    xxxxx xxxx
+
+m a n dd a l i y aa 4 True False        Tadbhav
+t i d a r ii 3 False True               Tadbhav, compound
+m a tt a r a g a sh t ii 5 True False   Persian, Tadbhav, compound
+ch u tt a p a n aa 3 True False         Tadbhav, compound
+p e c ii d a g ii 5 False True          Persian, compound
+p a r a m aa n u 3 False True           Tatsam, compound
+kh u r a d a r aa p a n a 5 False True  Tadbhav, compound
+dh uu s a r i t a 3 False True          Tatsam
+m a l a y aa l ii 3 False True          Dravidian
+c i l a m a c ii 3 False True           Tadbhav, Persian, compound
+b i th a k i t a 3 False True           Tadbhav, compound
+m a h o d a y aa 5 False True           Tatsam, compound
+h a r sh a n aa 4 True False            Tatsam
+p a r a kh a n aa 5 True False          Tadbhav
+v a k sh a 4 False True                 Tatsam
+t a l a x a 3 True False                Persian
+a r a g aa 2 False True                 Tadbhav
+g a rr a r i y aa 3 False True          Tadbhav
+k u d a k k a rr aa 6 False True        Tadbhav, compound
+m u q a d a m aa 3 False True           Persian

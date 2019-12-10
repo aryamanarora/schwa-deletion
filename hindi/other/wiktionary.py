@@ -1,5 +1,6 @@
 import re
 import unicodedata
+import transliterate as tr
 
 def strip_accents(s):
    return ''.join(c for c in unicodedata.normalize('NFD', s)

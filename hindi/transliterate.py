@@ -59,69 +59,69 @@ nasal_assim = {
 
 # articulation
 art = {
-    'u': ['k', 'kh', 'g', 'gh', 'ng', 'x', 'Gh', 'q'], # velar/uvular
-    'p': ['c', 'ch', 'j', 'jh'], # palatal
-    'r': ['tt', 'tth', 'dd', 'ddh', 'rr', 'rrh'], # retroflex
-    'd': ['t', 'th', 'd', 'dh', 'n'], # dental
-    'l': ['p', 'ph', 'b', 'bh', 'm'], # labial
-    'g': ['y', 'v'], # semivowels/glides
-    'li': ['r', 'l'], # liquids
-    'h': ['h'], # glottal
-    's': ['s', 'sh'] # sibilants
+    'u': ['u', 'k', 'kh', 'g', 'gh', 'ng', 'x', 'Gh', 'q'], # velar/uvular
+    'p': ['p', 'c', 'ch', 'j', 'jh'], # palatal
+    'r': ['r', 'tt', 'tth', 'dd', 'ddh', 'rr', 'rrh'], # retroflex
+    'd': ['d', 't', 'th', 'd', 'dh', 'n'], # dental
+    'l': ['l', 'p', 'ph', 'b', 'bh', 'm'], # labial
+    'g': ['g', 'y', 'v'], # semivowels/glides
+    'li': ['li', 'r', 'l'], # liquids
+    'h': ['h', 'h'], # glottal
+    's': ['s', 's', 'sh'] # sibilants
 }
 
 phonological_features = {
-    'a': ['mid', 'central', 'unrounded', 'short', 'vowel'],
-    'aa': ['open', 'central', 'unrounded', 'long', 'vowel'],
-    'i': ['near-close', 'front', 'unrounded', 'short', 'vowel'],
-    'ii': ['close', 'front', 'unrounded', 'long', 'vowel'],
-    'u': ['near-close', 'back', 'rounded', 'short', 'vowel'],
-    'uu': ['close', 'back', 'rounded', 'long', 'vowel'],
-    'e': ['close-mid', 'front', 'unrounded', 'long', 'vowel'],
-    'E': ['open-mid', 'front', 'unrounded', 'long', 'vowel'],
-    'o': ['close-mid', 'back', 'rounded', 'long', 'vowel'],
-    'O': ['open-mid', 'back', 'rounded', 'long', 'vowel'],
-    'k': ['voiceless', 'unaspirated', 'velar', 'stop'],
-    'kh': ['voiceless', 'aspirated', 'velar', 'stop'],
-    'g': ['voiced', 'unaspirated', 'velar', 'stop'],
-    'gh': ['voiced', 'aspirated', 'velar', 'stop'],
-    'ng': ['voiced', 'unaspirated', 'velar', 'nasal'],
-    'c': ['voiceless', 'unaspirated', 'palatal', 'sibilant affricate'],
-    'ch': ['voiceless', 'aspirated', 'palatal', 'sibilant affricate'],
-    'j': ['voiced', 'unaspirated', 'palatal', 'sibilant affricate'],
-    'jh': ['voiced', 'aspirated', 'palatal', 'sibilant affricate'],
-    'tt': ['voiceless', 'unaspirated', 'retroflex', 'stop'],
-    'tth': ['voiceless', 'aspirated', 'retroflex', 'stop'],
-    'dd': ['voiced', 'unaspirated', 'retroflex', 'stop'],
-    'ddh': ['voiced', 'aspirated', 'retroflex', 'stop'],
-    't': ['voiceless', 'unaspirated', 'dental', 'stop'],
-    'th': ['voiceless', 'aspirated', 'dental', 'stop'],
-    'd': ['voiced', 'unaspirated', 'dental', 'stop'],
-    'dh': ['voiced', 'aspirated', 'dental', 'stop'],
-    'n': ['voiced', 'unaspirated', 'dental', 'nasal'],
-    'p': ['voiceless', 'unaspirated', 'bilabial', 'stop'],
-    'ph': ['voiceless', 'aspirated', 'bilabial', 'stop'],
-    'b': ['voiced', 'unaspirated', 'bilabial', 'stop'],
-    'bh': ['voiced', 'aspirated', 'bilabial', 'stop'],
-    'm': ['voiced', 'unaspirated', 'bilabial', 'nasal'],
-    'y': ['voiced', 'unaspirated', 'palatal', 'approximant'],
-    'r': ['voiced', 'unaspirated', 'dental', 'flap'],
-    'l': ['voiced', 'unaspirated', 'dental', 'approximant'],
-    'v': ['voiced', 'unaspirated', 'labiodental', 'approximant'],
-    'sh': ['voiceless', 'unaspirated', 'palatal', 'sibilant fricative'],
-    's': ['voiceless', 'unaspirated', 'dental', 'sibilant fricative'],
-    'h': ['voiced', 'aspirated', 'glottal', 'non-sibilant fricative'],
-    '~': ['voiceless', 'unaspirated', 'nasal'],
-    'z': ['voiced', 'unaspirated', 'dental', 'sibilant fricative'],
-    'f': ['voiced', 'unaspirated', 'bilabial', 'non-sibilant fricative'],
-    'rr': ['voiced', 'unaspirated', 'retroflex', 'flap'],
-    'rrh': ['voiced', 'aspirated', 'retroflex', 'flap'],
-    'Zh': ['voiced', 'unaspirated', 'dental', 'sibilant fricative'],
-    'q': ['voiceless', 'unaspirated', 'uvular', 'stop'],
-    'x': ['voiceless', 'unaspirated', 'velar', 'non-sibilant fricative'],
-    'Gh': ['voiced', 'unaspirated', 'velar', 'non-sibilant fricative'],
-    '-': [],
-    UNK_CHAR: []
+    'a': ['a', 'mid', 'central', 'unrounded', 'short', 'vowel'],
+    'aa': ['aa', 'open', 'central', 'unrounded', 'long', 'vowel'],
+    'i': ['i', 'near-close', 'front', 'unrounded', 'short', 'vowel'],
+    'ii': ['ii', 'close', 'front', 'unrounded', 'long', 'vowel'],
+    'u': ['u', 'near-close', 'back', 'rounded', 'short', 'vowel'],
+    'uu': ['uu', 'close', 'back', 'rounded', 'long', 'vowel'],
+    'e': ['e', 'close-mid', 'front', 'unrounded', 'long', 'vowel'],
+    'E': ['E', 'open-mid', 'front', 'unrounded', 'long', 'vowel'],
+    'o': ['o', 'close-mid', 'back', 'rounded', 'long', 'vowel'],
+    'O': ['O', 'open-mid', 'back', 'rounded', 'long', 'vowel'],
+    'k': ['k', 'voiceless', 'unaspirated', 'velar', 'stop', 'consonant'],
+    'kh': ['kh', 'voiceless', 'aspirated', 'velar', 'stop', 'consonant'],
+    'g': ['g', 'voiced', 'unaspirated', 'velar', 'stop', 'consonant'],
+    'gh': ['gh', 'voiced', 'aspirated', 'velar', 'stop', 'consonant'],
+    'ng': ['ng', 'voiced', 'unaspirated', 'velar', 'nasal', 'consonant'],
+    'c': ['c', 'voiceless', 'unaspirated', 'palatal', 'sibilantaffricate', 'consonant'],
+    'ch': ['ch', 'voiceless', 'aspirated', 'palatal', 'sibilantaffricate', 'consonant'],
+    'j': ['j', 'voiced', 'unaspirated', 'palatal', 'sibilantaffricate', 'consonant'],
+    'jh': ['jh', 'voiced', 'aspirated', 'palatal', 'sibilantaffricate', 'consonant'],
+    'tt': ['tt', 'voiceless', 'unaspirated', 'retroflex', 'stop', 'consonant'],
+    'tth': ['tth', 'voiceless', 'aspirated', 'retroflex', 'stop', 'consonant'],
+    'dd': ['dd', 'voiced', 'unaspirated', 'retroflex', 'stop', 'consonant'],
+    'ddh': ['ddh', 'voiced', 'aspirated', 'retroflex', 'stop', 'consonant'],
+    't': ['t', 'voiceless', 'unaspirated', 'dental', 'stop', 'consonant'],
+    'th': ['th', 'voiceless', 'aspirated', 'dental', 'stop', 'consonant'],
+    'd': ['d', 'voiced', 'unaspirated', 'dental', 'stop', 'consonant'],
+    'dh': ['dh', 'voiced', 'aspirated', 'dental', 'stop', 'consonant'],
+    'n': ['n', 'voiced', 'unaspirated', 'dental', 'nasal', 'consonant'],
+    'p': ['p', 'voiceless', 'unaspirated', 'bilabial', 'stop', 'consonant'],
+    'ph': ['ph', 'voiceless', 'aspirated', 'bilabial', 'stop', 'consonant'],
+    'b': ['b', 'voiced', 'unaspirated', 'bilabial', 'stop', 'consonant'],
+    'bh': ['bh', 'voiced', 'aspirated', 'bilabial', 'stop', 'consonant'],
+    'm': ['m', 'voiced', 'unaspirated', 'bilabial', 'nasal', 'consonant'],
+    'y': ['y', 'voiced', 'unaspirated', 'palatal', 'approximant', 'consonant'],
+    'r': ['r', 'voiced', 'unaspirated', 'dental', 'flap', 'consonant'],
+    'l': ['l', 'voiced', 'unaspirated', 'dental', 'approximant', 'consonant'],
+    'v': ['v', 'voiced', 'unaspirated', 'labiodental', 'approximant', 'consonant'],
+    'sh': ['sh', 'voiceless', 'unaspirated', 'palatal', 'sibilantfricative', 'consonant'],
+    's': ['s', 'voiceless', 'unaspirated', 'dental', 'sibilantfricative', 'consonant'],
+    'h': ['h', 'voiced', 'aspirated', 'glottal', 'nonsibilantfricative', 'consonant'],
+    '~': ['~', 'voiceless', 'unaspirated', 'nasal', 'consonant'],
+    'z': ['z', 'voiced', 'unaspirated', 'dental', 'sibilantfricative', 'consonant'],
+    'f': ['f', 'voiced', 'unaspirated', 'bilabial', 'nonsibilantfricative', 'consonant'],
+    'rr': ['rr', 'voiced', 'unaspirated', 'retroflex', 'flap', 'consonant'],
+    'rrh': ['rrh', 'voiced', 'aspirated', 'retroflex', 'flap', 'consonant'],
+    'Zh': ['Zh', 'voiced', 'unaspirated', 'dental', 'sibilantfricative', 'consonant'],
+    'q': ['q', 'voiceless', 'unaspirated', 'uvular', 'stop', 'consonant'],
+    'x': ['x', 'voiceless', 'unaspirated', 'velar', 'nonsibilantfricative', 'consonant'],
+    'Gh': ['Gh', 'voiced', 'unaspirated', 'velar', 'nonsibilantfricative', 'consonant'],
+    '-': ['-', 'none'],
+    UNK_CHAR: ['none']
 }
 
 def transliterate(word):
