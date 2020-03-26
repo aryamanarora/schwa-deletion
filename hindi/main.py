@@ -58,8 +58,8 @@ def main(input_filename, use_phon, left=4, right=4):
                 phons.add(feature)
         phons = list(phons)
 
-    # chars = load('models/xgboost/xgboost_chars.joblib')
-    # phons = load('models/xgboost/xgboost_phons.joblib')
+    chars = load('models/xgboost/xgboost_chars.joblib')
+    phons = load('models/xgboost/xgboost_phons.joblib')
     
     # clean up the data
     # generate features (with or without phonological descriptions)
@@ -144,11 +144,11 @@ def main(input_filename, use_phon, left=4, right=4):
 
 
 
-    # model = load('models/xgboost/xgboost.joblib')
-    model.fit(X_train, y_train)
-    dump(model, 'models/xgboost/xgboost_nophon.joblib')
-    dump(chars, 'models/xgboost/xgboost_nophon_chars.joblib')
-    dump(phons, 'models/xgboost/xgboost_nophon_phons.joblib')
+    model = load('models/xgboost/xgboost.joblib')
+    # model.fit(X_train, y_train)
+    # dump(model, 'models/xgboost/xgboost_nophon.joblib')
+    # dump(chars, 'models/xgboost/xgboost_nophon_chars.joblib')
+    # dump(phons, 'models/xgboost/xgboost_nophon_phons.joblib')
     # plot_tree(model)
     y_pred = model.predict(X_test)
     print(accuracy_score(y_pred, y_test), recall_score(y_pred, y_test), precision_score(y_pred, y_test))
@@ -247,8 +247,9 @@ def test(word, model_path, chars_path, left=4, right=4):
 
 
 if __name__ == '__main__':
-    main('data/extra_large.csv', False, 5, 5)
+    main('data/extra_large.csv', True, 5, 5)
     # compare_wiktionary()
     # corpus_freq()
-    # while True:
-    #     test(input(), 'models/neural_net.joblib', 'models/neural_net_chars.joblib', 5, 5)
+    print('Testing:')
+    while True:
+        test(input(), 'models/neural_net.joblib', 'models/neural_net_chars.joblib', 5, 5)
