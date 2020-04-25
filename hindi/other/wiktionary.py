@@ -1,6 +1,9 @@
 import re
 import unicodedata
 import transliterate as tr
+from sklearn.metrics import accuracy_score, recall_score, f1_score, precision_score
+
+UNK_CHAR = '🆒'
 
 def strip_accents(s):
    return ''.join(c for c in unicodedata.normalize('NFD', s)
@@ -156,6 +159,59 @@ def convert(pron):
             i += 1
     return res
 
+def force_align(ortho, phon):
+    # two pointer technique, compares in linear time
+    i, j = 0, 0
+    n, m = len(ortho), len(phon)
+    res = []
+    while i < n:
+        if j >= m:
+            res.append([True, False])
+            i += 1
+        elif ortho[i] == phon[j]:
+            if ortho[i] == 'a': res.append([True, True])
+            i += 1
+            j += 1
+        elif phon[j] == 'a':
+            res.append([False, True])
+            j += 1
+        elif ortho[i] == 'a':
+            res.append([True, False])
+            i += 1
+        elif ortho[i] in [UNK_CHAR, '-']:
+            i += 1
+        else:
+            raise Exception('Unable to force-align {}, phon {}\nCompare {} and {}'.format(ortho, phon, ortho[i], phon[j]))
+    
+    return res
+
 if __name__ == "__main__":
-    while True:
-        print(translit(input()))
+    X, Y = [], []
+    bad, total = 0, 0
+    with open('../data/extra_large.csv', 'r') as fin:
+        # fout.write("Word,Translit,Normalized\n")
+        for i, line in enumerate(fin):
+            if i == 0: continue
+            try:
+                word, phon = line.strip().split(',')
+                trans = tr.transliterate(word)
+                con = convert(translit(word))
+                phon = phon.replace('@', '')
+                print(word, ''.join(trans), phon.replace(' ', ''), ''.join(con))
+                res = [x[1] for x in force_align(trans, phon.split())]
+                res2 = [x[1] for x in force_align(trans, con)]
+                good = True
+                for a, b in zip(res, res2):
+                    X.append(a)
+                    Y.append(b)
+                    if a != b:
+                        good = False
+                if not good: bad += 1
+                total += 1
+            except Exception as e:
+                print(e)
+                continue
+    print(f"Word Accuracy: {1 - bad/total}")
+    print(f"Accuracy: {accuracy_score(X, Y)}\nRecall: {recall_score(X, Y)}\nPrecision: {precision_score(X, Y)}")
+    
+    

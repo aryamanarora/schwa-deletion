@@ -39,10 +39,12 @@ def get_data(input_filename):
 
 def main(input_filename, use_phon, left=4, right=4):
     # get the data
+    print("Parsing schwa instances in data...")
     schwa_instances = get_data(input_filename)
-    print(len(schwa_instances))
+    print(f"{len(schwa_instances)} schwa instances parsed.")
 
     # generate set of phonemes to store for later
+    print("Generating phoneme list...")
     chars = set()
     for word in schwa_instances:
         for char in word[0]:
@@ -53,16 +55,20 @@ def main(input_filename, use_phon, left=4, right=4):
     # if phonological features are considered we need to store them too
     phons = set()
     if use_phon:
+        print("Generating phonological feature list...")
         for phoneme, features in tr.phonological_features.items():
             for feature in features:
                 phons.add(feature)
         phons = list(phons)
 
+    # option: load in a stored model
+    # comment this out if you are generating a new one
     chars = load('models/xgboost/xgboost_chars.joblib')
     phons = load('models/xgboost/xgboost_phons.joblib')
     
     # clean up the data
     # generate features (with or without phonological descriptions)
+    print("Generating features for the model...")
     y = []
     transformed_instances = []
     for s, schwa_index, schwa_was_deleted in schwa_instances:
@@ -73,7 +79,7 @@ def main(input_filename, use_phon, left=4, right=4):
             
             if use_phon:
                 for phon in phons:
-                    if i < 0 or i >= len(s): 
+                    if i < 0 or i >= len(s):
                         x.append(0)
                     else:
                         if phon in tr.phonological_features[s[i]]: x.append(1)
@@ -89,9 +95,11 @@ def main(input_filename, use_phon, left=4, right=4):
 
         transformed_instances.append(x)
         y.append(schwa_was_deleted)
+    print("Done generating features.")
     
     # generate the columns of our input
     # is x char/feature present at position y?
+    print("Generating columns for input...")
     col = []
     if use_phon:
         for i in list(range(-left, 0)) + list(range(1, right + 1)):
@@ -105,11 +113,13 @@ def main(input_filename, use_phon, left=4, right=4):
     # create the input columns
     X = pd.DataFrame(transformed_instances,
         columns=col)
+    print("Done generating columns.")
 
     # schwa retention/deletion rate
-    print(y.count(True), y.count(False))
+    print(f"{y.count(True)} schwas retained, {y.count(False)} schwas deleted.")
 
     # 20% is the final test data, 20% is for development
+    print("Splitting into train/test...")
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, train_size=0.60, test_size=0.40, random_state=42)
     
@@ -118,6 +128,7 @@ def main(input_filename, use_phon, left=4, right=4):
 
     # model = LogisticRegression(solver='liblinear', max_iter=1000, verbose=True)
     # model = MLPClassifier(max_iter=1000,  learning_rate_init=1e-4, hidden_layer_sizes=(250,), verbose=True)
+    print("Loading model...")
     model = XGBClassifier(verbosity=2, max_depth=11, n_estimators=200)
 
 
@@ -143,22 +154,31 @@ def main(input_filename, use_phon, left=4, right=4):
 
 
 
-
+    # load a model
     model = load('models/xgboost/xgboost.joblib')
+
+    ## generate a new model
     # model.fit(X_train, y_train)
     # dump(model, 'models/xgboost/xgboost_nophon.joblib')
     # dump(chars, 'models/xgboost/xgboost_nophon_chars.joblib')
     # dump(phons, 'models/xgboost/xgboost_nophon_phons.joblib')
-    # plot_tree(model)
-    y_pred = model.predict(X_test)
-    print(accuracy_score(y_pred, y_test), recall_score(y_pred, y_test), precision_score(y_pred, y_test))
-    for i in range(len(X_test)):
-        if y_pred[i] != y_test[i]:
-            print(' '.join(schwa_instances[X_test.iloc[i].name][0]), schwa_instances[X_test.iloc[i].name][1], y_pred[i], y_test[i])
+    plot_tree(model)
 
-    # fig = plt.gcf()
-    # fig.set_size_inches(150, 100)
-    # fig.savefig('tree5.png')
+    print("Running model on test data...")
+    y_pred = model.predict(X_test)
+    print(f"Accuracy: {accuracy_score(y_test, y_pred)}\nRecall: {recall_score(y_test, y_pred)}\nPrecision: {precision_score(y_test, y_pred)}")
+    misses = set()
+    all_words = set()
+    for i in range(len(X_test)):
+        all_words.add(' '.join(schwa_instances[X_test.iloc[i].name][0]))
+        if y_pred[i] != y_test[i]:
+            misses.add(' '.join(schwa_instances[X_test.iloc[i].name][0]))
+            print(' '.join(schwa_instances[X_test.iloc[i].name][0]), schwa_instances[X_test.iloc[i].name][1], y_pred[i], y_test[i])
+    print(f"{len(misses)} words missed out of {len(all_words)}")
+
+    fig = plt.gcf()
+    fig.set_size_inches(150, 100)
+    fig.savefig('tree.png')
 
 # compare wiktionary transliterations with actual
 def compare_wiktionary():
@@ -206,43 +226,66 @@ def corpus_freq():
         for word, freq in count.items():
             fout.write(word + ',' + str(freq) + '\n')
 
-def test(word, model_path, chars_path, left=4, right=4):
+def test(words, model_path, chars_path, phons_path=None, left=4, right=4):
     model = load(model_path)
     chars = load(chars_path)
-    print(chars)
-    transliteration = tr.transliterate(word)
-    transformed_instances = []
-    for i, phone in enumerate(transliteration):
-        if phone == 'a':
-            x = []
-            for j in range(i - left, i + right + 1):
-                if j == i: continue
-                for char in chars:
-                    if j < 0 or j >= len(transliteration): 
-                        if char == UNK_CHAR: x.append(1)
-                        else: x.append(0)
+    # print(chars)
+    phons = None
+    if phons_path:
+        phons = load(phons_path)
+        # print(phons)
+
+    results = []
+    for word in words:
+        transliteration = tr.transliterate(word)
+        transformed_instances = []
+        for i, phone in enumerate(transliteration):
+            if phone == 'a':
+                x = []
+                for j in range(i - left, i + right + 1):
+                    if j == i: continue
+                    if phons:
+                        for phon in phons:
+                            if j < 0 or j >= len(transliteration):
+                                x.append(0)
+                            else:
+                                if phon in tr.phonological_features[transliteration[j]]: x.append(1)
+                                else: x.append(0)
                     else:
-                        if char == transliteration[j]: x.append(1)
-                        else: x.append(0)
-            transformed_instances.append(x)
+                        for char in chars:
+                            if j < 0 or j >= len(transliteration): 
+                                if char == UNK_CHAR: x.append(1)
+                                else: x.append(0)
+                            else:
+                                if char == transliteration[j]: x.append(1)
+                                else: x.append(0)
+                transformed_instances.append(x)
 
-    col = []
-    for i in list(range(-left, 0)) + list(range(1, right + 1)):
-        for j in chars:
-            col.append('s' + str(i) + '_' + str(j))
-
-    X = pd.DataFrame(transformed_instances,
-        columns=col)
-    Y = model.predict(X)
-    pos = 0
-    print(Y)
-    for phone in transliteration:
-        if phone == 'a':
-            print('a' if Y[pos] else '', end='')
-            pos += 1
+        col = []
+        if phon:
+            for i in list(range(-left, 0)) + list(range(1, right + 1)):
+                for j in phons:
+                    col.append('s' + str(i) + '_' + str(j))
         else:
-            print(phone, end='')
-    print()
+            for i in list(range(-left, 0)) + list(range(1, right + 1)):
+                for j in chars:
+                    col.append('s' + str(i) + '_' + str(j))
+
+        X = pd.DataFrame(transformed_instances,
+            columns=col)
+        Y = model.predict(X)
+        # print(X, Y)
+        pos = 0
+        res = []
+        for phone in transliteration:
+            if phone == 'a':
+                if Y[pos]: res.append('a')
+                pos += 1
+            else:
+                res.append(phone)
+        results.append(res)
+        print(word, ' '.join(res))
+    return results
     
 
 
@@ -250,6 +293,20 @@ if __name__ == '__main__':
     main('data/extra_large.csv', True, 5, 5)
     # compare_wiktionary()
     # corpus_freq()
-    print('Testing:')
-    while True:
-        test(input(), 'models/neural_net.joblib', 'models/neural_net_chars.joblib', 5, 5)
+    # print('Testing:')
+    # with open(input('Input file: '), 'r') as fin, open("output.txt", 'w') as fout:
+    #     fout.write("Word,Normalized\n")
+    #     words = []
+    #     for line in fin:
+    #         word = line.strip()
+    #         words.append(word)
+    #     results = test(
+    #         words,
+    #         'models/xgboost/xgboost.joblib',
+    #         'models/xgboost/xgboost_chars.joblib',
+    #         'models/xgboost/xgboost_phons.joblib',
+    #         5,
+    #         5
+    #     )
+    #     for i, res in enumerate(results):
+    #         fout.write(f"{words[i]}, {' '.join(res)}")

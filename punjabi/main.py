@@ -47,8 +47,8 @@ def main(input_filename, use_phon, left=4, right=4):
                 phons.add(feature)
         phons = list(phons)
 
-    # chars = load('models/xgboost_chars.joblib')
-    # phons = load('models/xgboost_phons.joblib')
+    chars = load('models/neural/neural_chars.joblib')
+    phons = load('models/neural/neural_phons.joblib')
     
     # clean up the data
     y = []
@@ -100,21 +100,30 @@ def main(input_filename, use_phon, left=4, right=4):
     X_dev, y_dev = X_test[:len(X_test) // 2], y_test[:len(y_test) // 2]
     X_test, y_test = X_test[len(X_test) // 2:], y_test[len(y_test) // 2:]
 
-    model = LogisticRegression(solver='liblinear', max_iter=1000, verbose=True)
-    # model = MLPClassifier(max_iter=1000,  learning_rate_init=1e-4, hidden_layer_sizes=(250,), verbose=True)
+    # model = LogisticRegression(solver='liblinear', max_iter=1000, verbose=True)
+    model = MLPClassifier(max_iter=1000,  learning_rate_init=1e-4, hidden_layer_sizes=(250,), verbose=True)
     # model = XGBClassifier(verbosity=2, max_depth=11, n_estimators=200)
 
-    # model = load('models/neural_net.joblib')
+    model = load('models/neural/neural.joblib')
     model.fit(X_train, y_train)
-    dump(model, 'models/neural/neural.joblib')
-    dump(chars, 'models/neural/neural_chars.joblib')
-    dump(phons, 'models/neural/neural_phons.joblib')
+    # dump(model, 'models/neural/neural.joblib')
+    # dump(chars, 'models/neural/neural_chars.joblib')
+    # dump(phons, 'models/neural/neural_phons.joblib')
     y_pred = model.predict(X_test)
 
     print(
-        accuracy_score(y_pred, y_test),
-        precision_score(y_pred, y_test),
-        recall_score(y_pred, y_test))
+        accuracy_score(y_test, y_pred),
+        precision_score(y_test, y_pred),
+        recall_score(y_test, y_pred))
+    
+    misses = set()
+    all_words = set()
+    for i in range(len(X_test)):
+        all_words.add(' '.join(schwa_instances[X_test.iloc[i].name][0]))
+        if y_pred[i] != y_test[i]:
+            misses.add(' '.join(schwa_instances[X_test.iloc[i].name][0]))
+            print(' '.join(schwa_instances[X_test.iloc[i].name][0]), schwa_instances[X_test.iloc[i].name][1], y_pred[i], y_test[i])
+    print(f"{len(misses)} words missed out of {len(all_words)}")
 
 if __name__ == "__main__":
     main('data/large.csv', False, 5, 5)
