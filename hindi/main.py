@@ -63,8 +63,8 @@ def main(input_filename, use_phon, left=4, right=4):
 
     # option: load in a stored model
     # comment this out if you are generating a new one
-    chars = load('models/xgboost/xgboost_chars.joblib')
-    phons = load('models/xgboost/xgboost_phons.joblib')
+    # chars = load('models/xgboost/xgboost_chars.joblib')
+    # phons = load('models/xgboost/xgboost_phons.joblib')
     
     # clean up the data
     # generate features (with or without phonological descriptions)
@@ -129,7 +129,7 @@ def main(input_filename, use_phon, left=4, right=4):
     # model = LogisticRegression(solver='liblinear', max_iter=1000, verbose=True)
     # model = MLPClassifier(max_iter=1000,  learning_rate_init=1e-4, hidden_layer_sizes=(250,), verbose=True)
     print("Loading model...")
-    model = XGBClassifier(verbosity=2, max_depth=11, n_estimators=200)
+    model = XGBClassifier(verbosity=2, max_depth=1, n_estimators=200)
 
 
 
@@ -155,10 +155,10 @@ def main(input_filename, use_phon, left=4, right=4):
 
 
     # load a model
-    model = load('models/xgboost/xgboost.joblib')
+    # model = load('models/xgboost/xgboost.joblib')
 
     ## generate a new model
-    # model.fit(X_train, y_train)
+    model.fit(X_train, y_train)
     # dump(model, 'models/xgboost/xgboost_nophon.joblib')
     # dump(chars, 'models/xgboost/xgboost_nophon_chars.joblib')
     # dump(phons, 'models/xgboost/xgboost_nophon_phons.joblib')
