@@ -6,7 +6,7 @@ Pre-generated models, which achieve state-of-the-art performance, using scikit-l
 
 The results of this research are presented in the paper below:
 
-> "Supervised Grapheme-to-Phoneme Conversion of Orthographic Schwas in Hindi and Punjabi", Aryaman Arora, Luke Gessler, and Nathan Schneider (2020). In *Proceedings of ACL*. Preprint: https://arxiv.org/abs/2004.10353
+> "Supervised Grapheme-to-Phoneme Conversion of Orthographic Schwas in Hindi and Punjabi", Aryaman Arora, Luke Gessler, and Nathan Schneider (2020). In *Proceedings of ACL*. Preprint: <https://arxiv.org/abs/2004.10353>
 
 ## Usage
 
