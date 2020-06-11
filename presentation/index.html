@@ -16,8 +16,16 @@
 			.home {
 				background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
 			}
+			.slide-number span {
+				font-size: 300%;
+			}
+			.reveal .slide-number {
+				left: 8px;
+				right: unset;
+			}
 		</style>
 		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
 	</head>
 	<body>
 		<div class="reveal">
@@ -37,7 +45,8 @@
 				<section>
 					<h2>Contributions</h2>
 					<ul>
-						<li>A state-of-the-art model using machine learning for schwa deletion, the hardest task in Hindi G2P conversion</li>
+						<li><strong>Motivation</strong>: Hindi and Punjabi text-to-speech</li>
+						<li>State-of-the-art model using machine learning for schwa deletion, the hardest task in Hindi G2P conversion</li>
 						<li>The first computational model in the literature for Punjabi schwa deletion</li>
 						<li>Several scripts for parsing entries from the <a href="https://dsalsrv04.uchicago.edu/dictionaries/">Digital Dictionaries of South Asia</a> datasets</li>
 						<li>Public release of <a href="https://github.com/aryamanarora/schwa-deletion">all our code</a></li>
@@ -45,11 +54,31 @@
 				</section>
 				<section>
 					<h2>Languages</h2>
-					<ul>
-						<li><strong>Hindi</strong> is an Indo-Aryan language, the official language of India alongside English, with 637.3 million speakers (L1 + L2, Ethnologue). It uses the Devanagari script.</li>
-						<li><strong>Punjabi</strong> using the Gurmukhi script is a closely related language with 32.6 million speakers (L1, Ethnologue). An even larger number use the Perso-Arabic script variety of Punjabi in Pakistan.</li>
-					</ul>
-					Both of these scripts are <em>abugidas</em>.
+					<table>
+						<thead>
+							<tr>
+								<th>Language</th>
+								<th>Speakers</th>
+								<th>Region</th>
+								<th>Script</th>
+							</tr>
+						</thead>
+						<tr>
+							<td>Hindi</td>
+							<td>637.3 million (L1 + L2)</td>
+							<td>Central India</td>
+							<td>Devanagari</td>
+						</tr>
+						<tr>
+							<td>Punjabi</td>
+							<td>32.6 million (L1 in India)</td>
+							<td>Punjab</td>
+							<td>Gurmukhi</td>
+						</tr>
+					</table>
+					<p>
+						Both of these scripts are <em>abugidas</em>.
+					</p>
 				</section>
 				<section>
 					<section>
@@ -62,15 +91,7 @@
 					</section>
 					<section>
 						<h3>Brahmi</h3>
-						<img src="South Asia.png">
-					</section>
-					<section>
-						<h3>Geʽez</h3>
-						<img src="Ethiopia.png">
-					</section>
-					<section>
-						<h3>Canadian Aboriginal Syllabics</h3>
-						<img src="Canada.png">
+						<img class="r-stretch" src="brahmi.jpg">
 					</section>
 				</section>
 				<section>
@@ -111,9 +132,9 @@
 						</tr>
 					</table>
 					<ul>
-						<li class="fragment">Orthographically, the <em>inherent schwa</em> [ə] is applied to a plain consonant</li>
+						<li class="fragment">Orthographically, the <em>inherent schwa</em> ⟨ə⟩ is applied to a plain consonant</li>
 						<li class="fragment">
-							Phonemically, due to historical changes, the <span class="fragment highlight-red">inherent schwa is sometimes not pronounced</span>
+							Phonologically, due to historical changes, the <span class="fragment highlight-red">inherent schwa is sometimes not pronounced</span>
 							<ul>
 								<li>No straightforward rules have been found by linguists</li>
 							</ul>
@@ -121,25 +142,25 @@
 					</ul>
 				</section>
 				<section>
-					<h2>जंगली<br><small><em>"forested"</em></small></h2>
+					<h2>जंगली<br><small><em>forested</em></small></h2>
 					<table>
-						<tr>
+						<tr class="fragment fade-up">
 							<td></td>
 							<td>जं</td>
 							<td>ग</td>
 							<td>ली</td>
 						</tr>
-						<tr>
+						<tr class="fragment fade-up">
 							<td><em>Orthographic</em></td>
 							<td>⟨d͡ʒəŋ</td>
 							<td>g<span class="fragment highlight-red">ə</span></td>
 							<td>liː⟩</td>
 						</tr>
-						<tr>
+						<tr class="fragment fade-up">
 							<td><em>Phonemic</em></td>
-							<td>[d͡ʒəŋ</td>
+							<td>/d͡ʒəŋ</td>
 							<td>g</td>
-							<td>liː]</td>
+							<td>liː/</td>
 						</tr>
 					</table>
 				</section>
@@ -148,15 +169,10 @@
 						<h2>Past Approaches</h2>
 						<ul>
 							<li>
-								Linguistic accounts have explained it in terms of <span class="fragment highlight-blue">prosody</span> (hierarchical phonetic structures) or <span class="fragment highlight-blue">phonotactics</span> (linear phonetic sequences)
+								Linguistic accounts have explained it in terms of <span class="fragment highlight-blue">prosody</span> (hierarchical phonological structures) or <span class="fragment highlight-blue">phonotactics</span> (linear phonological sequences)
 							</li>
 							<li>
 								Computational G2P systems have followed suit
-								<ul class="fragment" style="font-size: 70%;">
-									<li>Narasimhan et al. 2004 (phonotactics, 89% accuracy)</li>
-									<li>Tyson and Nagar 2009 (prosodic, 86% to 94% accuracy)</li>
-									<li>Roy 2017 (prosodic, 99.80% accuracy but only on native Sanskrit-derived words)</li>
-								</ul>
 							</li>
 						</ul>
 					</section>
@@ -171,12 +187,6 @@
 					<ul>
 						<li class="fragment">
 							Typical approach to G2P conversion: neural seq2seq
-							<ul style="font-size: 70%;">
-								<li>But this forces the model to learn that most characters "stay the same"</li>
-								<li>Yields poor performance, requires a lot of data and computational power for training
-								</li>
-								<li class="fragment highlight-red">रेडियो ⟨ɾeːɖɪjoː⟩ → [ɖʱeːɾɪjoː]??</li>
-							</ul>
 						</li>
 						<li class="fragment">
 							We approach schwa deletion as a <strong>binary classification problem</strong>: either a schwa is deleted or it is not
@@ -196,12 +206,12 @@
 					<section>
 						<h2>Training Data and Features</h2>
 						<ul>
-							<li>Scraped orthographic-phonetic pairs from dictionaries (two Hindi, one Punjabi)</li>
+							<li>Scraped orthographic-phonemic pairs from dictionaries (two Hindi, one Punjabi)</li>
 							<li>Force-aligned each pair to find missing schwas in the phonemic form</li>
 							<li>
 								<strong>Featurization</strong>
 								<ul style="font-size: 70%">
-									<li>Encode for each phone in a k-wide window around the schwa</li>
+									<li>Encode for each phoneme in a k-wide window around the schwa</li>
 									<li>Phonological features (e.g. vowel length, place of articulation)</li>
 								</ul>
 							</li>
@@ -211,42 +221,46 @@
 						</ul>
 					</section>
 					<section>
-						<canvas id="myChart"></canvas>
-						<script>
-						var ctx = document.getElementById('myChart').getContext('2d');
-						var myChart = new Chart(ctx, {
-							type: 'bar',
-							data: {
-								labels: ['McGregor', 'Bahri', 'Google', 'Singh'],
-								datasets: [{
-									label: 'Schwa Instances',
-									data: [36183, 14082, 1098, 34576],
-									backgroundColor: [
-										'rgba(255, 99, 132, 0.2)',
-										'rgba(255, 99, 132, 0.2)',
-										'rgba(255, 99, 132, 0.2)',
-										'rgba(75, 192, 192, 0.2)'
-									],
-									borderColor: [
-										'rgba(255, 99, 132, 1)',
-										'rgba(255, 99, 132, 1)',
-										'rgba(255, 99, 132, 1)',
-										'rgba(75, 192, 192, 1)'
-									],
-									borderWidth: 1
-								}]
-							},
-							options: {
-								scales: {
-									yAxes: [{
-										ticks: {
-											beginAtZero: true
-										}
-									}]
-								}
-							}
-						});
-						</script>
+						<table style="font-size: 70%;">
+							<thead>
+								<tr>
+									<th>Dictionary</th>
+									<th># Schwa Instances</th>
+								</tr>
+							</thead>
+							<tr>
+								<td>
+									McGregor (<em>The Oxford Hindi-English dictionary</em>)
+								</td>
+								<td style="text-align: right;">
+									36,183
+								</td>
+							</tr>
+							<tr>
+								<td>
+									Bahri (<em>Learners' Hindi-English dictionary</em>)
+								</td>
+								<td style="text-align: right;">
+									14,082
+								</td>
+							</tr>
+							<tr>
+								<td>
+									Google (Johny and Jansche, 2019)
+								</td>
+								<td style="text-align: right;">
+									1,098
+								</td>
+							</tr>
+							<tr>
+								<td>
+									Singh (<em>The Panjabi Dictionary</em>)
+								</td>
+								<td style="text-align: right;">
+									34,576
+								</td>
+							</tr>
+						</table>
 						<p>Datasets we scraped and released.</p>
 					</section>
 					<section>
@@ -265,9 +279,11 @@
 				</section>
 				<section>
 					<h2>Results</h2>
-					<canvas id="results" class="r-stretch"></canvas>
+					<div style="height: 400px;">
+						<canvas id="results"></canvas>
+					</div>
 					<ul>
-						<li>XGBoost model with the same parameters achieves 95.00% accuracy for Punjabi</li>
+						<li>XGBoost model with the same hyperparameters achieves 95.00% accuracy for Punjabi</li>
 						<li class="fragment highlight-blue">First schwa deletion model for Punjabi</li>
 					</ul>
 					<script>
@@ -296,6 +312,30 @@
 								borderWidth: 1
 							}]
 						},
+						options: {
+							legend: {
+								display: false
+							},
+							plugins: {
+								labels: {
+									render: 'label',
+									fontColor: ['white', 'white', 'white', 'white','white']
+								}
+							},
+							maintainAspectRatio: false,
+							scales: {
+								yAxes: [{
+									scaleLabel: {
+										display: 'true',
+										labelString: 'Accuracy'
+									},
+									ticks: {
+										suggestedMin: 0.9,
+										suggestedMax: 1.0
+									}
+								}]
+							}
+						}
 					});
 					</script>
 				</section>
@@ -308,19 +348,30 @@
 					<script>
 					var ctx = document.getElementById('errors').getContext('2d');
 					var myDoughnutChart = new Chart(ctx, {
-						type: 'doughnut',
+						type: 'pie',
 						data: {
 							labels: ['Native', 'Sanskrit borrowing', 'Perso-Arabic borrowing', 'Dravidian borrowing'],
 							datasets: [{
 								label: 'Count',
 								data: [10, 4, 5, 1],
 								backgroundColor: [
-									'Purple',
-									'Blue',
-									'Green',
-									'Yellow'
+									'#003f5c',
+									'#7a5195',
+									'#ef5675',
+									'#ffa600'
 								]
 							}]
+						},
+						options: {
+							legend: {
+								display: false
+							},
+							plugins: {
+								labels: {
+									render: 'label',
+									fontColor: ['white', 'white', 'white', 'white']
+								}
+							}
 						}
 					});
 					</script>
@@ -341,19 +392,8 @@
 						</ul>
 					</section>
 					<section>
-						<h3>Toy Example</h3>
-						<p>c<sub>0</sub> is the schwa instance being analyzed.</p>
-						<ul style="font-size: 70%;">
-							<ol>
-								Is c<sub>+1</sub> a consonant?
-								<ul>
-									<ol><strong>True</strong>: Keep the schwa</ol>
-									<ol><strong>False</strong>: Delete the schwa</ol>
-								</ul>
-							</ol>
-						</ul>
-						<p class="fragment">Achieves >90% accuracy!</p>
-						<p class="fragment">Our actual model has a depth of 11, so extracting linguistic generalizations is more complicated</p>
+						<h3>Example</h3>
+						<img src="xgboost_model.png" class="r-stretch">
 					</section>
 				</section>
 				<section>
@@ -385,6 +425,7 @@
 			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
+				slideNumber: true,
 
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
