@@ -41,7 +41,7 @@ idna==2.8
 importlib-metadata==0.23
 itsdangerous==1.1.0
 jdcal==1.4.1
-Jinja2==2.10.1
+Jinja2==2.11.3
 jmespath==0.9.5
 joblib==0.13.2
 jsonschema==3.0.1
