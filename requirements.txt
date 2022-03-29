@@ -73,7 +73,7 @@ Pillow==7.1.1
 pkginfo==1.5.0.1
 plac==1.1.3
 pluggy==0.13.1
-poetry==0.12.11
+poetry==1.1.9
 preshed==3.0.2
 protobuf==3.7.1
 py==1.8.1
