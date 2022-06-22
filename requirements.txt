@@ -64,7 +64,7 @@ murmurhash==1.0.2
 mypy-extensions==0.4.3
 networkx==2.4
 nltk==3.4.5
-numpy==1.16.2
+numpy==1.22.0
 openpyxl==2.6.2
 packaging==20.3
 pandas==0.24.2
